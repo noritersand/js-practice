@@ -4,4 +4,4 @@
 
 ## TODO
 
-- mocha 적용해서 테스트하기
+- mocha 적용
