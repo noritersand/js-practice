@@ -3,7 +3,7 @@ var arr = ['a', 'b', 'c'];
 for (var ele1 in arr) {
 	// do nothing
 }
-console.debug(arr[ele1]); // 'c'
+console.log(arr[ele1]); // 'c'
 
 for (let ele2 in arr) {
 	// do nothing
@@ -15,7 +15,7 @@ function test() {
 	for (var i = 0; i < 10; i++) {
 		// do nothing
 	}
-	console.debug(i); // 10
+	console.log(i); // 10
 	
 	// let life-cycle test
 	for (let j = 0; j < 10; j++) {

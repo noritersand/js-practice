@@ -2,5 +2,5 @@
  * console.time() test
  */
 console.time('timer');
-console.debug('do something');
+console.log('do something');
 console.timeEnd('timer'); 

@@ -1,9 +1,9 @@
 var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 for (let ele of arr) {
-	console.debug(ele); // 'a', 'b', 'c', 'd', 'e', 'f', 'g'
+	console.log(ele); // 'a', 'b', 'c', 'd', 'e', 'f', 'g'
 }
 for (let ele in arr) {
-	console.debug(ele); // 0, 1, 2, 3, 4, 5, 6, 7
+	console.log(ele); // 0, 1, 2, 3, 4, 5, 6, 7
 }
 
 var obj = {

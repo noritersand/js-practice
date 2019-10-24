@@ -87,6 +87,6 @@ function getMatchElement(arry, keys, values) {
 	}
 	return result;
 }
-console.debug('before:', obj);
+console.log('before:', obj);
 var result = getMatchElement(obj, 'opt1Val|opt2Val', '파랑|스몰');
-console.debug('after:', result);
+console.log('after:', result);

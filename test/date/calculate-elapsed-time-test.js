@@ -20,5 +20,5 @@ end = new Date('2016-02-04');
 elapsedtime = end - start;
 
 // remove minutes from the date
-console.debug('elapsed day#1:', Math.floor(elapsedtime / 1000 / 60 / 60 / 24));
-console.debug('elapsed day#2:', elapsedtime / 1000 / 60 / 60 / 24);
+console.log('elapsed day#1:', Math.floor(elapsedtime / 1000 / 60 / 60 / 24));
+console.log('elapsed day#2:', elapsedtime / 1000 / 60 / 60 / 24);

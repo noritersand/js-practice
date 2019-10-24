@@ -101,4 +101,4 @@ function removeDupProp(target, origin, targetKeys, originKeys) {
 	return target;
 }
 var result = removeDupProp(obj, obj2, 'opt1Val|opt2Val');
-console.debug(result);
+console.log(result);

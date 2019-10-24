@@ -61,8 +61,8 @@ function findValues(sourceObject, searchName) {
 	recursion(sourceObject, searchName);
 	return stack;
 }
-console.debug('findValues:', findValues(product, 'nodeId')); // [ "655", "65504", "6550401", "6550402", "65505", "6550601", "655060198" ]
-console.debug('\n');
+console.log('findValues:', findValues(product, 'nodeId')); // [ "655", "65504", "6550401", "6550402", "65505", "6550601", "655060198" ]
+console.log('\n');
 
 /**
  * sourceObject를 재귀탐색해서 이름과 값이 파라미터와 일치하는 객체를 모두 찾는다.  
@@ -97,13 +97,13 @@ function findObjects(sourceObject, searchName, searchValue) {
 }
 // 마젠타 찾기
 var foundOne = findObjects(product, 'unitName', 'magenta');
-console.debug('findObjects #1:', foundOne); // { type: "unit", nodeId: "6550401", unitName: "magenta" }
+console.log('findObjects #1:', foundOne); // { type: "unit", nodeId: "6550401", unitName: "magenta" }
 var foundOne2 = findObjects(product, 'unitName', 'white');
-console.debug('findObjects #2:', foundOne2); // { type: "unit", nodeId: "655060198", unitName: "white" }
+console.log('findObjects #2:', foundOne2); // { type: "unit", nodeId: "655060198", unitName: "white" }
 var temp = findObjects(product, 'type', 'unit');
 var foundOne3 = findObjects(temp, 'unitName', 'black');
-console.debug('findObjects #3:', foundOne3); // { type: "unit", nodeId: "65505", unitName: "black", … }
-console.debug('\n');
+console.log('findObjects #3:', foundOne3); // { type: "unit", nodeId: "65505", unitName: "black", … }
+console.log('\n');
 
 /**
  * sourceObject를 재귀탐색해서 searchObject를 소유한 객체(=부모)를 찾는다.
@@ -139,6 +139,6 @@ function findContainsObject(sourceObject, searchObject) {
 	}
 }
 var parent = findContainsObject(product, product.unitList[0].children[1]);
-console.debug('findContainsObject:', parent); // { type: "unit", nodeId: "65504", unitName: "red", children: (2) […] }
+console.log('findContainsObject:', parent); // { type: "unit", nodeId: "65504", unitName: "red", children: (2) […] }
 var parent2 = findContainsObject(product, product.unitList[1].child.child);
-console.debug('findContainsObject:', parent2); // { type: "unit", nodeId: "6550601", unitName: "gray", child: {…} }
+console.log('findContainsObject:', parent2); // { type: "unit", nodeId: "6550601", unitName: "gray", child: {…} }

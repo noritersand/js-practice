@@ -21,7 +21,7 @@ var material = {
 	'totalPrice': 39000
 }
 var result = objectArrayToArrayObject('numbers', material.numbers); // [{"numbers":"65"},{"numbers":"64"}]
-console.debug(result);
+console.log(result);
 
 //-------------------------------------------------------------------------------------------
 
@@ -63,7 +63,7 @@ function objectArrayToArrayObject2(names) {
 	return resultArry;
 }
 var result2 = objectArrayToArrayObject2('alphabet|addOptNo|ordQty',  ['a', 'b', 'c', 'd'], ['31', '64', '180', 'SE1123'], [2, 3, 10, 9]);
-console.debug(result2);
+console.log(result2);
 /*
 [
 	{"alphabet":"a","addOptNo":"31","ordQty":2},

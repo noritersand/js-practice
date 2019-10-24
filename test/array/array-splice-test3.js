@@ -1,7 +1,7 @@
 function printElements(obj) {
-	console.debug('print elements: ');
+	console.log('print elements: ');
 	for (var i in obj) {
-		console.debug('\t' + i + ": " + JSON.stringify(obj[i]));
+		console.log('\t' + i + ": " + JSON.stringify(obj[i]));
 	}
 }
 function getObj() {

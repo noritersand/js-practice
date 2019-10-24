@@ -12,5 +12,5 @@ function convertQuerystringToJSON(txt) {
 	return objArry;
 }
 var querystring = 'proditNo=IT369&proditNo=IT371&proditNo=IT370';
-console.debug('before:', querystring);
-console.debug('after:', JSON.stringify(convertQuerystringToJSON(querystring))); // [{"proditNo":"IT369"},{"proditNo":"IT371"},{"proditNo":"IT370"}]
+console.log('before:', querystring);
+console.log('after:', JSON.stringify(convertQuerystringToJSON(querystring))); // [{"proditNo":"IT369"},{"proditNo":"IT371"},{"proditNo":"IT370"}]

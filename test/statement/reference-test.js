@@ -6,4 +6,4 @@ function fn(obj) {
 
 fn(obj);
 
-console.debug(obj); // { a: 1, b: 2 }
+console.log(obj); // { a: 1, b: 2 }

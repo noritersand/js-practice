@@ -23,8 +23,8 @@ Number.prototype.format = function(c, d, t) {
 			+ (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 };
 
-console.debug('(123456).format(0):', (123456).format(0)); // "123,456"
-console.debug('(123456).format(2):', (123456).format(2)); // "123,456.00"
-console.debug('(123456.789).format(4):', (123456.789).format(4)); // 123,456.7890
-console.debug('(123456).format(2, \'\|\'):', (123456).format(2, '|')); // "123,456|00"
-console.debug('(123456).format(2, null, \'\|\'):', (123456).format(2, null, '|')); // "123|456.00"
+console.log('(123456).format(0):', (123456).format(0)); // "123,456"
+console.log('(123456).format(2):', (123456).format(2)); // "123,456.00"
+console.log('(123456.789).format(4):', (123456.789).format(4)); // 123,456.7890
+console.log('(123456).format(2, \'\|\'):', (123456).format(2, '|')); // "123,456|00"
+console.log('(123456).format(2, null, \'\|\'):', (123456).format(2, null, '|')); // "123|456.00"
