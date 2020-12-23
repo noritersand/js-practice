@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 // var serializeString = $('#someForm').serialize();
 function convertQuerystringToJSON(txt) {
 	var params = txt.split('&');

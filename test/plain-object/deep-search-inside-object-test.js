@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 var product = {
 	"type": "product",
 	"productId": "A1010",

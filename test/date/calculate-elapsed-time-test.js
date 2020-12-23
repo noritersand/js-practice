@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 // test#1
 var start = new Date('2016-01-01');
 var end = new Date('2016-01-03');

@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 // 소스 출처: http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript
 
 /**

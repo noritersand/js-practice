@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 // add date
 var instance = new Date();
 console.log('instance:', instance.toISOString());

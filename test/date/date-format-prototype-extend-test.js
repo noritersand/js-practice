@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 /**
  * f로 지정된 포맷을 적용하여 문자열로 반환
  * 

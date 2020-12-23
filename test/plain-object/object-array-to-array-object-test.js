@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 // case#1: 객체의 값을 배열이라 가정하고 객체 배열로 구조를 바꾼다. 
 // {a:[n]} => [{a:n}, {a:n}]
 /**

@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 var obj = [
 	{
 		userNumber: ''
@@ -18,4 +20,9 @@ for (var i = 0; i < obj.length; i++) {
 		i--;
 	}
 }
-console.assert(0 == obj.length);
+
+describe('Array.splice test', function() {
+  it('should be true', function() {
+    assert.strictEqual(obj.length, 0);
+  });
+});

@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 var obj = [
 	{
 		"proditNo":"IT300",

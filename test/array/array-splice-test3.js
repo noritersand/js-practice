@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 function printElements(obj) {
 	console.log('print elements: ');
 	for (var i in obj) {
@@ -23,8 +25,13 @@ for (var i = 0; i < obj.length; i++) {
 		i--; // 삭제했으니 인덱스도 후퇴. 이건 for-in을 써도 해결 안됨
 	}
 }
-console.assert(7 == obj.length); // 3개 splice 했으니 남은건 7개
-console.assert(3 == newObj.length);
 
 printElements('obj:', obj);
 printElements('newObj:', newObj);
+
+describe('Array.splice test3', function() {
+  it('should be true', function() {
+    assert.strictEqual(obj.length, 7); // 3개 splice 했으니 남은건 7개
+    assert.strictEqual(newObj.length, 3);
+  });
+});

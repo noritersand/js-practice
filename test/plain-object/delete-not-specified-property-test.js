@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 // test#1
 function deleteNotSpecifiedProperty(obj, propNames) {
 	for(var i in obj){

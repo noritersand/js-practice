@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 for (let ele of arr) {
 	console.log(ele); // 'a', 'b', 'c', 'd', 'e', 'f', 'g'
@@ -9,4 +11,4 @@ for (let ele in arr) {
 var obj = {
 	a: 1, b: 2, c: 3, d: 4, e: 5
 }
-for (let ele of obj) {} // TypeError: obj is not iterable
+// for (let ele of obj) {} // TypeError: obj is not iterable

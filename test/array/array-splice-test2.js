@@ -1,5 +1,6 @@
-var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+var assert = require('assert');
 
+var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 console.log('before:', arr);
 
 for (var ele in arr) {
@@ -10,4 +11,8 @@ for (var ele in arr) {
   console.log('- [last] ele:', ele, ', arr[ele]:', arr[ele]);
 }
 
-console.log('after:', arr);
+describe('Array splice test2', function() {
+  it('should be true', function() {
+    assert.strictEqual(arr.join(','), 'a,b,d,f,g');
+  });
+})

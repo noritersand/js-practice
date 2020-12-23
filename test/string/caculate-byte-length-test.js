@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 /**
  * 유니코드는 3, 나머지는 1로 계산
  */

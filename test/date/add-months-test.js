@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 // 소스 출처: https://stackoverflow.com/questions/5645058/how-to-add-months-to-a-date-in-javascript
 Date.isLeapYear = function(year) { 
 	return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0)); 

@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 /**
  * console.time() test
  */

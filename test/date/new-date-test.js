@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 // create instance by ISO format
 console.log(new Date('2011-12-30')); // valid
 console.log(new Date('2011/12/30')); // valid

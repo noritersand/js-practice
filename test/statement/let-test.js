@@ -1,3 +1,5 @@
+var assert = require('assert');
+
 var arr = ['a', 'b', 'c'];
 
 for (var ele1 in arr) {
