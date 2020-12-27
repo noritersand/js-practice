@@ -1,8 +1,9 @@
-var assert = require('assert');
+const assert = require('assert');
+const { log } = console;
 
 /**
  * console.time() test
  */
 console.time('timer');
-console.log('do something');
+log('do something');
 console.timeEnd('timer'); 

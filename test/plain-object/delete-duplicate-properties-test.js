@@ -1,68 +1,69 @@
-var assert = require('assert');
+const assert = require('assert');
+const { log } = console;
 
 var obj = [
-	{
-		"proditNo":"IT300",
-		"opt1No":1,
-		"opt1Nm":"색상",
-		"opt1Val":"빨강",
-		"opt2No":2,
-		"opt2Nm":"사이즈",
-		"opt2Val":"스몰",
-		"opt3No":0,
-		"opt4No":0,
-		"opt5No":0,
-	},
-	{
-		"proditNo":"IT303",
-		"opt1No":1,
-		"opt1Nm":"색상",
-		"opt1Val":"파랑",
-		"opt2No":2,
-		"opt2Nm":"사이즈",
-		"opt2Val":"미디움",
-		"opt3No":0,
-		"opt4No":0,
-		"opt5No":0,
-	}
+  {
+    "proditNo":"IT300",
+    "opt1No":1,
+    "opt1Nm":"색상",
+    "opt1Val":"빨강",
+    "opt2No":2,
+    "opt2Nm":"사이즈",
+    "opt2Val":"스몰",
+    "opt3No":0,
+    "opt4No":0,
+    "opt5No":0,
+  },
+  {
+    "proditNo":"IT303",
+    "opt1No":1,
+    "opt1Nm":"색상",
+    "opt1Val":"파랑",
+    "opt2No":2,
+    "opt2Nm":"사이즈",
+    "opt2Val":"미디움",
+    "opt3No":0,
+    "opt4No":0,
+    "opt5No":0,
+  }
 ];
 var obj2 = 	[
-	{
-		"proditNo":"IT303",
-		"opt1No":1,
-		"opt1Nm":"색상",
-		"opt1Val":"파랑",
-		"opt2No":2,
-		"opt2Nm":"사이즈",
-		"opt2Val":"미디움",
-		"opt3No":0,
-		"opt4No":0,
-		"opt5No":0,
-	},
-	{
-		"proditNo":"IT302",
-		"opt1No":1,
-		"opt1Nm":"색상",
-		"opt1Val":"파랑",
-		"opt2No":2,
-		"opt2Nm":"사이즈",
-		"opt2Val":"스몰",
-		"opt3No":0,
-		"opt4No":0,
-		"opt5No":0,
-	},
-	{
-		"proditNo":"IT301",
-		"opt1No":1,
-		"opt1Nm":"색상",
-		"opt1Val":"빨강",
-		"opt2No":2,
-		"opt2Nm":"사이즈",
-		"opt2Val":"미디움",
-		"opt3No":0,
-		"opt4No":0,
-		"opt5No":0,
-	}
+  {
+    "proditNo":"IT303",
+    "opt1No":1,
+    "opt1Nm":"색상",
+    "opt1Val":"파랑",
+    "opt2No":2,
+    "opt2Nm":"사이즈",
+    "opt2Val":"미디움",
+    "opt3No":0,
+    "opt4No":0,
+    "opt5No":0,
+  },
+  {
+    "proditNo":"IT302",
+    "opt1No":1,
+    "opt1Nm":"색상",
+    "opt1Val":"파랑",
+    "opt2No":2,
+    "opt2Nm":"사이즈",
+    "opt2Val":"스몰",
+    "opt3No":0,
+    "opt4No":0,
+    "opt5No":0,
+  },
+  {
+    "proditNo":"IT301",
+    "opt1No":1,
+    "opt1Nm":"색상",
+    "opt1Val":"빨강",
+    "opt2No":2,
+    "opt2Nm":"사이즈",
+    "opt2Val":"미디움",
+    "opt3No":0,
+    "opt4No":0,
+    "opt5No":0,
+  }
 ];
 
 /**
@@ -79,28 +80,28 @@ var obj2 = 	[
  * @returns array target에서 중복된 프로퍼티를 제거한 결과
  */
 function removeDupProp(target, origin, targetKeys, originKeys) {
-	var targetKeyArr = targetKeys.split('|');
-	var originKeyArr = originKeys && originKeys.split('|') || targetKeyArr;
-	if (targetKeyArr.length != originKeyArr.length) {
-		throw new Error('targetKey와 originKey의 길이가 다릅니다.');
-	}
-	var keysLen = targetKeyArr.length;
-	for (var i = 0; i < target.length; i++) {
-		for (var j = 0; j < origin.length; j++) {
-			var equalCount = 0;
-			for (var k = 0; k < keysLen; k++) {
-				if (target[i][targetKeyArr[k]] == origin[j][originKeyArr[k]]) {
-					equalCount++;
-				}
-			}
-			if (equalCount == keysLen) {
-				target.splice(i, 1);
-				i--;
-				break;
-			}
-		}
-	}
-	return target;
+  var targetKeyArr = targetKeys.split('|');
+  var originKeyArr = originKeys && originKeys.split('|') || targetKeyArr;
+  if (targetKeyArr.length != originKeyArr.length) {
+    throw new Error('targetKey와 originKey의 길이가 다릅니다.');
+  }
+  var keysLen = targetKeyArr.length;
+  for (var i = 0; i < target.length; i++) {
+    for (var j = 0; j < origin.length; j++) {
+      var equalCount = 0;
+      for (var k = 0; k < keysLen; k++) {
+        if (target[i][targetKeyArr[k]] == origin[j][originKeyArr[k]]) {
+          equalCount++;
+        }
+      }
+      if (equalCount == keysLen) {
+        target.splice(i, 1);
+        i--;
+        break;
+      }
+    }
+  }
+  return target;
 }
 var result = removeDupProp(obj, obj2, 'opt1Val|opt2Val');
-console.log(result);
+log(result);

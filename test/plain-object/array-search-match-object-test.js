@@ -1,54 +1,55 @@
-var assert = require('assert');
+const assert = require('assert');
+const { log } = console;
 
 var obj = [
-	{
-		"proditNo":"IT300",
-		"opt1No":1,
-		"opt1Nm":"색상",
-		"opt1Val":"빨강",
-		"opt2No":2,
-		"opt2Nm":"사이즈",
-		"opt2Val":"스몰",
-		"opt3No":0,
-		"opt4No":0,
-		"opt5No":0,
-	},
-	{
-		"proditNo":"IT303",
-		"opt1No":1,
-		"opt1Nm":"색상",
-		"opt1Val":"파랑",
-		"opt2No":2,
-		"opt2Nm":"사이즈",
-		"opt2Val":"미디움",
-		"opt3No":0,
-		"opt4No":0,
-		"opt5No":0,
-	},
-	{
-		"proditNo":"IT302",
-		"opt1No":1,
-		"opt1Nm":"색상",
-		"opt1Val":"파랑",
-		"opt2No":2,
-		"opt2Nm":"사이즈",
-		"opt2Val":"스몰",
-		"opt3No":0,
-		"opt4No":0,
-		"opt5No":0,
-	},
-	{
-		"proditNo":"IT301",
-		"opt1No":1,
-		"opt1Nm":"색상",
-		"opt1Val":"빨강",
-		"opt2No":2,
-		"opt2Nm":"사이즈",
-		"opt2Val":"미디움",
-		"opt3No":0,
-		"opt4No":0,
-		"opt5No":0,
-	}
+  {
+    "proditNo":"IT300",
+    "opt1No":1,
+    "opt1Nm":"색상",
+    "opt1Val":"빨강",
+    "opt2No":2,
+    "opt2Nm":"사이즈",
+    "opt2Val":"스몰",
+    "opt3No":0,
+    "opt4No":0,
+    "opt5No":0,
+  },
+  {
+    "proditNo":"IT303",
+    "opt1No":1,
+    "opt1Nm":"색상",
+    "opt1Val":"파랑",
+    "opt2No":2,
+    "opt2Nm":"사이즈",
+    "opt2Val":"미디움",
+    "opt3No":0,
+    "opt4No":0,
+    "opt5No":0,
+  },
+  {
+    "proditNo":"IT302",
+    "opt1No":1,
+    "opt1Nm":"색상",
+    "opt1Val":"파랑",
+    "opt2No":2,
+    "opt2Nm":"사이즈",
+    "opt2Val":"스몰",
+    "opt3No":0,
+    "opt4No":0,
+    "opt5No":0,
+  },
+  {
+    "proditNo":"IT301",
+    "opt1No":1,
+    "opt1Nm":"색상",
+    "opt1Val":"빨강",
+    "opt2No":2,
+    "opt2Nm":"사이즈",
+    "opt2Val":"미디움",
+    "opt3No":0,
+    "opt4No":0,
+    "opt5No":0,
+  }
 ];
 
 /**
@@ -63,32 +64,32 @@ var obj = [
  * @return object
  */
 function getMatchElement(arry, keys, values) {
-	if (typeof arry != 'object') {
-		throw new Error('arry는 반드시 객체타입이어야 합니다.');
-	}
-	var keys = typeof keys == 'string' ? keys.split('|') : keys;
-	var values = typeof values == 'string' ? values.split('|') : values;
-	if (keys.length != values.length) {
-		throw new Error('keys와 values는 길이가 일치해야 합니다.');
-	}
-	for (var i in arry) {
-		var ele = arry[i];
-		var findCount = 0;
-		for (var j = 0; j < keys.length; j++) {
-			if (ele[keys[j]] == values[j]) {
-				findCount++
-			}
-		}
-		if (findCount == keys.length) {
-			if (typeof result == 'undefined') {
-				var result = ele;
-			} else {
-				throw new Error('둘 이상의 일치하는 객체가 발견되었습니다.');
-			}
-		}
-	}
-	return result;
+  if (typeof arry != 'object') {
+    throw new Error('arry는 반드시 객체타입이어야 합니다.');
+  }
+  var keys = typeof keys == 'string' ? keys.split('|') : keys;
+  var values = typeof values == 'string' ? values.split('|') : values;
+  if (keys.length != values.length) {
+    throw new Error('keys와 values는 길이가 일치해야 합니다.');
+  }
+  for (var i in arry) {
+    var ele = arry[i];
+    var findCount = 0;
+    for (var j = 0; j < keys.length; j++) {
+      if (ele[keys[j]] == values[j]) {
+        findCount++
+      }
+    }
+    if (findCount == keys.length) {
+      if (typeof result == 'undefined') {
+        var result = ele;
+      } else {
+        throw new Error('둘 이상의 일치하는 객체가 발견되었습니다.');
+      }
+    }
+  }
+  return result;
 }
-console.log('before:', obj);
+log('before:', obj);
 var result = getMatchElement(obj, 'opt1Val|opt2Val', '파랑|스몰');
-console.log('after:', result);
+log('after:', result);

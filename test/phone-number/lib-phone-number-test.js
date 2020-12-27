@@ -1,4 +1,5 @@
-var assert = require('assert');
+const assert = require('assert');
+const { log } = console;
 
 // 소스 출처: https://github.com/halt-hammerzeit/libphonenumber-js
 

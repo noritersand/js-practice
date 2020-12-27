@@ -1,6 +1,7 @@
-var assert = require('assert');
+const assert = require('assert');
+const { log } = console;
 
-console.assert(1 == 'abcd'.indexOf('bc'));
-console.assert(0 == 'abcd'.indexOf('abc'));
-console.assert(0 == 'abcd'.indexOf('abcd'));
-console.assert(-1 == 'abcd'.indexOf('ad'));
+log(1 == 'abcd'.indexOf('bc'));
+log(0 == 'abcd'.indexOf('abc'));
+log(0 == 'abcd'.indexOf('abcd'));
+log(-1 == 'abcd'.indexOf('ad'));

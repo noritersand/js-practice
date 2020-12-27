@@ -1,6 +1,7 @@
-var assert = require('assert');
+const assert = require('assert');
+const { log } = console;
 
 var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 for (var i in arr) {
-	console.log('index:', i, ', element:', arr[i]);
+  log('index:', i, ', element:', arr[i]);
 }

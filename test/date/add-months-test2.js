@@ -1,17 +1,18 @@
-var assert = require('assert');
+const assert = require('assert');
+const { log } = console;
 
 Date.getDaysInMonth = function(year, month) {
-	return new Date(year, month, 0).getDate();
+  return new Date(year, month, 0).getDate();
 };
 Date.prototype.getDaysInMonth = function() { 
-	return Date.getDaysInMonth(this.getFullYear(), this.getMonth() + 1);
+  return Date.getDaysInMonth(this.getFullYear(), this.getMonth() + 1);
 };
 Date.prototype.addMonths = function(value) {
-	var n = this.getDate();
-	this.setDate(1);
-	this.setMonth(this.getMonth() + value);
-	this.setDate(Math.min(n, this.getDaysInMonth()));
-	return this;
+  var n = this.getDate();
+  this.setDate(1);
+  this.setMonth(this.getMonth() + value);
+  this.setDate(Math.min(n, this.getDaysInMonth()));
+  return this;
 };
 
 var now = new Date('2018-07-31T09:00:00.000+09:00');
