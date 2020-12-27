@@ -3,24 +3,24 @@ const { log } = console;
 
 /**
  * 
- * @param {string[]} participant 참가자 배열
- * @param {string[]} completion 완주자 배열
+ * @param {string[]} a
+ * @param {string[]} b
  */
-function solution(participant, completion) {
-  let answer = [...participant];
-  for (let i of completion) { 
-    log(answer.indexOf(i));
+function fn(a, b) {
+  let answer = [...a];
+  for (let i of b) { 
+    // log(answer.indexOf(i));
     answer.splice(answer.indexOf(i), 1);
   }
-  log(answer);
+  // log(answer);
   return answer[0];
 }
 
 describe('test suite', function() {
   it('test', function() {
-    assert.strictEqual(solution(["leo", "kiki", "eden"], ["eden", "kiki"]), "leo");
-    assert.strictEqual(solution(["marina", "josipa", "nikola", "vinko", "filipa"], ["josipa", "filipa", "marina", "nikola"]), 'vinko');
-    assert.strictEqual(solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]), 'mislav');
+    assert.strictEqual(fn(["leo", "kiki", "eden"], ["eden", "kiki"]), "leo");
+    assert.strictEqual(fn(["marina", "josipa", "nikola", "vinko", "filipa"], ["josipa", "filipa", "marina", "nikola"]), 'vinko');
+    assert.strictEqual(fn(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]), 'mislav');
   });
 });
 

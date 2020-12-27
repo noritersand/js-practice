@@ -3,11 +3,11 @@ const { log } = console;
 
 /**
  * 
- * @param {number} n 
+ * @param {number} a
  */
-function solution(n) {
+function fn(a) {
   var answer = '';
-  for (let i = 1; i <= n; ++i) {
+  for (let i = 1; i <= a; ++i) {
     var odd = i % 2 == 1;
     answer += odd ? '수' : '박';
   }
@@ -16,14 +16,14 @@ function solution(n) {
 
 describe('test suite', function() {
   it('exceptions', function() {
-    assert.strictEqual(solution(0), '');
+    assert.strictEqual(fn(0), '');
   });
   it('actual test', function() {
-    assert.strictEqual(solution(1), '수');
-    assert.strictEqual(solution(2), '수박');
-    assert.strictEqual(solution(3), '수박수');
-    assert.strictEqual(solution(4), '수박수박');
-    assert.strictEqual(solution(5), '수박수박수');
+    assert.strictEqual(fn(1), '수');
+    assert.strictEqual(fn(2), '수박');
+    assert.strictEqual(fn(3), '수박수');
+    assert.strictEqual(fn(4), '수박수박');
+    assert.strictEqual(fn(5), '수박수박수');
   });
 });
 

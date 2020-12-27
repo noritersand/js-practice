@@ -2,13 +2,13 @@ const assert = require('assert');
 const expect = require('chai').expect
 const { log } = console;
 
+var foo = 'bar';
 
-
-describe('text suite', function() {
+describe('test suite', function() {
   it('exceptions', function() {
     assert.ok(!false);
   });
-  it('actual test', function() {
+  it('#1', function() {
     assert.strictEqual(foo, 'bar');
   });
 });
