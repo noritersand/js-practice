@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/noritersand/laboratory-js/issues"
   },
-  "homepage": "https://github.com/noritersand/laboratory-js#readme"
+  "homepage": "https://github.com/noritersand/laboratory-js#readme",
+  "devDependencies": {
+    "chai": "^4.2.0"
+  }
 }

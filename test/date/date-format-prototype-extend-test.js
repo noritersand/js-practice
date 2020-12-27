@@ -66,9 +66,23 @@ Number.prototype.subFormat = function(len) {
   return this.toString().subFormat(len);
 };
 
-var now = new Date();
-log('now.format(\'yyyy-MM-dd HH:mm:ss\'):', now.format('yyyy-MM-dd HH:mm:ss')); // 2019-03-28 12:12:12
-log('now.format(\'yyMMdd\'):', now.format('yyMMdd')); // 190328
-log('now.format(\'a/p hh시 mm분\'):', now.format('a/p hh시 mm분')); // 오후 03시 28분
-log('now.format(\'MM월 dd일 E\'):', now.format('MM월 dd일 E')); // 03월 28일 목요일 
-log('now.format(\'HH:mm:ss.sss\'):', now.format('HH:mm:ss.sss')); // 2019-03-28 12:12:12.854
+var now = new Date(1609054958214);
+log(now.toString());
+
+describe('format() 테스트', function() {
+  it('should be equals#1', function() {
+    assert.strictEqual(now.format('yyyy-MM-dd HH:mm:ss'), '2020-12-27 16:42:38');
+  });
+  it('should be equals#2', function() {
+    assert.strictEqual(now.format('yyMMdd'), '201227');
+  });
+  it('should be equals#3', function() {
+    assert.strictEqual(now.format('a/p hh시 mm분'), '오후 04시 42분');
+  });
+  it('should be equals#4', function() {
+    assert.strictEqual(now.format('MM월 dd일 E'), '12월 27일 일요일');
+  });
+  it('should be equals#5', function() {
+    assert.strictEqual(now.format('HH:mm:ss.sss'), '16:42:38.214');
+  });
+});

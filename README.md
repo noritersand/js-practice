@@ -4,5 +4,6 @@
 
 ```bash
 npm install mocha -g
+npm install chai -g
 mocha test/**
 ```
