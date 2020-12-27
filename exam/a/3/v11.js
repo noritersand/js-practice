@@ -5,7 +5,6 @@ const { log } = console;
 
 
 
-
 describe('text suite', function() {
   it('exceptions', function() {
     assert.ok(!false);
