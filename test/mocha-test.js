@@ -5,6 +5,7 @@ var foo = 'bar';
 
 describe('Mocha test', function() {
   log('Hello world!');
+  
   it('should be pass', function() {
     assert.strictEqual(foo, 'bar');
   });

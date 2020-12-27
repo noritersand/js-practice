@@ -67,7 +67,7 @@ Number.prototype.subFormat = function(len) {
 };
 
 var now = new Date(1609054958214);
-log(now.toString());
+// log(now.toString());
 
 describe('format() 테스트', function() {
   it('should be equals#1', function() {

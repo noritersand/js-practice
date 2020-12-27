@@ -3,9 +3,9 @@ const { log } = console;
 
 // add date
 let instance = new Date();
-log('instance:', instance.toISOString());
+// log('instance:', instance.toISOString());
 instance.setDate(instance.getDate() + 1);
-log('instance + 1day:', instance.toISOString());
+// log('instance + 1day:', instance.toISOString());
 
 describe('Date 테스트', function() {
 

@@ -2,9 +2,9 @@ const assert = require('assert');
 const { log } = console;
 
 function printElements(obj) {
-  log('print elements: ');
+  // log('print elements: ');
   for (var i in obj) {
-    log('\t' + i + ": " + JSON.stringify(obj[i]));
+    // log('\t' + i + ": " + JSON.stringify(obj[i]));
   }
 }
 function getObj() {

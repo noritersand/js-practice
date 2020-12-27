@@ -18,7 +18,7 @@ Date.prototype.addMonths = function(value) {
 describe('addMonths() 테스트#2', function() {
   it('1달 씩 더하기 테스트', function() {
     let now = new Date('2018-07-31T09:00:00.000+09:00');
-    log('한국 시간 2018년 7월 31일 09시로 설정: ');
+    // log('한국 시간 2018년 7월 31일 09시로 설정: ');
     assert.strictEqual(now.toISOString(), '2018-07-31T00:00:00.000Z');
     assert.strictEqual(now.toLocaleString(), '2018. 7. 31. 오전 9:00:00');
 
@@ -43,7 +43,7 @@ describe('addMonths() 테스트#2', function() {
   });
   it('1달 씩 빼기 테스트', function() {
     let now = new Date('2018-07-31T09:00:00.000+09:00');
-    log('다시 한국 시간 2018년 7월 31일 09시로 설정: ');
+    // log('다시 한국 시간 2018년 7월 31일 09시로 설정: ');
     assert.strictEqual(now.toISOString(), '2018-07-31T00:00:00.000Z');
     assert.strictEqual(now.toLocaleString(), '2018. 7. 31. 오전 9:00:00');
 
