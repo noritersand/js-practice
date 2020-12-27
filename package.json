@@ -2,7 +2,7 @@
   "name": "laboratory-js",
   "version": "1.0.0",
   "description": "Hi!",
-  "main": "index.js",
+  "main": "none",
   "directories": {
     "test": "test"
   },
