@@ -4,7 +4,7 @@ const { log } = console;
 
 var foo = 'bar';
 
-describe('test suite', function() {
+describe('description', function() {
   it('exceptions', function() {
     assert.ok(!false);
   });
