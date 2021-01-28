@@ -10,3 +10,9 @@ function fn(obj) {
 fn(obj);
 
 log(obj); // { a: 1, b: 2 }
+
+describe('test how reference works in JavaScript', function() {
+  it('should be pass', function() {
+    assert.deepStrictEqual(obj, { a: 1, b: 2});
+  });
+});

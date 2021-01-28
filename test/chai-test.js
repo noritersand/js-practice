@@ -10,7 +10,7 @@ describe('Chai test', function() {
     expect({ a: 1 }).deep.to.equal({ a: 1 });
     expect({ a: { b: 2 } }).deep.to.equal({ a: { b: 2 } });
   });
-  it('should be fail', function() {
-    expect([1, 2]).deep.to.equal([1, 2, 3]);
-  });
+  // it('should be fail', function() {
+  //   expect([1, 2]).deep.to.equal([1, 2, 3]);
+  // });
 });

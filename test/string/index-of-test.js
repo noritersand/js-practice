@@ -1,7 +1,12 @@
 const assert = require('assert');
 const { log } = console;
 
-log(1 == 'abcd'.indexOf('bc'));
-log(0 == 'abcd'.indexOf('abc'));
-log(0 == 'abcd'.indexOf('abcd'));
-log(-1 == 'abcd'.indexOf('ad'));
+describe('test indexOf()', function() {
+  it('should be pass', function() {
+    assert.strictEqual('abcd'.indexOf('bc'), 1);
+    assert.strictEqual('abcd'.indexOf('abc'), 0);
+    assert.strictEqual('abcd'.indexOf('abcd'), 0);
+    assert.strictEqual('abcd'.indexOf('ad'), -1);
+    assert.strictEqual('abcd'.indexOf('gh'), -1);
+  });
+});

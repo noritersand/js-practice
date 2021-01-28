@@ -8,28 +8,36 @@ function test1(n) {
   return n.toFixed(2).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
 }
 
+describe('test test1()', function() {
+  it('should be pass', function() {
+    assert.strictEqual(test1(1), '1.00');
+    assert.strictEqual(test1(12), '12.00');
+    assert.strictEqual(test1(123), '123.00');
+    assert.strictEqual(test1(1234), '1,234.00');
+    assert.strictEqual(test1(12345), '12,345.00');
+    assert.strictEqual(test1(123456), '123,456.00');
+    assert.strictEqual(test1(1234567), '1,234,567.00');
+    assert.strictEqual(test1(12345.67), '12,345.67');
+    assert.strictEqual(test1(1234.567), '1,234.57'); // ???
+  });
+});
+
 function test2(n) {
   return n.toFixed(2).replace(/./g, function(c, i, a) {
       return i && c !== "." && ((a.length - i) % 3 === 0) ?',' + c : c;
   });
 }
 
-log('1:', test1(1));
-log('12:', test1(12));
-log('123:', test1(123));
-log('1234:', test1(1234));
-log('12345:', test1(12345));
-log('123456:', test1(123456));
-log('1234567:', test1(1234567));
-log('12345.67:', test1(12345.67));
-log('1234.567:', test1(1234.567)); // incorrect
-
-log('1:', test2(1));
-log('12:', test2(12));
-log('123:', test2(123));
-log('1234:', test2(1234));
-log('12345:', test2(12345));
-log('123456:', test2(123456));
-log('1234567:', test2(1234567));
-log('12345.67:', test2(12345.67));
-log('1234.567:', test2(1234.567)); // incorrect
+describe('test test2()', function() {
+  it('should be pass', function() {
+    assert.strictEqual(test2(1), '1.00');
+    assert.strictEqual(test2(12), '12.00');
+    assert.strictEqual(test2(123), '123.00');
+    assert.strictEqual(test2(1234), '1,234.00');
+    assert.strictEqual(test2(12345), '12,345.00');
+    assert.strictEqual(test2(123456), '123,456.00');
+    assert.strictEqual(test2(1234567), '1,234,567.00');
+    assert.strictEqual(test2(12345.67), '12,345.67');
+    assert.strictEqual(test2(1234.567), '1,234.57'); // ???
+  });
+});

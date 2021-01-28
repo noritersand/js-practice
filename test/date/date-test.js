@@ -8,7 +8,6 @@ instance.setDate(instance.getDate() + 1);
 // log('instance + 1day:', instance.toISOString());
 
 describe('Date 테스트', function() {
-
   it('toISOString()', function() {
     let isoDate = new Date('2018-01-01T12:24:48Z')
     assert.strictEqual(isoDate.toISOString(), '2018-01-01T12:24:48.000Z');

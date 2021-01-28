@@ -19,6 +19,11 @@ function calculateByteLength(value) {
   return byteLength;
 }
 
-log('3' == calculateByteLength('abc')); // 3
-log('9' == calculateByteLength('a한b글c')); // 9
-log('19' == calculateByteLength('112abc한글이다.')); // 19
+describe('test calculateByteLength()', function() {
+  it('should be pass', function() {
+    assert.strictEqual(calculateByteLength('abc'), 3);
+    assert.strictEqual(calculateByteLength('a한b글c'), 9);
+    assert.strictEqual(calculateByteLength('112abc한글이다.'), 19);
+  });
+});
+

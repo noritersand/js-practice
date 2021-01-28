@@ -5,5 +5,6 @@ const { log } = console;
  * console.time() test
  */
 console.time('timer');
-log('do something');
+log('I\'m doing something');
 console.timeEnd('timer'); 
+
