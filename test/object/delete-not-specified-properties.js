@@ -20,10 +20,9 @@ function deleteNotSpecifiedProperties(obj, propNames) {
       delete obj[i];
     }
   }
-  return obj;
 }
 
-var obj = {
+var deleteMe1 = {
   selected: 1,
   status: "U",
   usrNo: 10278,
@@ -37,16 +36,19 @@ var obj = {
   modrId: "12345678",
   modDts: ""
 };
-var result1 = deleteNotSpecifiedProperties(obj, ['status', 'usrNo', 'passwd']); // 지정한 프로퍼티만 골라냄
+deleteNotSpecifiedProperties(deleteMe1, ['status', 'usrNo', 'passwd']); // 지정한 프로퍼티만 골라냄
 
-var obj2 = {
-  
+function fn() {}
+var deleteMe2 = {
+  aaa: 1,
+  bbb: fn
 };
-// var result2 = deleteNotSpecifiedProperties(obj, ['status', 'usrNo', 'passwd']);
+deleteNotSpecifiedProperties(deleteMe2, ['aaa']);
 
 describe('test deleteNotSpecifiedProperties()', function() {
   it('should be pass', function() {
-    assert.deepStrictEqual(result1, { status: 'U', usrNo: 10278, passwd: 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f' });
-    
+    assert.deepStrictEqual(deleteMe1, { status: 'U', usrNo: 10278, passwd: 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f' });
+    assert.deepStrictEqual(deleteMe2, { aaa: 1 });
+    assert.ok(typeof fn == 'function'); // 프로퍼티에서 지운거지 객체 자체가 사라지는건 아니다
   });
 });

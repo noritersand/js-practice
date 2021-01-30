@@ -7,7 +7,7 @@ const { log } = console;
  * 
  * @param {string} name
  * @param {string[]} arr 
- * @returns object[]
+ * @returns {object[]} 새로 구성한 객체 배열
  */
 function objectArrayToArrayObject1(name, arr) {
   var resultArry = [];

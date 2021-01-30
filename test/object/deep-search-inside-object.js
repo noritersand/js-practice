@@ -46,7 +46,7 @@ var product = {
  *
  * @param {object} sourceObject 탐색할 객체
  * @param {string} searchName 탐색할 프로퍼티명
- * @return name과 이름이 일치하는 프로퍼티의 값을 배열로 반환.
+ * @return {array} name과 이름이 일치하는 프로퍼티의 값을 배열로 반환.
  */
 function findValues(sourceObject, searchName) {
   'use strict';
@@ -64,15 +64,20 @@ function findValues(sourceObject, searchName) {
   recursion(sourceObject, searchName);
   return stack;
 }
-log('findValues:', findValues(product, 'nodeId')); // [ "655", "65504", "6550401", "6550402", "65505", "6550601", "655060198" ]
-log('\n');
+
+describe('test findValues()', function() {
+  it('should be pass', function() {
+    assert.deepStrictEqual(findValues(product, 'nodeId'), [ "655", "65504", "6550401", "6550402", "65505", "6550601", "655060198" ]);
+  });
+});
+
 
 /**
  * sourceObject를 재귀탐색해서 이름과 값이 파라미터와 일치하는 객체를 모두 찾는다.  
  *
  * @param {object} sourceObject 탐색할 객체
  * @param {string} searchName 탐색할 프로퍼티명
- * @param searchValue 탐색할 프로퍼티의 값
+ * @param {string} searchValue 탐색할 프로퍼티의 값
  * @return {array} name과 value가 일치하는 프로퍼티를 소유한 객체를 배열로 반환.
  */
 function findObjects(sourceObject, searchName, searchValue) {
@@ -98,22 +103,45 @@ function findObjects(sourceObject, searchName, searchValue) {
   recursion(sourceObject, searchName, searchValue);
   return stack;
 }
-// 마젠타 찾기
-var foundOne = findObjects(product, 'unitName', 'magenta');
-log('findObjects #1:', foundOne); // { type: "unit", nodeId: "6550401", unitName: "magenta" }
-var foundOne2 = findObjects(product, 'unitName', 'white');
-log('findObjects #2:', foundOne2); // { type: "unit", nodeId: "655060198", unitName: "white" }
-var temp = findObjects(product, 'type', 'unit');
-var foundOne3 = findObjects(temp, 'unitName', 'black');
-log('findObjects #3:', foundOne3); // { type: "unit", nodeId: "65505", unitName: "black", … }
-log('\n');
+
+describe('test findObjects()', function() {
+  it('findObjects #1', function() {
+    // 마젠타 찾기
+    var result = findObjects(product, 'unitName', 'magenta');
+    assert.deepStrictEqual(result, [{ type: "unit", nodeId: "6550401", unitName: "magenta" }]);
+  });
+  it('findObjects #2', function() {
+    // 흰색 컬러 옵션 찾기
+    var result = findObjects(product, 'unitName', 'white');
+    assert.deepStrictEqual(result, [{ type: "unit", nodeId: "655060198", unitName: "white" }]);
+  });
+  it('findObjects #3', function() {
+    var temp = findObjects(product, 'type', 'unit');
+    var result = findObjects(temp, 'unitName', 'black');
+    assert.deepStrictEqual(result, [{
+      "child": {
+        "child": {
+          "nodeId": "655060198", 
+          "type": "unit", 
+          "unitName": 
+          "white"},
+        "nodeId": "6550601", 
+        "type": "unit", 
+        "unitName": "gray"
+      }, 
+      "nodeId": "65505", 
+      "type": "unit", 
+      "unitName": "black"
+    }]); 
+  });
+});
 
 /**
  * sourceObject를 재귀탐색해서 searchObject를 소유한 객체(=부모)를 찾는다.
  * 
  * @param {object} sourceObject
  * @param {object} searchObject
- * @return searchObject의 부모
+ * @return {object} searchObject의 부모
  */
 function findContainsObject(sourceObject, searchObject) {
   'use strict';
@@ -145,3 +173,27 @@ var parent = findContainsObject(product, product.unitList[0].children[1]);
 log('findContainsObject:', parent); // { type: "unit", nodeId: "65504", unitName: "red", children: (2) […] }
 var parent2 = findContainsObject(product, product.unitList[1].child.child);
 log('findContainsObject:', parent2); // { type: "unit", nodeId: "6550601", unitName: "gray", child: {…} }
+
+describe('test findContainsObject()', function() {
+  it('findContainsObject() #1', function() {
+    var parent = findContainsObject(product, product.unitList[0].children[1]);
+    assert.deepStrictEqual(parent, {
+      type: 'unit',
+      nodeId: '65504',
+      unitName: 'red',
+      children: [
+        { type: 'unit', nodeId: '6550401', unitName: 'magenta' },
+        { type: 'unit', nodeId: '6550402', unitName: 'cyan' }
+      ]
+    });
+  });
+  it('findContainsObject() #2', function() {
+    var parent = findContainsObject(product, product.unitList[1].child.child);
+    assert.deepStrictEqual(parent, {
+      type: 'unit',
+      nodeId: '6550601',
+      unitName: 'gray',
+      child: { type: 'unit', nodeId: '655060198', unitName: 'white' }
+    });    
+  });
+});
