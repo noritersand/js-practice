@@ -136,6 +136,7 @@ describe('test findObjects()', function() {
   });
 });
 
+
 /**
  * sourceObject를 재귀탐색해서 searchObject를 소유한 객체(=부모)를 찾는다.
  * 
@@ -169,10 +170,6 @@ function findContainsObject(sourceObject, searchObject) {
     }
   }
 }
-var parent = findContainsObject(product, product.unitList[0].children[1]);
-log('findContainsObject:', parent); // { type: "unit", nodeId: "65504", unitName: "red", children: (2) […] }
-var parent2 = findContainsObject(product, product.unitList[1].child.child);
-log('findContainsObject:', parent2); // { type: "unit", nodeId: "6550601", unitName: "gray", child: {…} }
 
 describe('test findContainsObject()', function() {
   it('findContainsObject() #1', function() {
