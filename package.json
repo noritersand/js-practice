@@ -6,10 +6,6 @@
   "directories": {
     "test": "test"
   },
-  "scripts": {
-    "preinstall": "npm install mocha -g",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/noritersand/laboratory-js.git"
@@ -20,10 +16,11 @@
     "url": "https://github.com/noritersand/laboratory-js/issues"
   },
   "homepage": "https://github.com/noritersand/laboratory-js#readme",
-  "devDependencies": {
-    "chai": "^4.2.0"
-  },
   "dependencies": {
     "http-server": "^0.12.3"
+  },
+  "devDependencies": {
+    "chai": "^4.3.3",
+    "mocha": "^8.3.1"
   }
 }

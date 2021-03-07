@@ -3,7 +3,6 @@
 <head>
 <title>index</title>
 <meta charset="utf-8">
-<meta charset="utf-8">
 <link rel="icon" type="image/png" href="/image/favicon.png">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" href="/css/style.css"/>
@@ -14,7 +13,7 @@
 	<h2>Index</h2>
 	<ul>
 		<li><a href="/page/test-file-template.html">테스트 파일 템플릿</a></li>
-		<li>
+		<!-- <li>
 			<h4>HTTP</h4>
 			<ul>
 				<li><a href="/page/http/response-status-code-test.view">HTTP 응답 코드</a></li>
@@ -34,23 +33,25 @@
 			<ul>
 				<li><a href="/page/security/xss-test.view?param1=">XSS</a></li>
 			</ul>
-		</li>
+		</li> -->
 		<li>
 			<h4>HTML</h4>
 			<ul>
-				<li><a href="/page/tag/html5-input-types-test.html">HTML5 Input Types</a></li>
-				<li><a href="/page/tag/tooltip-test.html">툴팁</a></li>
-				<li><a href="/page/tag/fieldset-test.html">&lt;fieldset&gt;</a></li>
-				<li><a href="/page/tag/a-test.html">&lt;a&gt;</a></li>
-				<li><a href="/page/tag/label-test.html">&lt;label&gt;</a></li>
-				<li><a href="/page/tag/video-test.html">&lt;video&gt;</a></li>
-				<li><a href="/page/tag/select-test.html">&lt;select&gt;</a></li>
-				<li><a href="/page/opener/opener-test.html">opener</a></li>
-				<li><a href="/page/opener/opener-test3.html">opener #2</a></li>
-				<li><a href="/page/iframe/iframe-test1.html">iframe</a></li>
-				<li><a href="/page/relative-path/relative-path-test1.html">relative path</a></li>
-				<li><a href="/page/submission-charset/without-content-type-header.html">Content-Type 없을때의 글자 인코딩</a></li>
-				<li><a href="/page/event/input-date-test.html">input-date event</a></li>
+        <li><a href="/page/html/randering-speed.html">랜더링 속도</a></li>
+				<li><a href="/page/html/opener/opener-test.html">opener</a></li>
+				<li><a href="/page/html/opener/opener-test3.html">opener #2</a></li>
+				<li><a href="/page/html/iframe/iframe-test1.html">iframe</a></li>
+				<li><a href="/page/html/relative-path/relative-path-test1.html">relative path</a></li>
+				<li><a href="/page/html/submission-charset/without-content-type-header.html">Content-Type 없을때의 글자 인코딩</a></li>
+				<li><a href="/page/html/event/input-date-test.html">input-date event</a></li>
+        <li><a href="/page/html/tag/html5-input-types-test.html">HTML5 Input Types</a></li>
+				<li><a href="/page/html/tag/tooltip-test.html">툴팁</a></li>
+				<li><a href="/page/html/tag/fieldset-test.html">&lt;fieldset&gt;</a></li>
+				<li><a href="/page/html/tag/a-test.html">&lt;a&gt;</a></li>
+				<li><a href="/page/html/tag/label-test.html">&lt;label&gt;</a></li>
+				<li><a href="/page/html/tag/video-test.html">&lt;video&gt;</a></li>
+				<li><a href="/page/html/tag/select-test.html">&lt;select&gt;</a></li>
+				<li><a href="/page/html/tag/header-test.html">header tags</a></li>
 			</ul>
 		</li>
 		<li>
@@ -105,45 +106,6 @@
 				<li><a href="/page/jquery/cors-test.html">CORS</a></li>
 				<li><a href="/page/jquery/selector-test.html">selector</a></li>
 				<li><a href="/page/jquery/form-value-save-and-load-test.html">form value save and load</a></li>
-			</ul>
-		</li>
-		<li>
-			<h4>JAVA &amp; JSP &amp; Servlet</h4>
-			<ul>
-				<li><a href="/page/uncategorized/test-reponse-character-set.data">응답 문자셋</a></li>
-				<li><a href="/page/uncategorized/submission-charset/sender-test.view">유니코드 문자 submit</a></li>
-				<li>include
-					<ul>
-						<li><a href="/page/uncategorized/include/include-with-jsp-test.view">include test with jsp</a></li>
-						<li><a href="/page/uncategorized/include/include-with-html-test.view">include test with html</a></li>
-					</ul>
-				</li>
-				<li>파일 업로드
-					<ul>
-						<li><a href="/page/oreilly/oreilly-fileupload-test.view">oreilly multipart</a></li>
-					</ul>
-				</li>
-				<li><a href="/page/uncategorized/what-is-payload-body-test.view">payload body란 무엇인가?</a></li>
-				<li><a href="/page/uncategorized/session-invalidate-test.view">session invalidate</a></li>
-				<li><a href="/page/uncategorized/customtag/parent-test.view">custom tag</a></li>
-				<li><a href="/page/uncategorized/jstl/parse-number-from-string-test.view">parse number from string</a></li>
-				<li><a href="/page/uncategorized/jstl/jstl-test.view">JSTL</a></li>
-				<li><a href="/page/uncategorized/jstl/el-scope-test.view">EL: scope</a></li>
-				<li><a href="/page/uncategorized/jstl/el-operator-test.view">EL: operator</a></li>
-				<li>error page
-					<ul>
-						<li><a href="/page/uncategorized/response-bad-request-test.view">400 error page</a></li>
-						<li><a href="/page/uncategorized/response-forbidden-test.view">403 error page</a></li>
-						<li><a href="/some-not-exist-url">404 error page</a></li>
-						<li><a href="/page/uncategorized/response-not-found-error-test.view">404 error page 2</a></li>
-						<li><a href="/page/uncategorized/make-some-error-test.view">500 error page</a></li>
-					</ul>
-				</li>
-				<li>servlet filter test
-					<ul>
-						<li><a href="/page/filter/replace-httpservletrequest-test.view">HttpServletRequest 구현부 교체</a></li>
-					</ul>
-				</li>
 			</ul>
 		</li>
 	</ul>

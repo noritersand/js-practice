@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>header tags test</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css"/>
+<script>
+	function fn(e) {
+		console.log(1);
+		e.preventDefault();
+	}
+</script>
+</head>
+<body>
+<div class="align-center">
+  <h1>header tags test</h1>
+  <form name="testForm" onsubmit="fn(event)">
+    <button type="button" onclick="fn(event)">버튼</button><br>
+    <button type="submit">submit</button>
+  </form>
+  <h1>시스템 점검 중입니다.</h1>
+  <h2>시스템 점검 중입니다.</h2>
+  <h3>시스템 점검 중입니다.</h3>
+  <h4>시스템 점검 중입니다.</h4>
+  <h5>시스템 점검 중입니다.</h5>
+  시스템 점검 중입니다.
+</div>
+</body>
+</html>
