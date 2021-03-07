@@ -22,5 +22,8 @@
   "homepage": "https://github.com/noritersand/laboratory-js#readme",
   "devDependencies": {
     "chai": "^4.2.0"
+  },
+  "dependencies": {
+    "http-server": "^0.12.3"
   }
 }
