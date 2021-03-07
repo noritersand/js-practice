@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
 <title>form empty check</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css"/>
 <script src="/lib/js/jquery-1.12.4.js"></script>
 <script>
 function check() {
@@ -19,15 +22,18 @@ function check() {
 </script>
 </head>
 <body>
-<h2>querystring-to-input-tag.html</h2>
-<form id="searchForm">
-	<input type="text" /><input type="text" /><input type="text" /><input type="text" /><input type="text" /><br>
-	<input type="text" /><input type="text" /><input type="text" /><input type="text" /><input type="text" /><br>
-	<select>
-		<option></option>
-		<option value="1">1</option>
-	</select>
-</form>
-<button type="button" onclick="check()">check</button>
+<div class="align-center">
+  <h1>form empty check</h1>
+  <hr>
+  <form id="searchForm">
+    <input type="text" /><input type="text" /><input type="text" /><input type="text" /><input type="text" /><br>
+    <input type="text" /><input type="text" /><input type="text" /><input type="text" /><input type="text" /><br>
+    <select>
+      <option></option>
+      <option value="1">1</option>
+    </select>
+  </form>
+  <button type="button" onclick="check()">check</button>
+</div>
 </body>
 </html>

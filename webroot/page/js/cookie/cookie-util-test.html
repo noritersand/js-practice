@@ -1,69 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>cookie util</title>
+<title>cookie util test</title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="/static/css/style.css"/>
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css"/>
 <script src="/lib/js/jquery-1.12.4.js"></script>
+<script src="/js/cookie-util.js"></script>
 <script>
-var cookieUtil = {
-	getItem : function(sKey) {
-		if (!sKey) {
-			return null;
-		}
-		return decodeURIComponent(document.cookie.replace(new RegExp('(?:(?:^|.*;)\\s*'
-				+ encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1'))
-				|| null;
-	},
-	setItem : function(sKey, sValue, vEnd, sPath, sDomain, bSecure) {
-		if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) {
-			return false;
-		}
-		var sExpires = '';
-		if (vEnd) {
-			switch (vEnd.constructor) {
-			case Number:
-				sExpires = vEnd === Infinity ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT' : '; max-age=' + vEnd;
-				break;
-			case String:
-				sExpires = '; expires=' + vEnd;
-				break;
-			case Date:
-				sExpires = '; expires=' + vEnd.toUTCString();
-				break;
-			}
-		}
-		document.cookie = encodeURIComponent(sKey) + '=' + sValue /* encodeURIComponent(sValue) */ + sExpires
-				+ (sDomain ? '; domain=' + sDomain : '') + (sPath ? '; path=' + sPath : '') + (bSecure ? '; secure' : '');
-		return true;
-	},
-	removeItem : function(sKey, sPath, sDomain) {
-		if (!this.hasItem(sKey)) {
-			return false;
-		}
-		document.cookie = encodeURIComponent(sKey) + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT'
-				+ (sDomain ? '; domain=' + sDomain : '') + (sPath ? '; path=' + sPath : '');
-		return true;
-	},
-	hasItem : function(sKey) {
-		if (!sKey) {
-			return false;
-		}
-		return (new RegExp('(?:^|;\\s*)' + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=')).test(document.cookie);
-	},
-	keys : function() {
-		var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '').split(/\s*(?:\=[^;]*)?;\s*/);
-		for (var nLen = aKeys.length, nIdx = 0; nIdx < nLen; nIdx++) {
-			aKeys[nIdx] = decodeURIComponent(aKeys[nIdx]);
-		}
-		return aKeys;
-	}
-};
-
 function createCookie() {
 	var nameInput = document.querySelector('#cookieName');
 	var valueInput = document.querySelector('#cookieValue');
-	cookieUtil.setItem(nameInput.value, valueInput.value, null, '/');
+	docCookies.setItem(nameInput.value, valueInput.value, 'lax', null, '/');
 	drawCookieList();
 	nameInput.value = '';
 	valueInput.value = '';
@@ -71,11 +20,11 @@ function createCookie() {
 }
 
 function removeAllCookie() {
-	var keys = cookieUtil.keys();
+	var keys = docCookies.keys();
 	for (var i in keys) {
 		var ele = keys[i];
-		cookieUtil.removeItem(ele);
-		cookieUtil.removeItem(ele, '/');
+		docCookies.removeItem(ele);
+		docCookies.removeItem(ele, '/');
 	}
 	drawCookieList();
 	var nameInput = document.querySelector('#cookieName');
@@ -83,7 +32,7 @@ function removeAllCookie() {
 }
 
 function drawCookieList() {
-	var keys = cookieUtil.keys();
+	var keys = docCookies.keys();
 	var cookieListUl = document.querySelector('#cookieList');
 	cookieListUl.innerHTML = '';
 	for (var i in keys) {
@@ -92,13 +41,13 @@ function drawCookieList() {
 			continue;
 		}
 		var li = document.createElement('li')
-		li.innerText = ele + ': ' + cookieUtil.getItem(ele);
+		li.innerText = ele + ': ' + docCookies.getItem(ele);
 		cookieListUl.append(li);
 	}
 }
 
 window.onload = function() {
-	drawCookieList();
+	// drawCookieList();
 	var nameInput = document.querySelector('#cookieName');
 	var valueInput = document.querySelector('#cookieValue');
 	nameInput.onkeyup = function(event) {
@@ -118,7 +67,8 @@ window.onload = function() {
 </head>
 <body>
 <div class="align-center">
-	<h1>쿠키 테스트</h1>
+	<h1>cookie util test</h1>
+  <hr>
 	쿠키이름: <input type="text" id="cookieName" autofocus> 쿠키값: <input type="text" id="cookieValue"> <button type="button" onclick="createCookie()">쿠키 생성</button>
 	<br>
 	<button type="button" onclick="removeAllCookie()">쿠키 모두 삭제</button>

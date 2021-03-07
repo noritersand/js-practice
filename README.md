@@ -21,10 +21,10 @@ npm exec mocha test/**
 
 ```bash
 # 서버 시작
-npm exec http-server "webroot -p 9090"
+npm exec http-server "webroot -p 8888"
 
 # npx로 서버 시작
-npx http-server webroot -p 9090
+npx http-server webroot -p 8888
 ```
 
-브라우저로 [http://localhost:9090](http://localhost:9090) 열기
+브라우저로 [http://localhost:8888](http://localhost:8888) 열기
