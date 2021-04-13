@@ -14,7 +14,7 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
     width: '640',
-    videoId: 'M7lc1UVf-VE',
+    videoId: 'usae-rSUThI',
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
@@ -32,14 +32,30 @@ function onPlayerReady(event) {
 //    the player should play for six seconds and then stop.
 var done = false;
 function onPlayerStateChange(event) {
+  console.log('Hello?');
   if (event.data == YT.PlayerState.PLAYING && !done) {
-    setTimeout(stopVideo, 6000);
-    done = true;
+    // console.log('ouch');
+    // setTimeout(stopVideo, 3000);
+    // done = true;
   }
   if (event.data === 0) {
-    alert('done');
+    console.log('done');
+    done = true;
   }
 }
 function stopVideo() {
   player.stopVideo();
+}
+
+function fn() {
+  var c = {
+    header: 'color: black; background-color: #ddd; font-size: 15px; font-weight: bold; padding: 5px',
+    label: 'color: black; background-color: #ddd; padding: 2px',
+    warning: 'color: red; background-color: #ddd; padding: 2px'
+  };
+  if (!done) {
+    console.log('%c영상을 끝까지 보세요', c.header);
+    return;
+  }
+  console.log('아유 착해');
 }
