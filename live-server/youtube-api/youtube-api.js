@@ -12,8 +12,9 @@ var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '390',
-    width: '640',
+    width: '400',
     videoId: 'usae-rSUThI',
+    playerVars: { 'controls': 1 },
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange
@@ -59,3 +60,4 @@ function fn() {
   }
   console.log('아유 착해');
 }
+
