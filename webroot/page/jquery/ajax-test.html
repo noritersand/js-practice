@@ -23,7 +23,7 @@ $.ajax({
 	contentType: 'application/json',
 	dataType: 'json', // response type
 	success: function(data, textStatus, jqXhr) {
-		$('#result1').text(data.message);
+		$('#result1').text(JSON.stringify(data));
 		console.log('data:', data);
 		console.log('textStatus:', textStatus);
 		console.log('jqXhr:', jqXhr);
@@ -38,7 +38,7 @@ $.ajax({
 	contentType: 'application/json',
 	dataType: 'json', // response type
 	success: function(data, textStatus, jqXhr) {
-		$('#result2').text(data.body);
+		$('#result2').text(JSON.stringify(data));
 		console.log('data:', data);
 		console.log('textStatus:', textStatus);
 		console.log('jqXhr:', jqXhr);

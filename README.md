@@ -17,14 +17,16 @@ npm exec mocha test/**
 
 ### JS + HTML 테스트:
 
-일단은 [http-server](https://github.com/http-party/http-server) 모듈 사용함.
+[express](https://expressjs.com) 사용함.
 
 ```bash
 # 서버 시작
-npm exec http-server "webroot -p 8888"
+node app.js
 
-# npx로 서버 시작
-npx http-server webroot -p 8888
+# nodemon으로 서버 시작
+npm exec nodemon app.js
+# 혹은
+npx nodemon app.js
 ```
 
 브라우저로 [http://localhost:8888](http://localhost:8888) 열기

@@ -25,7 +25,8 @@ xhr.onreadystatechange = function() {
 		
 		let div = document.querySelector('#result1');
 		try {
-			div.innerHTML = JSON.parse(xhr.responseText).message;
+			// div.innerHTML = JSON.parse(xhr.responseText).message;
+			div.innerHTML = xhr.responseText;
 		} catch (e) {
 			throw new Error('JSON parse error');
 		}
@@ -45,7 +46,8 @@ xhr2.onreadystatechange = function() {
 		
 		let div = document.querySelector('#result2');
 		try {
-			div.innerHTML = JSON.parse(xhr2.responseText).body;
+			// div.innerHTML = JSON.parse(xhr2.responseText).message;
+			div.innerHTML = xhr2.responseText;
 		} catch (e) {
 			throw new Error('JSON parse error');
 		}
