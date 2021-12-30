@@ -1,7 +1,10 @@
 @charset "utf-8";
 
 h1 { font-size: 37.2px }
-h2 { font-size: 29.2px }
+h2 { 
+  font-size: 29.2px;
+  border-bottom: 1px solid #e6e6e6;
+}
 h3 { font-size: 21.2px }
 h4, h5, h6, p { font-size: 16px }
 
