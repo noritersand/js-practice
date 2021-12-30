@@ -1,4 +1,4 @@
-# laboratory-js
+# lab-js
 
 자바스크립트 테스트용 저장소.
 
@@ -21,12 +21,12 @@ npm exec mocha test/**
 
 ```bash
 # 서버 시작
-node app.js
+node server.js
 
 # nodemon으로 서버 시작
-npm exec nodemon app.js
+npm exec nodemon server.js
 # 혹은
-npx nodemon app.js
+npx nodemon server.js
 ```
 
 브라우저로 [http://localhost:8888](http://localhost:8888) 열기
