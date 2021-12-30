@@ -30,6 +30,10 @@ app.get('*', (req, res) => {
   res.sendFile(req.path, { root: webroot })
 });
 
+app.post('*.html', (req, res) => {
+  res.sendFile(req.path, { root: webroot })
+});
+
 app.post('*.data', (req, res) => {
   console.debug('req.path:', req.path)
   console.debug('req.params:', req.params);

@@ -1,6 +1,9 @@
 @charset "utf-8";
 
-h1 { font-size: 37.2px }
+h1 { 
+  font-size: 37.2px;
+  border-bottom: 3px solid black;
+}
 h2 { 
   font-size: 29.2px;
   border-bottom: 1px solid #e6e6e6;
@@ -27,15 +30,7 @@ input, select, textarea {
 button {
 	margin: 1px 1px 1px 1px;
 }
-hr {
-    background-color: rgba(9,45,66,.13);
-    border: 0;
-    height: 1px;
-    margin: 16px 0;
-    padding: 0;
-    width: 100%;
-    box-sizing: content-box;
-}
+/* hr { background-color: rgba(9,45,66,.13); border: 0; height: 1px; margin: 16px 0; padding: 0; width: 100%; box-sizing: content-box; } */
 .description {
     background-color: rgba(9,45,66,.08);
     border-radius: 3px;
