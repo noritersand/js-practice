@@ -1,15 +1,14 @@
 const { log } = console;
 
-function go(n) {
+var arr = [
   {
-    var n = 1;
-    {
-      n = n;
-      ++n;
-    }
-    ++n
+    hi: 'ho'
   }
-  log(n);
+];
+
+function getSome(ar) {
+  return ar[0];
 }
 
-go();
+getSome(arr).hi = 'yo';
+log(arr);
