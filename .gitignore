@@ -4,3 +4,4 @@ package-lock.json
 
 # ETC.
 .vscode
+yarn.lock
