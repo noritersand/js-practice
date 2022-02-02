@@ -5,7 +5,8 @@
 ### 처음 받으면 모듈 설치
 
 ```bash
-npm install
+# npm install
+yarn install
 ```
 
 ### JS 유닛 테스트

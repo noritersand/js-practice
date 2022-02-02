@@ -13,7 +13,7 @@ var one;
 function testOne() {
 	function send() {
 		$.ajax({
-			url: '/page/uncategorized/read-querystring.data',
+			url: '/uncategorized/read-querystring.data',
 			success: function() {
 				return 2;
 			}
@@ -38,7 +38,7 @@ function testThree() {
 			}
 		};
 		// get method
-		xhr.open('get', '/page/uncategorized/read-querystring.data');
+		xhr.open('get', '/uncategorized/read-querystring.data');
 		xhr.send();
 		return 1;
 	}

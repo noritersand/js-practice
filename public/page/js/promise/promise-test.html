@@ -27,7 +27,8 @@
         div.innerHTML = xhr.responseText;
       }
     };
-    xhr.open('get', '/page/uncategorized/abc.data?a=1&b=2&c=3');
+    // xhr.open('get', '/error500.data?a=1&b=2&c=3');
+    xhr.open('get', '/success.data?a=1&b=2&c=3');
     xhr.send();
   }
 </script>

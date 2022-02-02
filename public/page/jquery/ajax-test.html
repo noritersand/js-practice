@@ -16,7 +16,7 @@
 </div>
 <script>
 $.ajax({
-	url: '/page/uncategorized/read-querystring.data?a=1',
+	url: '/uncategorized/read-querystring.data?a=1',
 	data: 'b=2&c=3',
 	method: 'get',
 	contentType: 'application/json',
@@ -31,7 +31,7 @@ $.ajax({
 
 // 파폭은 url에 read-payload를 붙이면 ajax 요청이 안날라가는 이슈가 있음.
 $.ajax({
-	url: '/page/uncategorized/read-body.data?a=1',
+	url: '/uncategorized/read-body.data?a=1',
 	data: 'b=2&c=3',
 	method: 'post',
 	contentType: 'application/json',
