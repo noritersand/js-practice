@@ -12,7 +12,7 @@ npm install
 
 ```bash
 # 유닛 테스트
-npm exec mocha test/**
+npm exec mocha unit-test/**
 ```
 
 ### JS + HTML 테스트:

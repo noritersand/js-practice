@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Promise</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/lib/js/jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="align-center">
+  <h1>Promise</h1>
+  <p></p>
+  <button type="button" onclick="run1()">버튼</button>
+  <p class="description"><strong>result1:</strong><br><br><span id="result1"></span></p>
+  <p class="description"><strong>result1:</strong><br><br><span id="result1"></span></p>
+  <p class="description"><strong>result1:</strong><br><br><span id="result1"></span></p>
+</div>
+<script>
+  function run1() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        console.log('xhr:', xhr);
+        let div = document.querySelector('#result1');
+        div.innerHTML = xhr.responseText;
+      }
+    };
+    xhr.open('get', '/page/uncategorized/abc.data?a=1&b=2&c=3');
+    xhr.send();
+  }
+</script>
+</body>
+</html>

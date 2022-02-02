@@ -39,10 +39,10 @@ button {
     padding: 8px 12px;
     text-decoration: none;
 }
-[id^=result] {
+/* [id^=result] {
 	color: red;
 	font-weight: bold;
-}
+} */
 code {
 	font-family: Consolas,Monaco,"Lucida Console",monospace;
 	padding: 4px;
