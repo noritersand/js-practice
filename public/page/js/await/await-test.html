@@ -11,26 +11,45 @@
 <body>
 <div class="align-center">
   <h1>await</h1>
-  <p>description</p>
-  
-  <img src="/image/in-a-nuttshell.png" style="width:640px" alt="" >
-    
-  <h2>Subtitle</h2>
-  <p>대문자는 h1만 하기로 하자.</p>
-    
-  <h3>lower sub title</h3>
-  <p>blah blah blah blah blah blah blah blah blah blah blah blah</p>
-    
-  <h4>lowest sub title</h4>
-  <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
-    
-  <h2>Subtitle2</h2>
-  <p>호이호이 호!</p>
-    
-  <h3>lower sub title2</h3>
-  <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
-    
-  <p class="description"><strong>테스트 결과:</strong><br><br>이 곳은 특정 테스트의 결과를 기술하는 영역이다.</p>
+  <p></p>
+  <button type="button" onclick="getSome('/success.data?a=1&b=2&c=3')">성공 버튼</button>
+  <button type="button" onclick="getSome('/error500.data?a=1&b=2&c=3')">실패 버튼</button>
+  <p class="description"><strong>result1:</strong><br><br><span id="result1"></span></p>
+  <p class="description"><strong>result2:</strong><br><br><span id="result2"></span></p>
 </div>
+<script>
+
+function run(url) {
+  return new Promise((resolve, reject) => {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+      console.log('xhr:', xhr);
+      if (xhr.status === 200) {
+        resolve(xhr.responseText);
+      } else {
+        reject(new Error(xhr.responseText));
+      }
+    }
+    xhr.onerror = () => {
+      console.log('xhr:', xhr);
+      reject(new Error(xhr.responseText));
+    }
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        
+      }
+    };
+    xhr.open('get', url);
+    xhr.send();
+  });
+}
+function getSome(url) {
+  run(url).then((respText) => {
+    document.querySelector('#result1').innerHTML = respText;
+  }).catch((respText) => {
+    document.querySelector('#result2').innerHTML = respText;
+  });
+}
+</script>
 </body>
 </html>

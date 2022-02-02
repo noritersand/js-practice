@@ -3,8 +3,6 @@ const utils = require('./utils')
 
 // express 도움말: https://expressjs.com/ko/4x/api.html
 const app = express();
-const utils = require('./utils')
-
 const port = 8888;
 const webroot = __dirname + '/public';
 
@@ -22,7 +20,8 @@ app.get('/', (req, res) => {
  */
 
 app.use(express.static(webroot));
-// express.static 있어서 아래 없어도 됨
+
+// express.static() 있어서 없어도 됨
 /* 
 app.get('*', (req, res) => {
   res.sendFile(req.path, { root: webroot })
@@ -39,7 +38,8 @@ app.get('/error500.data', (req, res) => {
 });
 
 app.get('/success.data', (req, res) => {
-  res.end('everything is okay'); // res.status(200).end()와 같음
+  res.set('Content-Type', 'text/html').end('Everything is okay'); 
+  // res.end()는 res.status(200).end()와 같음
 });
 
 app.get('/uncategorized/*.data', (req, res) => {
