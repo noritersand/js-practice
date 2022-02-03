@@ -132,11 +132,6 @@ function run(url) {
       console.log('xhr:', xhr);
       reject(new Error(xhr.responseText));
     }
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4) {
-        
-      }
-    };
     xhr.open('get', url);
     xhr.send();
   });
