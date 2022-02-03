@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>async function</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/lib/js/jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="align-center">
+  <h1>async function</h1>
+  <p></p>
+  <button type="button" onclick="getSome('/success.data?a=1&b=2&c=3')">성공 버튼</button>
+  <button type="button" onclick="getSome('/error500.data?a=1&b=2&c=3')">실패 버튼</button>
+  <p class="description"><strong>result1:</strong><br><br><span id="result1"></span></p>
+  <p class="description"><strong>result2:</strong><br><br><span id="result2"></span></p>
+</div>
+<script>
+// var hello = async () => {
+//   return 'Hello!';
+// };
+// hello().then(console.log); // Hello!
+// 이 코드는 아래와 같음
+// pr().then((msg) => { console.log(msg); });
+    
+// async () => { return 1 };
+// () => Promise.resolve(1);
+
+// const p = new Promise((res, rej) => {
+//   res(1);
+// })
+
+// async function asyncReturn() {
+//   return p;
+// }
+// console.log(p === asyncReturn()); // false
+
+// function basicReturn() {
+//   return Promise.resolve(p);
+// }
+// console.log(p === basicReturn()); // true
+
+const timeout = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+async function waitAsync(ms) {
+  let startTime = new Date();
+  while (true) {
+    let elapsed = new Date().getTime() - startTime.getTime();
+    if (elapsed > ms) {
+      // console.log(`After ${elapsed} milliseconds`);
+      return elapsed
+      break;
+    }
+  }
+}
+
+function waitSync(ms) {
+  let startTime = new Date();
+  while (true) {
+    let elapsed = new Date().getTime() - startTime.getTime();
+    if (elapsed > ms) {
+      // console.log(`After ${elapsed} milliseconds`);
+      resolve(elapsed);
+      break;
+    }
+  }
+}
+
+// var fn = async () => {
+//   console.log('inside begin');
+//   waitSync(2000);
+//   console.log('inside end');
+// }
+// fn();
+// console.log('outside');
+
+var fn2 = async () => {
+  // let a = 0;
+  // setTimeout(() => ++a, 5000);
+  await waitSync(3000);
+  // waitAsync(3000);
+  console.log('done');
+};
+var pr = fn2()
+console.log(pr);
+var pr2 = pr.then(console.log);
+console.log(pr2);
+fn2().then(console.log);
+fn2();
+console.log('hi');
+
+</script>
+</body>
+</html>
