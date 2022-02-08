@@ -14,8 +14,10 @@
   <p></p>
   <button type="button" onclick="getSome('/success.data?a=1&b=2&c=3')">성공 버튼</button>
   <button type="button" onclick="getSome('/error500.data?a=1&b=2&c=3')">실패 버튼</button>
+  <button type="button" onclick="wahappend()">이런 것도 있네</button>
   <p class="description"><strong>result1:</strong><br><br><span id="result1"></span></p>
   <p class="description"><strong>result2:</strong><br><br><span id="result2"></span></p>
+  <p class="description"><strong>result3:</strong><br><br><span id="result3"></span></p>
 </div>
 <script>
 /* 
@@ -136,6 +138,7 @@ function run(url) {
     xhr.send();
   });
 }
+
 function getSome(url) {
   run(url).then((respText) => {
     document.querySelector('#result1').innerHTML = respText;
@@ -143,6 +146,32 @@ function getSome(url) {
     document.querySelector('#result2').innerHTML = respText;
   });
 }
+
+async function fetchJson() {
+  let fetchJsonReturnValue = fetch('/successJson.data', { 
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ 'foo': 'bar' })
+  }).then(async (resp) => {
+    return resp.json();
+  });
+  // debugger;
+  return fetchJsonReturnValue;
+}
+async function wrapUp() {
+  let wrapReturnValue = fetchJson();
+  // debugger;
+  return wrapReturnValue;
+}
+async function wahappend() {
+  let result = await wrapUp();
+  // let result = wrapUp();
+  // debugger;
+  window.result = result;
+  let { message } = result; // responseText = { message: 'Everything is okay' }
+  document.querySelector('#result3').innerHTML = message;
+}
+wahappend(); // call stack: wahappend() -> wrap() -> fetchJson() -> fetch() -> XMLHttpRequest()
 </script>
 </body>
 </html>

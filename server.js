@@ -28,10 +28,17 @@ app.get('*', (req, res) => {
 });
  */
 
+// for parsing application/json
+app.use(express.json());
+// for parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true })) 
+
 app.all('*', (req, res, next) => {
-  utils.printRequestInformation(req);
+  req.method == 'GET' ? utils.printGetRequestInfo(req) : utils.printPostRequestInfo(req);
   next();
 });
+
+// 여기까지 앱 기본 설정
 
 app.get('/error500.data', (req, res) => {
   res.status(500).send('Something broke!');
@@ -40,6 +47,14 @@ app.get('/error500.data', (req, res) => {
 app.get('/success.data', (req, res) => {
   res.set('Content-Type', 'text/html').end('Everything is okay'); 
   // res.end()는 res.status(200).end()와 같음
+});
+
+app.post('/success.data', (req, res) => {
+  res.set('Content-Type', 'text/html').end('Everything is okay'); 
+});
+
+app.post('/successJson.data', (req, res) => {
+  res.set('Content-Type', 'application/json').end(JSON.stringify({ message: 'Everything is okay' })); 
 });
 
 app.get('/uncategorized/*.data', (req, res) => {

@@ -56,7 +56,7 @@ xhr2.onreadystatechange = function() {
 //post method#1
 xhr2.open('post', '/uncategorized/read-body.data?a=1'); // 파폭은 url에 read-payload를 붙이면 ajax 요청이 안날라가는 이슈가 있음.
 xhr2.setRequestHeader('Content-type', 'application/json');
-xhr2.send('b=2&c=3'); // 바디로 읽어야 함
+xhr2.send(JSON.stringify({ b: 2, c: 3 })); // 바디로 읽어야 함
 
 // post method#2
 // let data = new FormData();
