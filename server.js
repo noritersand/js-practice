@@ -54,7 +54,7 @@ app.post('/success.data', (req, res) => {
 });
 
 app.post('/successJson.data', (req, res) => {
-  res.set('Content-Type', 'application/json').end(JSON.stringify({ message: 'Everything is okay' })); 
+  res.set('Content-Type', 'application/json').json({ message: 'Everything is okay' }); 
 });
 
 app.get('/uncategorized/*.data', (req, res) => {
