@@ -9,27 +9,27 @@
 </head>
 <body>
 <div class="align-center">
-	<h1>JavaScript AJAX test</h1>
-	<p>get method response: <span style="color: red" id="result1"></span></p>
-	<p>post method response: <span style="color: red" id="result2"></span></p>
+  <h1>JavaScript AJAX test</h1>
+  <p>get method response: <span style="color: red" id="result1"></span></p>
+  <p>post method response: <span style="color: red" id="result2"></span></p>
 </div>
 <script>
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
-	if (xhr.readyState == 4) {
+  if (xhr.readyState == 4) {
 // 		console.log('status:', xhr.status);
 // 		console.log('statusText:', xhr.statusText);
 // 		console.log('responseText:', xhr.responseText);
-		console.log('xhr:', xhr);
-		
-		let div = document.querySelector('#result1');
-		try {
-			// div.innerHTML = JSON.parse(xhr.responseText).message;
-			div.innerHTML = xhr.responseText;
-		} catch (e) {
-			throw new Error('JSON parse error');
-		}
-	}
+    console.log('xhr:', xhr);
+    
+    let div = document.querySelector('#result1');
+    try {
+      // div.innerHTML = JSON.parse(xhr.responseText).message;
+      div.innerHTML = xhr.responseText;
+    } catch (e) {
+      throw new Error('JSON parse error');
+    }
+  }
 };
 // get method
 xhr.open('get', '/uncategorized/read-querystring.data?a=1&b=2&c=3');
@@ -37,20 +37,20 @@ xhr.send();
 
 var xhr2 = new XMLHttpRequest();
 xhr2.onreadystatechange = function() {
-	if (xhr2.readyState == 4) {
+  if (xhr2.readyState == 4) {
 // 		console.log('status:', xhr2.status);
 // 		console.log('statusText:', xhr2.statusText);
 // 		console.log('responseText:', xhr2.responseText);
-		console.log('xhr2:', xhr2);
-		
-		let div = document.querySelector('#result2');
-		try {
-			// div.innerHTML = JSON.parse(xhr2.responseText).message;
-			div.innerHTML = xhr2.responseText;
-		} catch (e) {
-			throw new Error('JSON parse error');
-		}
-	}
+    console.log('xhr2:', xhr2);
+    
+    let div = document.querySelector('#result2');
+    try {
+      // div.innerHTML = JSON.parse(xhr2.responseText).message;
+      div.innerHTML = xhr2.responseText;
+    } catch (e) {
+      throw new Error('JSON parse error');
+    }
+  }
 };
 
 //post method#1

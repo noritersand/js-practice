@@ -7,15 +7,15 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" href="/css/style.css"/>
 <script>
-	var newWindow;
-	function openNewWindow(){
-		newWindow = window.open("opener-test2.html", "newWindow");		
-	}
-	function receive(){
-		var txt = "<font color='red'>자식창에서 받아온 값</font>";
-		document.getElementById("process").innerHTML = txt;
-		document.myform.receiver.value = newWindow.document.myform.sender.value;		
-	}
+  var newWindow;
+  function openNewWindow(){
+    newWindow = window.open("opener-test2.html", "newWindow");		
+  }
+  function receive(){
+    var txt = "<font color='red'>자식창에서 받아온 값</font>";
+    document.getElementById("process").innerHTML = txt;
+    document.myform.receiver.value = newWindow.document.myform.sender.value;		
+  }
 </script>
 </head>
 <body>

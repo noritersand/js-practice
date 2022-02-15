@@ -9,29 +9,29 @@
 <script src="/lib/js/jquery-1.12.4.js"></script>
 <script>
 function timeoutTest() {
-	$.ajaxSetup({
-		timeout: 5000
-	});
-	
-	$.ajax({
-		url: '/uncategorized/read-querystring.data',
-		method: 'get',
-		success: function(data, textStatus, jqXhr) {
-			console.log('[success method]');
-			console.log('data:', data);
-			console.log('textStatus:', textStatus);
-			console.log('jqXhr:', jqXhr);
-		}, error: function(jqXhr, textStatus, errorThrown) {
-			console.log('[error method]');
-			console.log('jqXhr:', jqXhr);
-			console.log('textStatus:', textStatus);
-			console.log('errorThrown:', errorThrown);
-		}, complete: function(jqXhr, textStatus) {
-			console.log('[complete method]');
-			console.log('jqXhr:', jqXhr);
-			console.log('textStatus:', textStatus);
-		}
-	})
+  $.ajaxSetup({
+    timeout: 5000
+  });
+  
+  $.ajax({
+    url: '/uncategorized/read-querystring.data',
+    method: 'get',
+    success: function(data, textStatus, jqXhr) {
+      console.log('[success method]');
+      console.log('data:', data);
+      console.log('textStatus:', textStatus);
+      console.log('jqXhr:', jqXhr);
+    }, error: function(jqXhr, textStatus, errorThrown) {
+      console.log('[error method]');
+      console.log('jqXhr:', jqXhr);
+      console.log('textStatus:', textStatus);
+      console.log('errorThrown:', errorThrown);
+    }, complete: function(jqXhr, textStatus) {
+      console.log('[complete method]');
+      console.log('jqXhr:', jqXhr);
+      console.log('textStatus:', textStatus);
+    }
+  })
 }
 </script>
 </head>

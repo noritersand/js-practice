@@ -10,11 +10,11 @@
 <script>
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
-	if (xhr.readyState == 4) {
-		console.log('status:', xhr.status);
-		console.log('statusText:', xhr.statusText);
-		console.log('responseText:', xhr.responseText);
-	}
+  if (xhr.readyState == 4) {
+    console.log('status:', xhr.status);
+    console.log('statusText:', xhr.statusText);
+    console.log('responseText:', xhr.responseText);
+  }
 };
 xhr.open('GET', 'https://127.0.0.1:8443/page/http/take-my-cross-origin-attack.data');
 xhr.send();
@@ -22,9 +22,9 @@ xhr.send();
 </head>
 <body>
 <div class="align-center">
-	<h1>JavaScript CORS test</h1>
-	<p>Watch the console.</p>
-	<p>테스트 하려면 SSL 설정 필요함.</p>
+  <h1>JavaScript CORS test</h1>
+  <p>Watch the console.</p>
+  <p>테스트 하려면 SSL 설정 필요함.</p>
 </div>
 </body>
 </html>

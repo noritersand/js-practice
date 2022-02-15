@@ -7,18 +7,18 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" href="/css/style.css"/>
 <script>
-	function receive(){
-		var txt = "<font color='red'>부모창에서 받아온 값</font>";
-		document.getElementById("process").innerHTML = txt;
-				
-		document.myform.receiver.value = window.opener.document.myform.sender.value;	
-	}
-	function send() {
-		var txt = "<font color='blue'>자식창에서 보낸 값</font>"; 
-		window.opener.document.myform.receiver.value = document.myform.sender.value;
-		window.opener.document.getElementById("process").innerHTML = txt; 
-		window.close();
-	}
+  function receive(){
+    var txt = "<font color='red'>부모창에서 받아온 값</font>";
+    document.getElementById("process").innerHTML = txt;
+        
+    document.myform.receiver.value = window.opener.document.myform.sender.value;	
+  }
+  function send() {
+    var txt = "<font color='blue'>자식창에서 보낸 값</font>"; 
+    window.opener.document.myform.receiver.value = document.myform.sender.value;
+    window.opener.document.getElementById("process").innerHTML = txt; 
+    window.close();
+  }
 </script>
 </head>
 <body>

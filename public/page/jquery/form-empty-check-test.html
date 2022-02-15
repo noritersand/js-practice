@@ -9,15 +9,15 @@
 <script src="/lib/js/jquery-1.12.4.js"></script>
 <script>
 function check() {
-	var empty = true;
-	$('#searchForm input, #searchForm select').each(function(idx, ele){
-	    if ($(this).val()) {
-	        empty = false;
-	    }
-	});
-	if (empty) {
-	    alert('검색 조건을 하나라도 입력하쇼');
-	}
+  var empty = true;
+  $('#searchForm input, #searchForm select').each(function(idx, ele){
+      if ($(this).val()) {
+          empty = false;
+      }
+  });
+  if (empty) {
+      alert('검색 조건을 하나라도 입력하쇼');
+  }
 }
 </script>
 </head>
