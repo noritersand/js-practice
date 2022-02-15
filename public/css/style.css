@@ -32,12 +32,13 @@ button {
 }
 /* hr { background-color: rgba(9,45,66,.13); border: 0; height: 1px; margin: 16px 0; padding: 0; width: 100%; box-sizing: content-box; } */
 .description {
-    background-color: rgba(9,45,66,.08);
-    border-radius: 3px;
-    display: block;
-    min-height: 40px;
-    padding: 8px 12px;
-    text-decoration: none;
+  margin-top: 10px;
+  background-color: rgba(9,45,66,.08);
+  border-radius: 3px;
+  display: block;
+  min-height: 40px;
+  padding: 8px 12px;
+  text-decoration: none;
 }
 /* [id^=result] {
 	color: red;

@@ -15,11 +15,37 @@
   <button type="button" onclick="getSome('/success.data?a=1&b=2&c=3')">성공 버튼</button>
   <button type="button" onclick="getSome('/error500.data?a=1&b=2&c=3')">실패 버튼</button>
   <button type="button" onclick="wahappend()">이런 것도 있네</button>
-  <p class="description"><strong>result1:</strong><br><br><span id="result1"></span></p>
-  <p class="description"><strong>result2:</strong><br><br><span id="result2"></span></p>
-  <p class="description"><strong>result3:</strong><br><br><span id="result3"></span></p>
+  <div class="description"><h4>result1</h4><p id="result1"></p></div>
+  <div class="description"><h4>result2</h4><p id="result2"></p></div>
+  <div class="description"><h4>result3</h4><p id="result3"></p></div>
 </div>
 <script>
+function getSome(url) {
+  run(url).then((respText) => {
+    document.querySelector('#result1').innerHTML = respText;
+  }).catch((respText) => {
+    document.querySelector('#result2').innerHTML = respText;
+  });
+}
+function run(url) {
+  return new Promise((resolve, reject) => {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+      console.log('xhr:', xhr);
+      if (xhr.status === 200) {
+        resolve(xhr.responseText);
+      } else {
+        reject(new Error(xhr.responseText));
+      }
+    }
+    xhr.onerror = () => {
+      console.log('xhr:', xhr);
+      reject(new Error(xhr.responseText));
+    }
+    xhr.open('get', url);
+    xhr.send();
+  });
+}
 /* 
 let willBeSuccess = new Promise((resolve, reject) => {
   setTimeout(() => {
@@ -118,34 +144,6 @@ var pr9 = new Promise((resolve, reject) => {
 var pr10 = pr9.finally(() => {
   console.log('엄마랑 아들이 택견을 하면 모자이크');
 });
-
-function run(url) {
-  return new Promise((resolve, reject) => {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-      console.log('xhr:', xhr);
-      if (xhr.status === 200) {
-        resolve(xhr.responseText);
-      } else {
-        reject(new Error(xhr.responseText));
-      }
-    }
-    xhr.onerror = () => {
-      console.log('xhr:', xhr);
-      reject(new Error(xhr.responseText));
-    }
-    xhr.open('get', url);
-    xhr.send();
-  });
-}
-
-function getSome(url) {
-  run(url).then((respText) => {
-    document.querySelector('#result1').innerHTML = respText;
-  }).catch((respText) => {
-    document.querySelector('#result2').innerHTML = respText;
-  });
-}
 
 async function fetchJson() {
   let fetchJsonReturnValue = fetch('/successJson.data', { 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>margin vs padding</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/lib/js/jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="align-center">
+  <h1>margin vs padding</h1>
+  <p>description</p>
+  
+  <h2>Margin</h2>
+  <div style="background-color: rgb(41, 41, 41);">
+    <div style="width: 300px; height: 100px; background-color: rgb(88, 153, 88);
+        margin-bottom: 10px 10px;">
+    </div>
+    <div style="width: 300px; height: 100px; background-color: rgb(159, 170, 63);
+        margin-top: 10px;">
+    </div>
+  </div>
+    
+  <h2>Padding</h2>
+  <div style="background-color: rgb(41, 41, 41);">
+    <div style="width: 300px; height: 100px; background-color: rgb(65, 79, 161);
+        padding-bottom: 10px;">
+    </div>
+    <div style="width: 300px; height: 100px; background-color: rgb(153, 60, 72);
+        padding-top: 10px;">
+    </div>
+  </div>
+    
+  <div class="description">
+    <h4>종합</h4>
+    <p>마진은 외부 여백, 패딩은 내부 여백(들여쓰기 같은)이다.</p>
+    <h4>마진</h4>
+    <p>마진은 요소가 다른 요소가 인접하기까지의 간격을 나타낸다. 마진값이 있다고 해서 요소의 크기가 커지는 것은 아님.</p>
+    <p>간격만 확보되면 되는거라서 만약 다른 요소의 마진값이 같은 방향으로 존재할 땐 서로 겹쳐진다. 그래서 요소 검사를 해보면 두 요소의 전체 높이가 210px이다.</p>
+    <h4>패딩</h4>
+    <p>패딩은 요소 내부 컨텐츠와의 간격이며, 요소의 크기가 패딩값만큼 커지는 효과가 있다.</p>
+    <p>내부간격이므로 마진처럼 다른 요소의 여백과 겹쳐져서 생략되는 일은 없다. 요소 검사를 해보면 마진과 다르게 이쪽은 220px.</p>
+  </div>
+</div>
+</body>
+</html>
