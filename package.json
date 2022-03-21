@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "express": "^4.17.2",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "sha3": "^2.1.4"
   }
 }
