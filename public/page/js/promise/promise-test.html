@@ -146,7 +146,7 @@ var pr10 = pr9.finally(() => {
 });
 
 async function fetchJson() {
-  let fetchJsonReturnValue = fetch('/successJson.data', { 
+  let fetchJsonReturnValue = fetch('/success-json.data', { 
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ 'foo': 'bar' })

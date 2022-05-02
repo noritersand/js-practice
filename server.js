@@ -38,7 +38,7 @@ app.all('*', (req, res, next) => {
   next();
 });
 
-// 여기까지 앱 기본 설정
+// ---------- 여기까지 서버 기본 설정 ----------
 
 app.get('/error500.data', (req, res) => {
   res.status(500).send('Something broke!');
@@ -53,8 +53,16 @@ app.post('/success.data', (req, res) => {
   res.set('Content-Type', 'text/html').end('Everything is okay'); 
 });
 
-app.post('/successJson.data', (req, res) => {
+app.get('/success-json.data', (req, res) => {
   res.set('Content-Type', 'application/json').json({ message: 'Everything is okay' }); 
+});
+
+app.post('/success-json.data', (req, res) => {
+  res.set('Content-Type', 'application/json').json({ message: 'Everything is okay' }); 
+});
+
+app.post('/get-my-request-body.data', (req, res) => {
+  res.json(req.body);
 });
 
 app.get('/uncategorized/*.data', (req, res) => {
