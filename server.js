@@ -65,10 +65,16 @@ app.post('/get-my-request-body.data', (req, res) => {
   res.json(req.body);
 });
 
+// ---------- 이 아래는 리펙토링 필요 ----------
+
 app.get('/uncategorized/*.data', (req, res) => {
   res.json(req.query); // 데이터를 응답할 땐 res.send() 혹은 res.json()
 });
 
 app.post('/uncategorized/*.data', (req, res) => {
   res.json(req.query);
+});
+
+app.post('/*.html', (req, res) => {
+  res.json(req.body);
 });
