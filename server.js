@@ -61,6 +61,14 @@ app.post('/success-json.data', (req, res) => {
   res.set('Content-Type', 'application/json').json({ message: 'Everything is okay' }); 
 });
 
+app.post('/get-my-form-data.data', (req, res) => {
+  /*
+    저 위에 express.urlencoded({ extended: true }) 덕분에 폼 데이터도 body로 받을 수 있음.
+    만약 안되면 Content-Type 헤더가 application/x-www-form-urlencoded인지 확인할 것
+  */
+  res.json(req.body);
+});
+
 app.post('/get-my-request-body.data', (req, res) => {
   res.json(req.body);
 });
