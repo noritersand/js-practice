@@ -1,4 +1,4 @@
-# lab-js
+# js-lab
 
 자바스크립트 테스트용 저장소.
 
@@ -16,7 +16,7 @@ yarn install
 npm exec mocha unit-test/**
 ```
 
-### JS + HTML 테스트:
+### JS + HTML
 
 [express](https://expressjs.com) 사용함.
 
@@ -31,3 +31,5 @@ npx nodemon server.js
 ```
 
 브라우저로 [http://localhost:8888](http://localhost:8888) 열기
+
+끗.
