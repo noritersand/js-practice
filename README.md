@@ -2,21 +2,25 @@
 
 자바스크립트 테스트용 저장소.
 
-### 처음 받으면 모듈 설치
+#### environments
+
+- Node.js
+
+## 처음 받으면 모듈 설치
 
 ```bash
 # npm install
 yarn install
 ```
 
-### JS 유닛 테스트
+## JS 유닛 테스트
 
 ```bash
 # 유닛 테스트
 npm exec mocha unit-test/**
 ```
 
-### JS + HTML
+## JS + HTML
 
 [express](https://expressjs.com) 사용함.
 
