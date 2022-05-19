@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>연습장 #2</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="align-center">
+  <h1>연습장 #2</h1>
+  
+</div>
+<script>
+const {log} = console;
+var exam = {
+  do: (something) => {
+    // 안중복코드
+    return this.getSome(something);
+  },
+  do2(something) {
+    // 안중복코드
+    return this.getSome(something);
+  },
+  getSome: something => {
+    // 중복코드
+    return something;
+  }
+}
+// log(exam.do('a')); // 에러
+log(exam.do2('a'));
+</script>
+</body>
+</html>
