@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title>index</title>
+    <title>JS Lab: INDEX</title>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/image/favicon.png" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -9,169 +9,133 @@
   </head>
   <body>
     <div class="align-center">
-      <h1>LABORATORY: JS testing</h1>
-      <h2>Index</h2>
-      <div id="list">
-      </div>
+      <h1>JS Lab: INDEX</h1>
+      <div id="list"></div>
       <script>
-        /*
-          TODO data 정의하는게 너무 복잡하다. 개선 필요
-        */
         let data = [
-          { type: 'ul', children: [
-            { type: "li", href: "/page/scratch-pad.html", text: "연습장 #1" },
-            { type: "li", href: "/page/scratch-pad2.html", text: "연습장 #2" },
-            { type: "li", href: "/page/test-file-template.html", text: "테스트 파일 템플릿" },
-            // { type: "li", children: [
-            //   { type: "h4", text: "HTTP" },
-            //   { type: "ul", 
-            //     children: [
-            //       { type: "li", href: "/page/http/response-status-code-test.view", text: "HTTP 응답 코드" }
-            //     ]
-            //   }
-            // ]},
-            { type: "li", children: [
-              { type: "h4", text: "Browser" },
-              { type: "ul", children: [
-                { type: "li", href: "/page/browser/new-window-test.html", text: "new window" },
-                { type: "li", href: "/page/browser/popup/new-window-popup-test.html", text: "new window(팝업)" },
-                { type: "li", href: "/page/browser/history/browser-history-test.html", text: "browser history" },
-                { type: "li", href: "/page/browser/history/iframe/iframe-history-test-mother.html", text: "history of iframe" },
-              ]}
-            ]},
-            // { type: "li", children: [
-            //     { type: "h4", text: "Security" },
-            //     { type: "ul", children: [
-            //         { type: "li", href: "/page/security/xss-test.view?param1=", text: "XSS" }
-            //       ]
-            //     }
-            //   ]
-            // },
-            { type: "li", children: [
-                { type: "h4", text: "HTML" },
-                { type: "ul", children: [
-                    { type: "li", href: "/page/html/randering-speed.html", text: "랜더링 속도" },
-                    { type: "li", href: "/page/html/opener/opener-test.html", text: "opener" },
-                    { type: "li", href: "/page/html/opener/opener-test3.html", text: "opener #2" },
-                    { type: "li", href: "/page/html/iframe/iframe-test1.html", text: "iframe" },
-                    { type: "li", href: "/page/html/relative-path/relative-path-test1.html", text: "relative path" },
-                    { type: "li", href: "/page/html/submission-charset/without-content-type-header.html", text: "Content-Type 없을때의 글자 인코딩" },
-                    { type: "li", href: "/page/html/event/input-date-test.html", text: "input-date event" },
-                    { type: "li", href: "/page/html/tag/html5-input-types-test.html", text: "HTML5 Input Types" },
-                    { type: "li", href: "/page/html/tag/fieldset-test.html", text: "<fieldset>" },
-                    { type: "li", href: "/page/html/tag/a-test.html", text: "<a>" },
-                    { type: "li", href: "/page/html/tag/label-test.html", text: "<label>" },
-                    { type: "li", href: "/page/html/tag/video-test.html", text: "<video>" },
-                    { type: "li", href: "/page/html/tag/select-test.html", text: "<select>" },
-                    { type: "li", href: "/page/html/tag/header-test.html", text: "header tags" }
-                  ]
-                },
-              ]
-            },
-            { type: "li", children: [
-              { type: "h4", text: "JavaScript" },
-              { type: "ul", children: [ { 
-                  type: "li", text: "Web APIs", children: [
-                    { type: "ul", children: [
-                        { type: "li", href: "/page/js/webapis/form-validation.html", text: "Client-side form validation" },
-                      ]
-                    },
-                  ] 
-                },
-                { type: "li", text: "modules", children: [
-                  { type: "ul", children: [
-                    { type: "li", href: "/page/js/module/module-test.html", text: "module test" },
-                  ]},
-                ]},
-                { type: "li", text: "Promise", children: [
-                  { type: "ul", children: [
-                    { type: "li", href: "/page/js/promise/promise-test.html", text: "Promise test" },
-                    { type: "li", href: "/page/js/promise/promisify.html", text: "promisify()" },
-                    { type: "li", href: "/page/js/promise/async-function-test.html", text: "async function" },
-                    { type: "li", href: "/page/js/promise/await-test.html", text: "await" },
-                    { type: "li", href: "/page/js/promise/parallel-promise.html", text: "parallel Promise" },
-                  ]}
-                ]},
-                { type: "li", text: "AJAX", children: [
-                  { type: "ul", children: [
-                    { type: "li", href: "/page/js/ajax/xhr-test.html", text: "XMLHttpRequest Test" },
-                    { type: "li", href: "/page/js/ajax/cors-test.html", text: "CORS" },
-                    { type: "li", href: "/page/js/ajax/return-value-with-ajax-test.html", text: "비동기 통신의 반환값은 어떻게 처리될까" },
-                    { type: "li", href: "/page/js/ajax/fetch-test.html", text: "Fetch" },
-                  ]},
-                ]},
-                { type: "li", text: "date", children: [
-                  { type: "ul", children: [
-                    { type: "li", href: "/page/js/date/select-month-test.html", text: "date: select month 셀렉트 박스에서 달 선택" },
-                  ]},
-                ]},
-                { type: "li", text: "event", children: [
-                  { type: "ul", children: [
-                    { type: "li", href: "/page/js/event/keyboard-event-keycode-test.html", text: "KeyboardEvent.keyCode" },
-                  ]}
-                ]},
-                { type: "li", text: "form", children: [
-                  { type: "ul", children: [
-                    { type: "li", href: "/page/js/form/form-to-json-test.html", text: "form: Form element to JSON" },
-                  ]},
-                ]},
-                { type: "li", text: "cookie", children: [
-                  { type: "ul", children: [
-                    { type: "li", href: "/page/js/cookie/cookie-util-test.html", text: "cookie util" },
-                  ]},
-                ]},
-                { type: "li", text: "parameter", children: [
-                  { type: "ul", children: [
-                    { type: "li", href: "/page/js/parameter/parameter-util-test.html", text: "parameter util" },
-                  ]},
-                ]},
-              ]}
-            ]},
-            { 
-              type: "li", 
-              children: [
-                { type: "h4", text: "jQuery" },
-                { 
-                  type: "ul", 
-                  children: [
-                    { type: "li", href: "/page/jquery/scratch-jquery-1-x-x.html", text: "연습장: jQuery 1.x" },
-                    { type: "li", href: "/page/jquery/scratch-jquery-3-x-x.html", text: "연습장: jQuery 3.x" },
-                    { type: "li", href: "/page/jquery/ajax-test.html", text: "ajax" },
-                    { type: "li", href: "/page/jquery/serialize-serialize-array.html", text: ".serialize(), .serializeArray()" },
-                    { type: "li", href: "/page/jquery/ajax-setup-test.html", text: "ajaxSetup" },
-                    { type: "li", href: "/page/jquery/append-input-tag-from-querystring-test.html", text: "querystring to input tag" },
-                    { type: "li", href: "/page/jquery/form-empty-check-test.html", text: "form empty check" },
-                    { type: "li", href: "/page/jquery/set-value-in-attribute-test.html", text: "set value in attribute" },
-                    { type: "li", href: "/page/jquery/cors-test.html", text: "CORS" },
-                    { type: "li", href: "/page/jquery/selector-test.html", text: "selector" },
-                    { type: "li", href: "/page/jquery/form-value-save-and-load-test.html", text: "form value save and load" },
-                  ]
-                }
-              ]
-            }
-          ]}
+          { type: 'h2', text: 'Misc.' },
+          [
+            { link: '/page/scratch-pad.html', text: '연습장 #1' },
+            { link: '/page/scratch-pad2.html', text: '연습장 #2' },
+            { link: '/page/test-file-template.html', text: '테스트 파일 템플릿' },
+          ],
+          { type: 'h2', text: 'JavaScript' },
+          { type: 'h4', text: 'Web APIs' },
+          [
+            { link: '/page/js/webapis/form-validation.html', text: 'Client-side form validation' },
+          ],
+          { type: 'h4', text: 'modules' },
+          [
+            { link: '/page/js/module/module-test.html', text: 'module test' },
+          ],
+          { type: 'h4', text: 'Promise' },
+          [
+            { link: '/page/js/promise/promise-test.html', text: 'Promise test' },
+            { link: '/page/js/promise/promisify.html', text: 'promisify()' },
+            { link: '/page/js/promise/async-function-test.html', text: 'async function' },
+            { link: '/page/js/promise/await-test.html', text: 'await' },
+            { link: '/page/js/promise/parallel-promise.html', text: 'parallel Promise' },
+          ],
+          { type: 'h4', text: 'AJAX' },
+          [
+            { link: '/page/js/ajax/xhr-test.html', text: 'XMLHttpRequest Test' },
+            { link: '/page/js/ajax/cors-test.html', text: 'CORS' },
+            { link: '/page/js/ajax/return-value-with-ajax-test.html', text: '비동기 통신의 반환값은 어떻게 처리될까' },
+            { link: '/page/js/ajax/fetch-test.html', text: 'Fetch' },
+          ],
+          { type: 'h4', text: 'date' },
+          [
+            { link: '/page/js/date/select-month-test.html', text: 'date: select month 셀렉트 박스에서 달 선택' },
+          ],
+          { type: 'h4', text: 'event' },
+          [
+            { link: '/page/js/event/keyboard-event-keycode-test.html', text: 'KeyboardEvent.keyCode' },
+          ],
+          { type: 'h4', text: 'form' },
+          [
+            { link: '/page/js/form/form-to-json-test.html', text: 'form: Form element to JSON' },
+          ],
+          { type: 'h4', text: 'cookie' },
+          [
+            { link: '/page/js/cookie/cookie-util-test.html', text: 'cookie util' },
+          ],
+          { type: 'h4', text: 'parameter' },
+          [
+            { link: '/page/js/parameter/parameter-util-test.html', text: 'parameter util' },
+          ],
+          { type: 'h2', text: 'HTTP' },
+
+          [
+            { link: '/page/http/response-status-code-test.view', text: 'HTTP 응답 코드' },
+          ],
+          { type: 'h2', text: 'Browser' },
+          [
+            { link: '/page/browser/new-window-test.html', text: 'new window' },
+            { link: '/page/browser/popup/new-window-popup-test.html', text: 'new window(팝업)' },
+            { link: '/page/browser/history/browser-history-test.html', text: 'browser history' },
+            { link: '/page/browser/history/iframe/iframe-history-test-mother.html', text: 'history of iframe' },
+          ],
+          { type: 'h2', text: 'Security' },
+          [
+            { link: '/page/security/xss-test.view?param1=', text: 'XSS' },
+          ],
+          { type: 'h2', text: 'HTML' },
+          [
+            { link: '/page/html/randering-speed.html', text: '랜더링 속도' },
+            { link: '/page/html/opener/opener-test.html', text: 'opener' },
+            { link: '/page/html/opener/opener-test3.html', text: 'opener #2' },
+            { link: '/page/html/iframe/iframe-test1.html', text: 'iframe' },
+            { link: '/page/html/relative-path/relative-path-test1.html', text: 'relative path' },
+            { link: '/page/html/submission-charset/without-content-type-header.html', text: 'Content-Type 없을때의 글자 인코딩' },
+            { link: '/page/html/event/input-date-test.html', text: 'input-date event' },
+            { link: '/page/html/tag/html5-input-types-test.html', text: 'HTML5 Input Types' },
+            { link: '/page/html/tag/fieldset-test.html', text: '<fieldset>' },
+            { link: '/page/html/tag/a-test.html', text: '<a>' },
+            { link: '/page/html/tag/label-test.html', text: '<label>' },
+            { link: '/page/html/tag/video-test.html', text: '<video>' },
+            { link: '/page/html/tag/select-test.html', text: '<select>' },
+            { link: '/page/html/tag/header-test.html', text: 'header tags' },
+          ],
+          { type: 'h2', text: 'jQuery' },
+          [
+            { link: '/page/jquery/scratch-jquery-1-x-x.html', text: '연습장: jQuery 1.x' },
+            { link: '/page/jquery/scratch-jquery-3-x-x.html', text: '연습장: jQuery 3.x' },
+            { link: '/page/jquery/ajax-test.html', text: 'ajax' },
+            { link: '/page/jquery/serialize-serialize-array.html', text: '.serialize(), .serializeArray()' },
+            { link: '/page/jquery/ajax-setup-test.html', text: 'ajaxSetup' },
+            { link: '/page/jquery/append-input-tag-from-querystring-test.html', text: 'querystring to input tag' },
+            { link: '/page/jquery/form-empty-check-test.html', text: 'form empty check' },
+            { link: '/page/jquery/set-value-in-attribute-test.html', text: 'set value in attribute' },
+            { link: '/page/jquery/cors-test.html', text: 'CORS' },
+            { link: '/page/jquery/selector-test.html', text: 'selector' },
+            { link: '/page/jquery/form-value-save-and-load-test.html', text: 'form value save and load' },
+          ],
         ];
-        let dropZone = document.querySelector('#list');
+        let $dropZone = document.querySelector('#list');
         data.forEach(ele => {
-          makeListFamily(ele, dropZone);
+          appendSubParent(ele, $dropZone);
         });
-        function makeListFamily(child, parent) {
-          let $ele = document.createElement(child.type);
-          if (child.href && child.text) {
-            let $a = document.createElement('a');
-            $a.href = child.href;
-            $a.innerText = child.text;
-            $ele.appendChild($a);
-          }
-          if (!child.href && child.text) {
+        function appendSubParent(child, $parent) {
+          let $ele = null;
+          if (!(child instanceof Array)) {
+            $ele = document.createElement(child.type);
             $ele.innerText = child.text;
           }
-          if (child.children) {
-            child.children.forEach(child => {
-              makeListFamily(child, $ele);
+          if (child instanceof Array) {
+            $ele = document.createElement('ul');
+            child.forEach(grandChild => {
+              appendChild(grandChild, $ele);
             });
           }
-          parent.appendChild($ele);
+          $parent.appendChild($ele);
+        }
+        function appendChild(child, $parent) {
+          let $li = document.createElement('li');
+          let $a = document.createElement('a');
+          $a.href = child.link;
+          $a.innerText = child.text;
+          $li.appendChild($a);
+          $parent.appendChild($li);
         }
       </script>
     </div>
