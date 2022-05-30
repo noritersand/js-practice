@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>&lt;form&gt; 태그 테스트</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="align-center">
+  <h1>&lt;form&gt; 태그 테스트</h1>
+
+  <h2><kbd>enter</kbd> 입력으로 submit이 발동되는 조건</h2>
+  
+  <div class="result">
+    <h3>#1: form + input[name=q] + button[type=submit]</h3>
+    <form action="">
+      <input type="text" name="q" autofocus tabindex="1" />
+      <button button="submit" tabindex="-1">button[type=submit]</button>
+    </form>
+  </div>
+
+  <div class="result">
+    <h3>#2: form + input + button[type=button]</h3>
+    <form action="">
+      <input type="text" tabindex="2" />
+      <button button="button" tabindex="-1">button[type=button]</button>
+    </form>
+  </div>
+
+  <div class="result">
+    <h3>#3: form + input[name=q] + button[type=button]</h3>
+    <form action="">
+      <input type="text" name="q" tabindex="3" />
+      <button button="button" tabindex="-1">button[type=button]</button>
+    </form>
+  </div>
+
+  <div class="result">
+    <h3>#4: form + input[name=q] + input[type=submit]</h3>
+    <form action="">
+      <input type="text" name="q" tabindex="4" />
+      <input type="submit" value="input[type=submit]" tabindex="-1" />
+    </form>
+  </div>
+
+  <div class="result">
+    <h3>#5: (이건 안됨) no form + input[name=q] + input[type=submit]</h3>
+    <input type="text" name="q" tabindex="5" />
+    <button button="submit" tabindex="-1">button[type=submit]</button>
+  </div>
+  
+  <div class="result">
+    <h3>#6: form without attribute + input[name=q] + input[type=submit]</h3>
+    <form>
+      <input type="text" name="q" tabindex="6" />
+      <input type="submit" value="input[type=submit]" tabindex="-1" />
+    </form>
+  </div>
+
+  <div class="result">
+    <h3>#7: form with method + input[name=q] + input[type=submit]</h3>
+    <form method="get">
+      <input type="text" name="q" tabindex="7" />
+      <input type="submit" value="input[type=submit]" tabindex="-1" />
+    </form>
+  </div>
+
+  <div class="result">
+    <h3>#8: form without attribute + input[name=q]</h3>
+    <form>
+      <input type="text" name="q" tabindex="8" />
+    </form>
+  </div>
+
+  <div class="description">
+    <h4>설명</h4>
+    <p>여기서 안되는건 &lt;form&gt; 태그가 없는 #5번 뿐이다. 즉, &lt;input&gt; 태그를 &lt;form&gt; 태그로 감싸주기만 하면 어떤 조건에서든 submit이 발생함.</p>
+    <p>심지어 버튼이 없어도!</p>
+    <p>당연히 이벤트 핸들러가 있는 경우는 제외다. 아래에 설명함.</p>
+  </div>
+
+  <h2>Prevent submit</h2>
+  
+  <div class="result">
+    <h3>#1: 인라인으로 return false</h3>
+    <form onsubmit="return false">
+      <input type="text" name="q" tabindex="9" />
+    </form>
+  </div>
+
+  <div class="result">
+    <h3>#2: 인라인으로 event.preventDefault</h3>
+    <form onsubmit="event.preventDefault()">
+      <input type="text" name="q" tabindex="10" />
+    </form>
+  </div>
+
+  <div class="result">
+    <h3>#3: submit 핸들러에서 event.preventDefault()</h3>
+    <form onsubmit="fn1(event)">
+      <input type="text" name="q" tabindex="11" />
+      <button type="button" onclick="fn1(event)">fn1()</button>
+      <script>
+        function fn1(event) {
+          event.preventDefault();
+        }
+      </script>
+    </form>
+  </div>
+
+  <div class="result">
+    <h3>#4: submit 핸들러에서 return false</h3>
+    <form onsubmit="return fn2()">
+      <input type="text" name="q" tabindex="12" />
+      <button type="button" onclick="fn2()">fn2()</button>
+      <script>
+        function fn2() {
+          return false;
+        }
+      </script>
+    </form>
+  </div>
+
+  <div class="description">
+    <h4>설명</h4>
+    <p>onsubmit 핸들러에서 false를 반환하거나, event.preventDefault()를 호출하면 막을 수 있음.</p>
+  </div>
+
+</div>
+</body>
+</html>
