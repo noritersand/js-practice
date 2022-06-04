@@ -1,128 +1,146 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>HTML5 Input Types</title>
+<title>Input Types</title>
 <meta charset="utf-8">
 <link rel="icon" type="image/png" href="/image/favicon.png">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" href="/css/style.css"/>
+<script type="module" src="/js/fire-when-ready.js"></script>
 </head>
 <body>
 <div class="align-center">
-  <h1>HTML5 Input Types</h1>
+  <h1>Input Types</h1>
+  <div id="toc"></div>
+  <p><button type="button" onclick="location.href = '/'">INDEX로 돌아가기</button></p>
+  
   <section>
-    <h2>required attribute</h2>
-    <form action="" method="get">
-      <input type="text" name="a" required>
-      <input type="checkbox" name="b" value="1" required>
-      <input type="checkbox" name="b" value="2" required>
-      <input type="radio" name="c" value="1" required>
-      <input type="radio" name="c" value="2" required>
+    <h2>checkbox</h2>
+    <form method="get">
+      <input type="checkbox" id="c1" name="c1">
+      <label for="c1">value가 없음</label>
+      <input type="checkbox" id="c2" name="c2" value="true">
+      <label for="c2">value="true"</label>
+      <input type="checkbox" id="c3" name="c3" value="Y">
+      <label for="c3">value="Y"</label>
       <button type="submit">submit</button>
     </form>
+    <div class="description">
+      <p>체크박스의 value는 생략했을 때 체크된 항목의 값이 'on'으로 기본 설정됨.</p>
+      <p>value가 있건 없건 체크하지 않았으면 form submit 때 아무 값도 전송되지 않음.</p>
+    </div>
   </section>
   <section>
     <h2>email</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="email" name="d">
       <button type="submit">submit</button>
     </form>
+    <div class="description">
+      <p>email 타입은 form 태그에 novalidate 속성이 없는 한 입력값이 이메일 형식인지 자동으로 검사함</p>
+    </div>
   </section>
   <section>
     <h2>number</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="number" name="e">
       <button type="submit">submit</button>
     </form>
+    <div class="description">
+      <p>얘도 숫자인지 자동으로 검사함</p>
+    </div>
   </section>
   <section>
     <h2>url</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="url" name="h">
       <button type="submit">submit</button>
     </form>
+    <div class="description">
+      <p>얘도 자동으로 검사함</p>
+      <p>URL로 판단되는 형식: 프로토콜://도메인</p>
+    </div>
   </section>
-  <p>HTML5 validation이 작동하는 건 여기까지</p>
   <hr>
   <section>
     <h2>range</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="range" name="f">
       <button type="submit">submit</button>
     </form>
   </section>
   <section>
     <h2>search</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="search" name="g">
       <button type="submit">submit</button>
     </form>
   </section>
   <section>
     <h2>tel</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="tel" name="i">
       <button type="submit">submit</button>
     </form>
   </section>
   <section>
     <h2>date</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="date" name="k">
       <button type="submit">submit</button>
     </form>
   </section>
   <section>
     <h2>datetime</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="datetime" name="l">
       <button type="submit">submit</button>
     </form>
   </section>
   <section>
     <h2>datetime-local</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="datetime-local" name="m">
       <button type="submit">submit</button>
     </form>
   </section>
   <section>
     <h2>month</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="month" name="n">
       <button type="submit">submit</button>
     </form>
   </section>
   <section>
     <h2>time</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="time" name="o">
       <button type="submit">submit</button>
     </form>
   </section>
   <section>
     <h2>week</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="week" name="p">
       <button type="submit">submit</button>
     </form>
   </section>
   <section>
     <h2>color</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="color" name="q">
       <button type="submit">submit</button>
     </form>
   </section>
   <section>
     <h2>image</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="image" name="r" >
     </form>
   </section>
   <section>
     <h2>reset</h2>
-    <form action="" method="get">
+    <form method="get">
       <input type="text" name="s"><br>
       <textarea></textarea><br>
       <input type="reset" name="t">
@@ -130,12 +148,14 @@
   </section>
   <section>
     <h2>password</h2>
-    <form action="" method="get">
-      <p>password input은 바로 앞의 text input을 아이디로 간주하는 경향이 있음.</p>
+    <form method="get">
       id: <input type="text" name="u"><br>
       pswd: <input type="password" name="v">
       <button type="submit">submit</button>
     </form>
+    <div class="description">
+      <p>password input은 바로 앞의 text input을 아이디로 간주하는 경향이 있음.</p>
+    </div>
   </section>
 </div>
 </body>
