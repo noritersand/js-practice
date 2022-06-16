@@ -18,6 +18,8 @@ yarn install
 ```bash
 # 유닛 테스트
 npm exec mocha unit-test/**
+# 혹은
+npx mocha unit-test/**
 ```
 
 ## JS + HTML
