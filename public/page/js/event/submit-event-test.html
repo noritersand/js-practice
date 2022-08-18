@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>submit event test</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+<div class="align-center">
+  <h1>submit event test</h1>
+  <h2>HTML 입력란에서 엔터로 submit이 발동되는 조건은?</h2>
+  <section id="first">
+    <p>전제 조건: form 태그는 언제나 있을 것</p>
+    <h4>✅ input 하나만 있는 경우</h4>
+    <form>
+      <input>
+    </form>
+    <h4>❌ input이 둘 이상인 경우</h4>
+    <form>
+      <input>
+      <input>
+    </form>
+    <h4>✅ input이 둘 이상이지만 input[type="submit"]이 있는 경우</h4>
+    <form>
+      <input>
+      <input>
+      <input>
+      <input type="submit">
+    </form>
+    <h4>✅ input이 둘 이상이지만 button[type="submit"]이 있는 경우</h4>
+    <form>
+      <input>
+      <input>
+      <input>
+      <button type="submit">submit</button>
+    </form>
+    <h4>✅ input이 둘 이상이지만 숨겨진 input[type="submit"]이 있는 경우</h4>
+    <form>
+      <input>
+      <input>
+      <input>
+      <input type="submit" style="display:none">
+    </form>
+    <h4>✅ input이 둘 이상이지만 숨겨진 button[type="submit"]이 있는 경우</h4>
+    <form>
+      <input>
+      <input>
+      <input>
+      <button type="submit" style="display:none">submit</button>
+    </form>
+    <h4>⚠️ input은 하나, textarea 하나인 경우</h4>
+    <p>input에서만 엔터로 발동된다.</p>
+    <form>
+      <input>
+      <textarea></textarea>
+    </form>
+    <h4>⚠️ input은 하나, textarea 하나, button[type="button"]이 있는 경우</h4>
+    <p>위와 같음</p>
+    <form>
+      <input>
+      <textarea></textarea>
+      <button type="button">submit</button>
+    </form>
+    <h4>❌ input은 둘, textarea 하나</h4>
+    <form>
+      <input>
+      <input>
+      <textarea></textarea>
+    </form>
+    <div class="description">
+      <h4>결론</h4>
+      <p>form 태그에 input 태그 하나만 있으면 엔터로 submit 이벤트를 발동시킬 수 있다. input이 둘 이상으로 늘어나면 엔터로 발동할 수 없다.</p>
+      <p>단, input 태그가 여러개여도 submit 버튼(input 혹은 button의 submit 타입 태그)이 존재하면 엔터로 submit 이벤트를 발동시킬 수 있다.</p>
+      <p>이때 submit 버튼은 보이지 않는 상태(display:none)여도 상관 없음.</p>
+    </div>
+    <script>
+    document.querySelectorAll('#first form').forEach((ele, idx) => { 
+      ele.addEventListener('submit', (e) => {
+        console.log('submit!', new Date().getTime())
+        e.preventDefault();
+      });
+    });
+    </script>
+  </section>
+</div>
+</body>
+</html>
