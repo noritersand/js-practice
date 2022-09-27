@@ -38,8 +38,8 @@ hr {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: rgba(0, 0, 0, 0.02);
-  border-radius: 3px;
   border: rgba(0, 0, 0, 0.082) 1px solid;
+  border-radius: 3px;
   display: block;
   min-height: 20px;
   padding: 8px 12px;
@@ -48,7 +48,8 @@ hr {
 .description {
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: rgba(9,45,66,.08);
+  background-color: rgba(210, 172, 98, 0.08);
+  border: rgba(0, 0, 0, 0.082) 1px solid;
   border-radius: 3px;
   display: block;
   min-height: 20px;
@@ -67,6 +68,8 @@ code {
 }
 pre {
   font-family: Consolas,Monaco,"Lucida Console",monospace; 
+  padding: 4px;
+  background-color: #EFEFEF;
 }
 .button-wrapper {
   text-align: left;
