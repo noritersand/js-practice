@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Tab Index</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css"/>
+<script type="module" src="/js/fire-when-ready.js"></script>
+</head>
+<body>
+<div class="align-center">
+  <h1>Tab Index</h1>
+  <form id="form1" onsubmit="handleSubmit">
+    <p><input type="radio" tabindex="0" vale="0" name="testme">: tabindex="0"</p>
+    <p><input type="radio" tabindex="1" vale="1" name="testme">: tabindex="1"</p>
+    <p><input type="radio" tabindex="2" vale="2" name="testme">: tabindex="2"</p>
+    <p><input type="radio" tabindex="3" vale="3" name="testme">: tabindex="3"</p>
+    <p><input type="radio" tabindex="4" vale="4" name="testme">: tabindex="4"</p>
+    <button type="submit">submit</button>
+  </form>
+</div>
+<script>
+function handleSubmit(e) {
+  console.log('submit!');
+  e.preventDefault();
+}
+document.querySelector('#form1').addEventListener('submit', handleSubmit);
+</script>
+</body>
+</html>
