@@ -71,9 +71,9 @@
     </form>
     <div class="description">
       <h4>결론</h4>
-      <p>form 태그에 input 태그 하나만 있으면 엔터로 submit 이벤트를 발동시킬 수 있다. input이 둘 이상으로 늘어나면 엔터로 발동할 수 없다.</p>
-      <p>단, input 태그가 여러개여도 submit 버튼(input 혹은 button의 submit 타입 태그)이 존재하면 엔터로 submit 이벤트를 발동시킬 수 있다.</p>
-      <p>이때 submit 버튼은 보이지 않는 상태(display:none)여도 상관 없음.</p>
+      <p>form 태그에 input 태그 하나만 있으면 엔터로 submit 가능.</p>
+      <p>input이 둘 이상이라면 엔터로 submit 할 수 없다. 단, submit 버튼이 있으면 가능.</p>
+      <p>submit 버튼은 보이지 않는 상태(display:none)여도 되고, input 태그든 button 태그든 상관 없음.</p>
     </div>
     <script>
     document.querySelectorAll('#first form').forEach((ele, idx) => { 
