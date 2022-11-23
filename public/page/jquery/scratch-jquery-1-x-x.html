@@ -24,6 +24,19 @@
       <input type="checkbox" id="checkbox3" name="checkbox3" checked data-index="3">test
       <input type="text" id="text3" name="text" data-index="3">
     </div>
+    <hr>
+    <div>
+      <input type="radio" name="additionalInfo" id="vipYn" value="N">
+      <label for="vipYn" class="margin-right-10">VIP</label>
+      <input type="radio" name="additionalInfo" id="careCustYn" value="N">
+      <label for="careCustYn" class="margin-right-10">관심</label>
+      <input type="radio" name="additionalInfo" id="vendorYn" value="Y" checked="">
+      <label for="vendorYn" class="margin-right-10">제휴사</label>
+    </div>
+    <div>
+      <button type="button" onclick="showCheckedRadioValue()">체크 하고 눌러요</button><br>
+      result: <div id="result"></div>
+    </div>
   </form>
 <script>
 // $('form').find('input[type="checkbox"]').change(function() { // 한 단계 걸쳐 검색하는것 외엔 아래줄과 차이 없음
@@ -33,6 +46,10 @@ $('input[type="checkbox"][data-index]').change(function() {
   var $target = $('input[type=text][data-index="' + index +'"]');
   $target.prop('disabled', $this.is(':checked'));
 }).change(); // change(function)으로 핸들러 할당 후 change()로 이벤트 강제 발생시킴
+
+function showCheckedRadioValue() {
+  document.querySelector('#result').innerHTML = $('input[name=additionalInfo]:checked').val();
+}
 </script>
 </div>
 </body>
