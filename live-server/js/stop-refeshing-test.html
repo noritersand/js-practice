@@ -10,6 +10,25 @@
     color: red;
   }
   </style>
+  <script>
+    document.addEventListener('keydown', e => {
+      if (e.key === 'F5') {
+        e.preventDefault();
+        location.href = 'https://example.com';
+      }
+    });
+
+    window.addEventListener('unload', e => {
+      e.preventDefault();
+      location.href = 'https://example.com';
+    });
+
+    window.addEventListener('beforeunload', e => {
+      e.preventDefault();
+      e.returnValue = '';
+      location.href = 'https://example.com';
+    });
+  </script>
 </head>
 <body>
 <input style="width: 100%" type="text" id="qwer" value="[ { brAaeEvtNoSeq: 'G000000003588', brLgcGoodsNoSeq: '18084006122', brLgcAeEvtCdSeq: '21070018', soldoutCount: 3 }, { brAaeEvtNoSeq: 'G000000003591', brLgcGoodsNoSeq: '18084017579', brLgcAeEvtCdSeq: '21070018', soldoutCount: 3 }, { brAaeEvtNoSeq: 'G000000003589', brLgcGoodsNoSeq: '18084014356', brLgcAeEvtCdSeq: '21070018', soldoutCount: 3 }, { brAaeEvtNoSeq: 'G000000003581', brLgcGoodsNoSeq: '18084017579', brLgcAeEvtCdSeq: '21070017', soldoutCount: 1 }, { brAaeEvtNoSeq: 'G000000003579', brLgcGoodsNoSeq: '020714937409', brLgcAeEvtCdSeq: '21070015', soldoutCount: 1 }, { brAaeEvtNoSeq: 'G000000003577', brLgcGoodsNoSeq: '020714937409', brLgcAeEvtCdSeq: '21070006', soldoutCount: 1 }, { brAaeEvtNoSeq: 'G000000003578', brLgcGoodsNoSeq: '020714937409', brLgcAeEvtCdSeq: '21070005', soldoutCount: 1 }, { brAaeEvtNoSeq: 'G000000003576', brLgcGoodsNoSeq: '020714937508', brLgcAeEvtCdSeq: '21070003', soldoutCount: 1 } ]">
