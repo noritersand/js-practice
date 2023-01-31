@@ -35,7 +35,7 @@ hr {
   /* background-color: rgba(9,45,66,.13); border: 0; height: 1px; padding: 0; width: 100%; box-sizing: content-box;  */
 }
 hr.light { 
-  margin: 15px 0; 
+  margin: 20px 0; 
   border: none;
   height: 1px;
   background: rgba(0, 0, 0, 0.1);
