@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Event handle disabled tag</title>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="/image/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/lib/jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="align-center">
+  <h1>Event handle disabled tag</h1>
+  <p></p>
+  <button type="button" disabled id="ipt1" onclick="fn()">눌러봐요</button>
+  <br>
+  <br>
+  <button type="button" disabled id="ipt2">눌러봐요2</button>
+</div>
+<script>
+function fn() {
+  alert('진짜 누르다니!');
+}
+
+$('#ipt2').click(fn);
+</script>
+</body>
+</html>
