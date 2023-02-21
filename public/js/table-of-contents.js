@@ -22,6 +22,6 @@ export function generateToc(dropZone) {
     $ul.appendChild($li);
     $li.innerHTML = `<a href="#${newId}">${$ele.innerText}</a>`;
     $li.style.marginLeft = ($ele.tagName == 'H2') ? 'auto' : '15px';
-    // 사실 마진 넣는건 꼼수고 딴 애덜은 nested ul로 처리했던데 어케한겨 😵‍💫
+    // TODO 마진 넣는건 꼼수고 nested ul로 바꿔야 함 😵‍💫
   });
 }
