@@ -1,5 +1,5 @@
-import { generateTOC } from '/js/table-of-contents.js';
+import { generateToc } from '/js/table-of-contents.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  generateTOC('#toc');
+  generateToc('#toc');
 });

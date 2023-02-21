@@ -1,4 +1,4 @@
-export function generateTOC(dropZone) {
+export function generateToc(dropZone) {
   let $dropZone = document.querySelector(dropZone)
   if (!$dropZone) {
     console.warn('TOC를 생성할 dropZone이 음슴');
