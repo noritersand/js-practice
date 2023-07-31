@@ -24,17 +24,19 @@
           var actualResponse;
 
           function handleFileChange(e) {
-            console.log("files:", e.target.files);
+            let files = e.target.files;
+            console.log("files: ", files);
 
             let file = e.target.files[0];
             if (!file) {
               return;
             }
+            console.log('file.type: ', file.type);
 
             var reader = new FileReader();
             reader.addEventListener("loadend", (e) => {
               actualResponse = e.target.result;
-              console.log("actualResponse:", actualResponse);
+              console.log("actualResponse: ", actualResponse);
             });
             reader.readAsDataURL(file);
           }
