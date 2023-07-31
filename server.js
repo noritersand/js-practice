@@ -1,5 +1,5 @@
 const express = require('express');
-const utils = require('./utils')
+const utils = require('./utils');
 
 // express 도움말: https://expressjs.com/ko/4x/api.html
 const app = express();
@@ -31,7 +31,7 @@ app.get('*', (req, res) => {
 // for parsing application/json
 app.use(express.json());
 // for parsing application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true })) 
+app.use(express.urlencoded({ extended: true }));
 
 app.all('*', (req, res, next) => {
   req.method == 'GET' ? utils.printGetRequestInfo(req) : utils.printPostRequestInfo(req);
@@ -45,20 +45,20 @@ app.get('/error500.data', (req, res) => {
 });
 
 app.get('/success.data', (req, res) => {
-  res.set('Content-Type', 'text/html').end('Everything is okay'); 
+  res.set('Content-Type', 'text/html').end('Everything is okay');
   // res.end()는 res.status(200).end()와 같음
 });
 
 app.post('/success.data', (req, res) => {
-  res.set('Content-Type', 'text/html').end('Everything is okay'); 
+  res.set('Content-Type', 'text/html').end('Everything is okay');
 });
 
 app.get('/success-json.data', (req, res) => {
-  res.set('Content-Type', 'application/json').json({ message: 'Everything is okay' }); 
+  res.set('Content-Type', 'application/json').json({ message: 'Everything is okay' });
 });
 
 app.post('/success-json.data', (req, res) => {
-  res.set('Content-Type', 'application/json').json({ message: 'Everything is okay' }); 
+  res.set('Content-Type', 'application/json').json({ message: 'Everything is okay' });
 });
 
 app.post('/get-my-form-data.data', (req, res) => {
@@ -73,7 +73,7 @@ app.post('/get-my-request-body.data', (req, res) => {
   res.json(req.body);
 });
 
-// ---------- 이 아래는 리펙토링 필요 ----------
+// ---------- 이 아래는 리펙토링 필요(URL 수정 등) ----------
 
 app.get('/uncategorized/*.data', (req, res) => {
   res.json(req.query); // 데이터를 응답할 땐 res.send() 혹은 res.json()
