@@ -17,11 +17,14 @@
   },
   "homepage": "https://github.com/noritersand/lab-js#readme",
   "scripts": {
-    "start": "npm exec nodemon server.js"
+    "start": "npm exec nodemon server.js",
+    "test": "npm exec mocha unit-test/mocha/**",
+    "tap": "npm exec tap --bail unit-test/tap/**"
   },
   "devDependencies": {
     "chai": "^4.3.3",
-    "mocha": "^8.3.1"
+    "mocha": "^10.2.0",
+    "tap": "^16.3.8"
   },
   "dependencies": {
     "express": "^4.17.2",

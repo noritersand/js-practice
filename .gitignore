@@ -1,7 +1,10 @@
 # Build and Release Folders
 node_modules
 package-lock.json
+yarn.lock
 
 # ETC.
 .vscode
-yarn.lock
+
+# from Node packages
+.nyc_output
