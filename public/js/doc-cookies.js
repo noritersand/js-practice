@@ -1,6 +1,6 @@
 /*\
 |*|
-|*|  :: cookies.js ::
+|*|  :: doc-cookies.js ::
 |*|
 |*|  A complete cookies reader/writer framework with full unicode support.
 |*|
@@ -14,7 +14,7 @@
 |*|
 |*|  Syntaxes:
 |*|
-|*|  * docCookies.setItem(name, value[, end[, path[, domain[, secure]]]])
+|*|  * docCookies.setItem(name, value, sameSite[, end[, path[, domain[, secure]]]])
 |*|  * docCookies.getItem(name)
 |*|  * docCookies.removeItem(name[, path[, domain]])
 |*|  * docCookies.hasItem(name)
@@ -31,8 +31,14 @@ var docCookies = {
             + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
   },
   setItem: function(sKey, sValue, sSamesite, vEnd, sPath, sDomain, bSecure) {
-    if (!sSamesite || !/^lax$|^strict$/.test(sSamesite = sSamesite.toLowerCase())) { return false; }
-    if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { return false; }
+    if (!sSamesite || !/^lax$|^strict$|^none$/.test(sSamesite = sSamesite.toLowerCase())) { 
+      console.error('sameSite 값이 없거나 허용 범위가 아닙니다.')
+      return false; 
+    }
+    if (!sKey || /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey)) { 
+      console.error('key 값이 없거나 허용 범위가 아닙니다.')
+      return false; 
+    }
     var sExpires = "";
     if (vEnd) {
       switch (vEnd.constructor) {

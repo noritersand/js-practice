@@ -1,5 +1,7 @@
 const express = require('express');
+
 const utils = require('./utils');
+const multipartHandler = require('./multipart-handler');
 
 // express 도움말: https://expressjs.com/ko/4x/api.html
 const app = express();
@@ -73,6 +75,10 @@ app.post('/get-my-request-body.data', (req, res) => {
   res.json(req.body);
 });
 
+app.post('/upload-file', multipartHandler.upload.single('file'), (req, res) => {
+  res.json(req.file);
+});
+
 // ---------- 이 아래는 리펙토링 필요(URL 수정 등) ----------
 
 app.get('/uncategorized/*.data', (req, res) => {
@@ -81,6 +87,7 @@ app.get('/uncategorized/*.data', (req, res) => {
 
 app.post('/uncategorized/*.data', (req, res) => {
   res.json(req.query);
+
 });
 
 app.post('/*.html', (req, res) => {

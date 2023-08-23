@@ -8,3 +8,6 @@ yarn.lock
 
 # from Node packages
 .nyc_output
+
+# upload directory
+upload
