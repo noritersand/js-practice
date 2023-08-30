@@ -18,7 +18,8 @@
   "homepage": "https://github.com/noritersand/lab-js#readme",
   "scripts": {
     "start": "npm exec nodemon server.js",
-    "test": "npm exec mocha unit-test/mocha/**",
+    "test": "echo use 'npm run mocha' or 'npm run tap' instead",
+    "mocha": "npm exec mocha unit-test/mocha/**",
     "tap": "npm exec tap --bail unit-test/tap/**"
   },
   "devDependencies": {
