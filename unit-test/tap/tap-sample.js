@@ -3,7 +3,9 @@
  * 공식 메뉴얼: https://node-tap.org/docs/api/
  * 
  * Mocha보다 코드가 간결함.
- * TODO 제공되는 API가 너무 많아서 계속 정리 필요함
+ * 하지만 GitHub 즐겨찾기를 비교해보면 Mocha 쪽이 10배나 많다. 😮
+ * 
+ * TODO 제공되는 API가 너무 많아서 계속 정리 필요
  * 
  * @auto
  */

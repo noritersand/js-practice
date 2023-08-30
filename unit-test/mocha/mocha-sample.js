@@ -1,26 +1,62 @@
-// // NextJS 프로젝트를 생성하다보면 만들어지는 코드다.
+const assert = require('assert');
+const { log } = console;
 
-// import { Test, TestingModule } from '@nestjs/testing';
-// import { INestApplication } from '@nestjs/common';
-// import * as request from 'supertest';
-// import { AppModule } from './../src/app.module';
+describe('Mocha test', function() {
+  var foo = 'bar';
 
-// describe('AppController (e2e)', () => {
-//   let app: INestApplication;
+  log('Hello world!');
+  
+  it('should be pass', function() {
+    assert.strictEqual(foo, 'bar'); // 오른쪽이 기대값
+  });
+  // it('should be fail', function() {
+  //   assert.strictEqual(foo, 'E');
+  // });
+  it('should be pass', function() {
+    assert.ok(true);
+    assert.ok(!false);
+  });
 
-//   beforeEach(async () => {
-//     const moduleFixture: TestingModule = await Test.createTestingModule({
-//       imports: [AppModule],
-//     }).compile();
+  // 서브 테스트 슈트 #1
+  describe('test strictEqual()', function() {
+    it('should be pass', function() {
+      assert.strictEqual(true, true);
+      assert.strictEqual(false, false);
+      
+      assert.strictEqual(undefined, undefined);
+      assert.strictEqual(null, null);
 
-//     app = moduleFixture.createNestApplication();
-//     await app.init();
-//   });
+      assert.strictEqual('a', 'a');
+      assert.strictEqual('', '');
+      assert.strictEqual(' ', ' ');
+      
+      assert.strictEqual(1, 1);
+      assert.strictEqual(1.2, 1.2);
+      assert.strictEqual(-3, -3);
+      assert.strictEqual(Infinity, Infinity);
+      assert.strictEqual(-Infinity, -Infinity);
 
-//   it('/ (GET)', () => {
-//     return request(app.getHttpServer())
-//       .get('/')
-//       .expect(200)
-//       .expect('Hello World!');
-//   });
-// });
+      assert.strictEqual(NaN, NaN);
+    });
+  });
+  
+  // 서브 테스트 슈트 #2
+  describe('test notStrictEqual', function() {
+    it('should be pass', function() {
+      assert.notStrictEqual(new Date('2020-12-27'), new Date('2020-12-27'));
+      assert.notStrictEqual(function() {}, function() {});
+      assert.notStrictEqual({}, {});
+      assert.notStrictEqual({a:1}, {a:1});
+      assert.notStrictEqual([], []);
+      assert.notStrictEqual([1, 2, 3], [1, 2, 3]);
+      // 객체와 배열 비교는 strictEqual이 아니라 deepStrictEqual로 한다.
+      assert.deepStrictEqual({}, {});
+      assert.deepStrictEqual({a:1}, {a:1});
+      assert.deepStrictEqual(new Date('2020-12-27'), new Date('2020-12-27'));
+      assert.notDeepStrictEqual(function() {}, function() {}); // 함수는 요딴식으로 비교할 수 음슴
+      assert.deepStrictEqual([], []);
+      assert.deepStrictEqual([1, 2, 3], [1, 2, 3]);
+      assert.deepStrictEqual([4, 5, 6], [4, 5, 6]);
+    });
+  });
+});
