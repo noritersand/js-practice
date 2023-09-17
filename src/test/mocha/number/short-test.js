@@ -4,7 +4,7 @@ const { log } = console;
 // 소스 출처: http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript
 
 function test1(n) {
-// 		return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+  // return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
   return n.toFixed(2).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
 }
 

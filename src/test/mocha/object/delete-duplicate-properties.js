@@ -42,7 +42,7 @@ var target = [{
 }, {
   "proditNo":"IT303", "opt1No":1, "opt1Nm":"색상", "opt1Val":"파랑", "opt2No":2, "opt2Nm":"사이즈", "opt2Val":"미디움", "opt3No":0, "opt4No":0, "opt5No":0
 }];
-var comparand = 	[{
+var comparand = [{
   "proditNo":"IT303", "opt1No":1, "opt1Nm":"색상", "opt1Val":"파랑", "opt2No":2, "opt2Nm":"사이즈", "opt2Val":"미디움", "opt3No":0, "opt4No":0, "opt5No":0
 }, {
   "proditNo":"IT302", "opt1No":1, "opt1Nm":"색상", "opt1Val":"파랑", "opt2No":2, "opt2Nm":"사이즈", "opt2Val":"스몰", "opt3No":0, "opt4No":0, "opt5No":0
