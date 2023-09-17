@@ -1,25 +1,26 @@
 {
-  "name": "lab-js",
+  "name": "js-testbed",
   "version": "1.0.0",
-  "description": "Hi!",
+  "description": "Dis is da Js-Testbed",
   "main": "none",
   "directories": {
-    "test": "test"
+    "test": "src/test",
+    "webRoot": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/noritersand/lab-js.git"
+    "url": "git+https://github.com/noritersand/js-testbed.git"
   },
   "author": "",
   "license": "Unlicense",
   "bugs": {
-    "url": "https://github.com/noritersand/lab-js/issues"
+    "url": "https://github.com/noritersand/js-testbed/issues"
   },
-  "homepage": "https://github.com/noritersand/lab-js#readme",
+  "homepage": "https://github.com/noritersand/js-testbed#readme",
   "scripts": {
     "start": "npm exec nodemon server.js",
-    "test": "npm exec mocha unit-test/mocha/**",
-    "tap": "npm exec tap --bail unit-test/tap/**"
+    "test": "npm exec mocha src/test/mocha/**",
+    "tap": "npm exec tap --bail src/test/tap/**"
   },
   "devDependencies": {
     "chai": "^4.3.3",

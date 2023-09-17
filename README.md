@@ -1,4 +1,4 @@
-# js-lab
+# js-testbad
 
 자바스크립트 테스트용 저장소
 
@@ -24,7 +24,7 @@ npm install
 npm test
 ```
 
-테스트 파일 위치는 `unit-test/mocha/` 아래
+테스트 파일 위치는 `src/test/mocha/` 아래
 
 ### Node-tap
 
@@ -35,7 +35,7 @@ npm test
 npm run tap
 ```
 
-테스트 파일 위치는 `unit-test/tap/` 아래
+테스트 파일 위치는 `src/test/tap/` 아래
 
 
 ## 웹 테스트

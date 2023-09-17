@@ -84,5 +84,7 @@ tap.test('예상치 못한 오류 테스트', (sub) => {
 // - https://node-tap.org/docs/api/#tfailmessage-extra
 
 // tap.pass(), tap.fail()은 PASS 혹은 FAIL 테스트 포인트를 방출(emit)하는 메서드라고 함.
-tap.pass(true);
-tap.fail(false);
+function emit(success) {
+  success && tap.pass() || tap.fail();
+}
+emit(true);
