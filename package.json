@@ -5,7 +5,7 @@
   "main": "none",
   "directories": {
     "test": "src/test",
-    "webRoot": "public"
+    "webRoot": "src/webRoot"
   },
   "repository": {
     "type": "git",

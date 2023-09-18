@@ -6,7 +6,7 @@ const multipartHandler = require('./multipart-handler');
 // express 도움말: https://expressjs.com/ko/4x/api.html
 const app = express();
 const port = 8888;
-const webroot = __dirname + '/public';
+const webroot = __dirname + '/src/webRoot';
 
 // 포트 리스닝
 app.listen(port, () => {

@@ -31,8 +31,8 @@ function removeAllCookie() {
   var keys = Cook.keys();
   for (var i in keys) {
     var ele = keys[i];
-    Cook.removeItem(ele);
-    Cook.removeItem(ele, '/');
+    Cook.removeItem({ key: ele })
+    Cook.removeItem({ key: ele, path: '/'});
   }
   drawCookieList();
   var nameInput = document.querySelector('#cookieName');

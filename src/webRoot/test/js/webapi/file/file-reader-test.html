@@ -76,7 +76,7 @@
 
       <section>
         <h2>readAsDataURL()</h2>
-        <input type="file" onchange="handleFileChange3(event)" />
+        <input type="file" id="dataUrl" onchange="handleFileChange3(event)" />
         <div class="description">
           <p>file input에 첨부된 파일 객체를 FileReader API를 이용해 data URI scheme 형식의 값으로 읽기</p>
         </div>
@@ -148,10 +148,9 @@
             fetch("/upload-file", {
               method: "POST",
               body: formData,
-            })
-              .then((response) => response.text())
-              .then((data) => console.debug(data))
-              .catch((error) => console.error(error));
+            }).then((response) => response.text())
+            .then((data) => console.debug(data))
+            .catch((error) => console.error(error));
           }
         </script>
         <div class="description">
@@ -163,7 +162,7 @@
         </div>
         <script>
           function sendFormData2() {
-            let fileObject = document.querySelector('input[type=file]').files[0];
+            let fileObject = document.querySelector('input[type=file]#dataUrl').files[0];
             if (!actualResponse) {
               console.warn('먼저 파일 첨부를 해주세요.')
               return;
@@ -176,10 +175,9 @@
             fetch("/upload-file", {
               method: "POST",
               body: formData,
-            })
-              .then((response) => response.text())
-              .then((data) => console.debug(data))
-              .catch((error) => console.error(error));
+            }).then((response) => response.text())
+            .then((data) => console.debug(data))
+            .catch((error) => console.error(error));
           }
         </script>
         <div class="description">
