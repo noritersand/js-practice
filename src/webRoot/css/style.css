@@ -23,6 +23,12 @@ pre {
   text-align: left;
   margin: 30px auto;
 }
+hr.light { 
+  margin: 15px 0; 
+  border: none;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
 .result {
   margin-top: 10px;
   margin-bottom: 10px;
