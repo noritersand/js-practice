@@ -1,14 +1,13 @@
-/*!
- * 쿠키 추가/삭제/조회 프로토타입 생성 파일
- *
+/**
+ * @file
+ *  <p>쿠키 추가/삭제/조회 프로토타입 생성 파일</p>
  * @author fixalot
  * @since 2023-08-22
  */
 
 /**
- * Cook <br>
- * (괴혈병 없이 세계 일주를 완수한) 제임스 쿡 아님.
- * 원본 작성자: fusionchess from MDN
+ * <p>Cook 제임스 쿡 선장과 관계 없음.</p>
+ * <p>원본 작성자: fusionchess from MDN</p>
  * 
  * usages:
  * - Cook.setItem({key: 'foo', value: 'bar', sameSite: 'strict'});

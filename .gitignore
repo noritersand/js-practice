@@ -11,3 +11,7 @@ yarn.lock
 
 # upload directory
 upload
+
+# jsdoc default output
+out
+src/live-server/jsdoc-out

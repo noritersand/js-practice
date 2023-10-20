@@ -7,40 +7,27 @@
 - Node.js
 
 
-## 모듈 설치
+## 초기 설정
+
+nodejs 패키지 설치:
 
 ```bash
 npm install
 # yarn install
 ```
 
+## package.json 스크립트
 
-## JS 유닛 테스트
+- start
+- test
+- tap
+- jsdoc
 
-잘 알려진 Node.js 테스트 프레임웍인 Mocha로 유닛 테스트
+### npm start
 
-```bash
-# 유닛 테스트: Mocha
-npm test
-```
+브라우저에 의존하는 테스트 파일을 확인하는 용도.
 
-테스트 파일 위치는 `src/test/mocha/` 아래
-
-### Node-tap
-
-또 다른 테스트 프레임웍인 TAP 추가함. 
-
-```bash
-# 유닛 테스트: TAP
-npm run tap
-```
-
-테스트 파일 위치는 `src/test/tap/` 아래
-
-
-## 웹 테스트
-
-[express](https://expressjs.com) 사용함
+[express](https://expressjs.com) 적용한 웹 서버 기동:
 
 ```bash
 # 서버 시작
@@ -50,6 +37,35 @@ node server.js
 npm exec nodemon server.js
 ```
 
-브라우저로 [http://localhost:8888](http://localhost:8888) 열기
+그리고 브라우저에서 [http://localhost:8888](http://localhost:8888) 열기
+
+### npm test
+
+잘 알려진 테스트 프레임웍 Mocha로 유닛 테스트:
+
+```bash
+npm test
+```
+
+테스트 파일 위치는 `src/test/mocha/` 아래
+
+### npm run tap
+
+또 다른 테스트 프레임웍인 TAP으로 유닛 테스트:
+
+```bash
+# 유닛 테스트: TAP
+npm run tap
+```
+
+이 테스트 파일은 `src/test/tap/` 아래에 있음.
+
+### npm run jsdoc 
+
+JSDoc 문서 만들어보기:
+
+```bash
+npm run jsdoc
+```
 
 끗.
