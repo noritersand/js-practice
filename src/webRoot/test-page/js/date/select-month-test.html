@@ -35,7 +35,7 @@
         var value = $("#when").val();
         $("#when").val(value || new Date().toISOString().substring(0, 10));
 
-        // 셀렉트 박스의 값이 변경되었을 때
+        // 셀렉트박스의 값이 변경되었을 때
         $("#month").change(function () {
           var selected = $("#month").val();
           if (!selected) {
