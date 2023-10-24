@@ -6,13 +6,17 @@ input, select, textarea {
 button { 
   margin: 1px 1px 1px 1px;
 }
+/* 
+// prism.js로 대체함
 code { 
   padding: 4px; white-space: nowrap; background-color: #EFEFEF;
 }
 pre { 
   padding: 20px 10px 20px 10px; background-color: #EFEFEF;
-}
-/* body {
+} */
+/* 
+// 이건 왜 했더라?
+body {
   margin-top: 20px;
   text-align: center;
   background: #ffffff;

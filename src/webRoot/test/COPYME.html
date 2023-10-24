@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>page title here</title>
+<title>INSERT_PAGE_TITE_HERE</title>
 <meta charset="utf-8">
 <link rel="icon" type="image/png" href="/image/favicon.png">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" href="/css/normalize.css" />
 <link rel="stylesheet" href="/css/letters.css" />
 <link rel="stylesheet" href="/css/style.css"/>
-<script src="/lib/jquery/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="/lib/prism/prism.css" />
+<script src="/lib/prism/prism.js"></script>
 </head>
 <body>
 <div class="align-center">
-  <h1>PAGE TITLE HERE</h1>
+  <h1>INSERT_PAGE_TITE_HERE</h1>
   <p>description</p>
   
   <img src="/image/in-a-nuttshell.png" style="width:640px" alt="" >
@@ -39,6 +40,23 @@
     <h4>설명</h4>
     <p>이 곳은 이 파일이 무엇을 테스트 했는지 설명하는 영역이다.</p>
   </div>
+
+  <h2>코드 하이라이팅</h2>
+
+  <h3>인라인 코드</h3>
+  <p>이렇게 <code class="language-js">let hello = 'Hello world!';</code> 작성함</p>
+
+  <h3>코드 블록</h3>
+  <pre><code class="language-js"><!--
+    let btn = document.querySelector('button#btn');
+    
+    btn.addEventListener('click', () => {
+      import('./esm-basic-usages-module1.js').then((module) => {
+        alert(module.message);
+      });
+    });
+  --></code></pre>
+
 
   <div class="button-wrapper">
     <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
