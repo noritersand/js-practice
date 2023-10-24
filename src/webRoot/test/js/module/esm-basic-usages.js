@@ -11,12 +11,6 @@
 // console.log(foot); // cfoot
 // console.log(doratman); // dorat?
 
-// main.js
-// import { Newbie } from './module1.js';
-
-// var noob = new Newbie();
-// noob.levelUp(); // I feel stronger.
-
 // import { str1, bar } from './module1.js';
 
 // console.log(str1);
@@ -44,13 +38,12 @@
 // import { default as hello } from './module1.js';
 // hello(); // Oh hello there!
 
-// import './module2.js';
-// // yourName(); // I'm waldo.
+import { Newbie } from './esm-basic-usages-module1.js';
 
-let btn = document.querySelector('button#btn');
+var noob = new Newbie();
+noob.levelUp(); // I feel stronger.
 
-btn.addEventListener('click', () => {
-  import('./module1.js').then((module) => {
-    alert(module.message); // 경고창 "wassssssssssssup" 표시
-  });
-});
+
+import yourName from './esm-basic-usages-module2.js';
+
+yourName(); // I'm waldo.

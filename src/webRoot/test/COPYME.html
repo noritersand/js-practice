@@ -34,11 +34,17 @@
   <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
   <div class="result">
     <h4>테스트 결과</h4>
-    <p id="result1">이 곳은 특정 테스트의 결과를 기술하는 영역이다.</p>
+    <pre><code class="language-markup"><!--
+      <div class="result"></div>
+    --></code></pre>
+    <p>이 곳은 특정 테스트의 결과를 기술하는 영역이다.</p>
   </div>
   <div class="description">
     <h4>설명</h4>
-    <p>이 곳은 이 파일이 무엇을 테스트 했는지 설명하는 영역이다.</p>
+    <pre><code class="language-markup"><!--
+      <div class="description"></div>
+    --></code></pre>
+    <p>이 곳은 이 파일의 목적 등을 설명할 때 사용하는 영역이다. 단지 테두리가 필요할 때도 사용 가능</p>
   </div>
 
   <h2>코드 하이라이팅</h2>
@@ -57,6 +63,17 @@
     });
   --></code></pre>
 
+  <h2>스타일 테스트</h2>
+
+  <pre><code class="language-markup"><!--
+    <button class="btns" type="button">기본 버튼</button>
+    <button class="btns pointBtn" type="button">녹색 버튼</button>
+    <button class="btns ver-large" type="button">큰 버튼</button>
+  --></code></pre>
+
+  <button class="btns" type="button">기본 버튼</button>
+  <button class="btns pointBtn" type="button">녹색 버튼</button>
+  <button class="btns ver-large" type="button">큰 버튼</button>
 
   <div class="button-wrapper">
     <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>

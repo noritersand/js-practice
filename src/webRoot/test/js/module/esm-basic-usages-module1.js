@@ -1,3 +1,5 @@
+// TODO
+
 // // module1.js
 // export const a = 1, b = '2';
 // export let obj = { a, b };
@@ -9,11 +11,11 @@
 // export { c, d };
 
 // module1.js
-// export class Newbie {
-//   levelUp() {
-//     console.log('I feel stronger.');
-//   }
-// }
+export class Newbie {
+  levelUp() {
+    console.log('I feel stronger.');
+  }
+}
 
 // export const { str1, str2: bar } = { str1: 'abc', str2: 'def'};
 
@@ -42,5 +44,3 @@
 //   console.log('Oh hello there!');
 // }
 // export { fn as default };
-
-export const message = 'wassssssssssssup';

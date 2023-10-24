@@ -33,6 +33,10 @@ hr.light {
   height: 1px;
   background: rgba(0, 0, 0, 0.1);
 }
+.margin-vertical {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .result {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -64,4 +68,30 @@ a.back-button {
 	color: rgb(255, 255, 255);
 	border: 1px solid grey;
 	padding: 6px 10px;
+}
+.btns {
+  display: inline-block;
+  min-width: 100px;
+  height: 36px;
+  line-height: 34px;
+  padding: 0 15px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  text-align: center;
+  color: #000;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 4px;
+}
+.btns.pointBtn {
+  border-color: #4ab74d;
+  background-color: #4ab74d;
+  color: #fff;
+}
+.btns.ver-large {
+  min-width: 130px;
+  height: 40px;
+  line-height: 38px;
+  padding: 0 20px;
 }
