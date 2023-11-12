@@ -84,37 +84,54 @@ a.back-button {
   font-weight: 400;
   border-radius: 4px;
 }
-.btns.pointBtn {
+.btns.effect-push {
+  box-shadow: 1px 1px #999;
+}
+.btns.effect-push:active {
+  box-shadow: 0 0 #666;
+  transform: translateX(1px) translateY(1px);
+}
+.btns.green {
   border-color: #4ab74d;
   background-color: #4ab74d;
   color: #fff;
 }
-.btns.ver-large {
+.btns.blue {
+  border-color: #2771c6;
+  background-color: #2771c6;
+  color: #fff;
+}
+.btns.lightgray {
+  border-color: #c6c6c6;
+  background-color: #efefef;
+  color: #000000;
+}
+.btns.size-large {
   min-width: 130px;
   height: 40px;
   line-height: 38px;
   padding: 0 20px;
 }
-.btns.ver-large.mw100 {
+.btns.size-large.mw100 {
   min-width: 100px;
 }
-.btns.ver-small {
+.btns.size-small {
   min-width: 80px;
-height: 34px;
-line-height: 32px;
+  height: 34px;
+  line-height: 32px;
   border-radius: 2px;
 }
-.btns.ver-mini {
+.btns.size-mini {
   min-width: 66px;
-height: 30px;
-line-height: 28px;
+  height: 30px;
+  line-height: 28px;
   border-radius: 2px;
   font-size: 13px;
 }
-.btns.effect {
-  box-shadow: 1px 1px #999;
-}
-.btns.effect:active {
-  box-shadow: 0 0 #666;
-  transform: translateX(1px) translateY(1px);
+.btns.size-lesser {
+  min-width: 30px;
+  height: 20px;
+  line-height: 15px;
+  border-radius: 2px;
+  font-size: 11px;
 }
