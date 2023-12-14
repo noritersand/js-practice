@@ -128,3 +128,7 @@ a.back-button {
   border-radius: 2px;
   font-size: 11px;
 }
+
+#toc h4, .ref-links h4 {margin-bottom: 0;}
+#toc ul, .ref-links ul {margin-top: 10px;}
+.mrgn-btm {margin-bottom: 30px;}
