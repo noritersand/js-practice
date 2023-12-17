@@ -4,6 +4,8 @@
  * - 코파일럿 제안 선택: tab
  * - 자동 완성 제안 창 보기: ctrl + enter
  * - 자동 완성 제안 창 닫기: ctrl + w
+ * - 코파일럿 빠른 채팅 열기: ctrl + shift + i (원래 이건 크로미엄 요소 검사 단축키인데 무시됨)
+ * - GitHub Copilot View 포커싱: alt + shift + p
  */
 
 /**
@@ -11,15 +13,5 @@
  * @param {number} n 
  */
 function multiplicationTable(n) {
-  for (let i = 1; i <= 9; i++) {
-    console.log(n + " * " + i + " = " + n * i);
-  }
+  
 }
-multiplicationTable(2);
-multiplicationTable(3);
-multiplicationTable(4);
-multiplicationTable(5);
-multiplicationTable(6);
-multiplicationTable(7);
-multiplicationTable(8);
-multiplicationTable(9);
