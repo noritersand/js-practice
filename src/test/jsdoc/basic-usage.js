@@ -25,3 +25,24 @@ function myFunction(myDate, myString, myFlag, myArg) {
 function sumAsync(a, b) {
   return Promise.resolve(a + b);
 }
+
+/**
+ * 푸-바
+ * 
+ * @type {string}
+ */
+const foo = 'bar';
+
+/**
+ * 넘버
+ * 
+ * @type {number}
+ */
+let n = 1;
+
+/**
+ * 부울리언
+ * 
+ * @type {boolean}
+ */
+var b = true;
