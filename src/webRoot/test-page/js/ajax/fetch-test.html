@@ -14,8 +14,8 @@
 <div class="align-center">
   <h1>Fetch</h1>
   <p></p>
-  <button type="button" onclick="fn1()">안눌러도됨</button>
-  <button type="button" onclick="fn2()">안눌러도됨2</button>
+  <button type="button" onclick="fn1()">then() 패턴</button>
+  <button type="button" onclick="fn2()">await 패턴</button>
   <div class="result">
     <h4>first-then</h4><p id="first-then"></p>
   </div>
@@ -24,44 +24,45 @@
   </div>
 </div>
 <script>
+let defaultOptions = {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json; charset=UTF-8',
+  },
+  body: null
+};
 function fn1() {
-  let params = {
-    foo: 'bar',
-    numeric: 1234567890
-  };
-  let init = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: JSON.stringify(params)
-  };
-  fetch('/get-my-request-body.data', init).then(resp => {
-    console.log('first then:', resp);
-    return resp.text();
-  }).then(text => {
-    document.querySelector('#first-then').innerHTML = text;
-  })
+  let options = {
+    ...defaultOptions,
+    body: JSON.stringify({
+      foo: 'bar',
+      numeric: 1234567890
+    })
+  }
+  fetch('/return-my-request-body.data', options).then(resp => {
+    console.log('first then:', resp); // Response { type: "basic", url: "http://localhost:8888/return-my-request-body.data", redirected: false, status: 200, ok: true, statusText: "OK", headers: Headers(7), body: ReadableStream, bodyUsed: false }
+    document.querySelector('#first-then').innerHTML = resp;
+    resp.text().then((text) => {
+      console.log('second then', text); // {"foo":"bar","numeric":1234567890}
+      document.querySelector('#second-then').innerHTML = text;
+    });
+  });
 }
+// fn1();
 
 async function fn2() {
-  let params = {
-    user: 'waldo'
-  };
-  let init = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: JSON.stringify(params)
-  };
-  let response = await fetch('/get-my-request-body.data', init);
+  let options = {
+    ...defaultOptions,
+    body: JSON.stringify({
+      user: 'waldo'
+    })
+  }
+  let response = await fetch('/return-my-request-body.data', options);
+  document.querySelector('#first-then').innerHTML = response;
   let json = await response.json();
   document.querySelector('#second-then').innerHTML = JSON.stringify(json);
 }
-
-fn1();
-fn2();
+// fn2();
 </script>
 </body>
 </html>
