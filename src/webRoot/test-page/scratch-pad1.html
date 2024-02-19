@@ -12,6 +12,21 @@
 <link rel="stylesheet" href="/lib/prism/prism.css" />
 <script src="/lib/prism/prism.js"></script>
 <script type="module" src="/js/fire-when-ready.js"></script>
+<style>
+#btn3 {
+  font-size: 0;
+}
+
+#btn4::before {
+  display: inline-block;
+
+}
+
+#btn4 span {
+  font-size: 0;
+}
+
+</style>
 </head>
 <body>
 <header>
@@ -24,6 +39,24 @@
     <section>
       <p>콘솔창을 열어볼 것</p>
       <div id="note"></div>
+  
+      <section id="first">
+        <input type="text">
+        <br>
+        <input type="text" title="테스트1">
+        <br>
+        <label for="foo1">야호</label><input type="text" id="foo1">
+        <br>
+      </section>
+      
+      <section id="second">
+        <button type="button">버튼1</button>
+        <button type="button" title="버튼2">btn2</button>
+        <br>
+        <button type="button" id="btn3">버튼3</button>
+        <button type="button" id="btn4"><span>버튼4</span>버튼44</button>
+      </section>
+
     </section>
   </article>
 </main>

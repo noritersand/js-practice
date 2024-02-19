@@ -21,7 +21,7 @@
     "start": "nodemon server.js",
     "test": "mocha src/test/mocha/**",
     "tap": "tap --bail src/test/tap/**",
-    "jsdoc": "jsdoc src/test/jsdoc --destination src/live-server/jsdoc-out"
+    "jsdoc": "jsdoc src/test/jsdoc --destination src/live-server/jsdoc-out --configure src/test/jsdoc/jsdoc-config.json"
   },
   "devDependencies": {
     "chai": "^4.3.3",
