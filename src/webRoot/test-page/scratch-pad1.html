@@ -3,6 +3,8 @@
 <head>
 <title>연습장 #1</title>
 <meta charset="utf-8">
+<!-- <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline';" /> -->
+<meta http-equiv="Content-Security-Policy" content="style-src 'self';" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" type="image/png" href="/image/favicon.png">
 <link rel="shortcut icon" href="/favicon.ico">
@@ -12,21 +14,6 @@
 <link rel="stylesheet" href="/lib/prism/prism.css" />
 <script src="/lib/prism/prism.js"></script>
 <script type="module" src="/js/fire-when-ready.js"></script>
-<style>
-#btn3 {
-  font-size: 0;
-}
-
-#btn4::before {
-  display: inline-block;
-
-}
-
-#btn4 span {
-  font-size: 0;
-}
-
-</style>
 </head>
 <body>
 <header>
@@ -45,7 +32,7 @@
         <br>
         <input type="text" title="테스트1">
         <br>
-        <label for="foo1">야호</label><input type="text" id="foo1">
+        <label for="foo1">야호</label><input type="text" id="foo1" style="display: none">
         <br>
       </section>
       
