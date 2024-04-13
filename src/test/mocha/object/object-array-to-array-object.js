@@ -70,7 +70,7 @@ var result4 = objectArrayToArrayObject2(
   'alphabet|addOptNo|ordQty',
   ['a', 'b', 'c', 'd'],
   ['31', '64', '180', 'SE1123'],
-  [2, 3, 10, 9],
+  [2, 3, 10, 9]
 );
 
 describe('test objectArrayToArrayObject2()', () => {
@@ -78,13 +78,13 @@ describe('test objectArrayToArrayObject2()', () => {
     assert.deepStrictEqual(result3, [
       {name: 'a', value: 12},
       {name: 'b', value: 24},
-      {name: 'c', value: 48},
+      {name: 'c', value: 48}
     ]);
     assert.deepStrictEqual(result4, [
       {alphabet: 'a', addOptNo: '31', ordQty: 2},
       {alphabet: 'b', addOptNo: '64', ordQty: 3},
       {alphabet: 'c', addOptNo: '180', ordQty: 10},
-      {alphabet: 'd', addOptNo: 'SE1123', ordQty: 9},
+      {alphabet: 'd', addOptNo: 'SE1123', ordQty: 9}
     ]);
   });
 });
