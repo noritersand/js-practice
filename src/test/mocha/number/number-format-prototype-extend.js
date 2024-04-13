@@ -14,8 +14,8 @@ Number.prototype.format = function (n, x) {
   return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
 };
 
-describe('test format()', function () {
-  it('should be pass', function () {
+describe('test format()', () => {
+  it('should be pass', () => {
     assert.strictEqual((1234).format(), '1,234');
     assert.strictEqual((1234).format(), '1,234');
     assert.strictEqual((12345).format(2), '12,345.00');
@@ -59,8 +59,8 @@ Number.prototype.format2 = function (c, d, t) {
   );
 };
 
-describe('test format2()', function () {
-  it('should be pass', function () {
+describe('test format2()', () => {
+  it('should be pass', () => {
     assert.strictEqual((123456).format2(0), '123,456');
     assert.strictEqual((123456).format2(2), '123,456.00');
     assert.strictEqual((123456.789).format2(4), '123,456.7890');
@@ -84,8 +84,8 @@ Number.prototype.format3 = function (n, x, s, c) {
   return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
 };
 
-describe('test format3()', function () {
-  it('should be pass', function () {
+describe('test format3()', () => {
+  it('should be pass', () => {
     assert.strictEqual((12345678.9).format3(2, 3, '.', ','), '12.345.678,90');
     assert.strictEqual((123456.789).format3(4, 4, ' ', ':'), '12 3456:7890');
     assert.strictEqual((12345678.9).format3(0, 3, '-'), '12-345-679');

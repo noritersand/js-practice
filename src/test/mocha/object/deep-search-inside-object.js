@@ -65,8 +65,8 @@ function findValues(sourceObject, searchName) {
   return stack;
 }
 
-describe('test findValues()', function () {
-  it('should be pass', function () {
+describe('test findValues()', () => {
+  it('should be pass', () => {
     assert.deepStrictEqual(findValues(product, 'nodeId'), [
       '655',
       '65504',
@@ -111,18 +111,18 @@ function findObjects(sourceObject, searchName, searchValue) {
   return stack;
 }
 
-describe('test findObjects()', function () {
-  it('findObjects #1', function () {
+describe('test findObjects()', () => {
+  it('findObjects #1', () => {
     // 마젠타 찾기
     var result = findObjects(product, 'unitName', 'magenta');
     assert.deepStrictEqual(result, [{type: 'unit', nodeId: '6550401', unitName: 'magenta'}]);
   });
-  it('findObjects #2', function () {
+  it('findObjects #2', () => {
     // 흰색 컬러 옵션 찾기
     var result = findObjects(product, 'unitName', 'white');
     assert.deepStrictEqual(result, [{type: 'unit', nodeId: '655060198', unitName: 'white'}]);
   });
-  it('findObjects #3', function () {
+  it('findObjects #3', () => {
     var temp = findObjects(product, 'type', 'unit');
     var result = findObjects(temp, 'unitName', 'black');
     assert.deepStrictEqual(result, [
@@ -179,8 +179,8 @@ function findContainsObject(sourceObject, searchObject) {
   }
 }
 
-describe('test findContainsObject()', function () {
-  it('findContainsObject() #1', function () {
+describe('test findContainsObject()', () => {
+  it('findContainsObject() #1', () => {
     var parent = findContainsObject(product, product.unitList[0].children[1]);
     assert.deepStrictEqual(parent, {
       type: 'unit',
@@ -192,7 +192,7 @@ describe('test findContainsObject()', function () {
       ],
     });
   });
-  it('findContainsObject() #2', function () {
+  it('findContainsObject() #2', () => {
     var parent = findContainsObject(product, product.unitList[1].child.child);
     assert.deepStrictEqual(parent, {
       type: 'unit',

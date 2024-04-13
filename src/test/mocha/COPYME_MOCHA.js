@@ -4,11 +4,11 @@ const {log} = console;
 
 var foo = 'bar';
 
-describe('description', function () {
-  it('exceptions', function () {
+describe('description', () => {
+  it('exceptions', () => {
     assert.ok(!false);
   });
-  it('#1', function () {
+  it('#1', () => {
     assert.strictEqual(foo, 'bar');
   });
 });

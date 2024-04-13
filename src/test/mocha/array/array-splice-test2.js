@@ -12,8 +12,8 @@ for (var ele in arr) {
   // log('- [last] ele:', ele, ', arr[ele]:', arr[ele]);
 }
 
-describe('Array splice test2', function () {
-  it('should be true', function () {
+describe('Array splice test2', () => {
+  it('should be true', () => {
     assert.strictEqual(arr.join(','), 'a,b,d,f,g');
   });
 });

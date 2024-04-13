@@ -13,8 +13,8 @@ const sha3_2 = new SHA3(512); // 인스턴스 새로 만들어야지 위에 있�
 sha3_2.update('encode-me$salt');
 let second = sha3_2.digest('hex');
 
-describe('NPM 패키지 sha3 테스트', function () {
-  it('should be equals', function () {
+describe('NPM 패키지 sha3 테스트', () => {
+  it('should be equals', () => {
     assert.strictEqual(
       first,
       '93acbd67a4d26d4922ea317223667f3f6ec7b40ed4e2a4686619742dcffe5e27a37e918a8a2a3268b14d220fc71795897d8af1ed2faf6ba7b73b5755d405f31e',

@@ -70,20 +70,20 @@ Number.prototype.subFormat = function (len) {
 var now = new Date(1609054958214);
 // log(now.toString());
 
-describe('format() 테스트', function () {
-  it('should be equals#1', function () {
+describe('format() 테스트', () => {
+  it('should be equals#1', () => {
     assert.strictEqual(now.format('yyyy-MM-dd HH:mm:ss'), '2020-12-27 16:42:38');
   });
-  it('should be equals#2', function () {
+  it('should be equals#2', () => {
     assert.strictEqual(now.format('yyMMdd'), '201227');
   });
-  it('should be equals#3', function () {
+  it('should be equals#3', () => {
     assert.strictEqual(now.format('a/p hh시 mm분'), '오후 04시 42분');
   });
-  it('should be equals#4', function () {
+  it('should be equals#4', () => {
     assert.strictEqual(now.format('MM월 dd일 E'), '12월 27일 일요일');
   });
-  it('should be equals#5', function () {
+  it('should be equals#5', () => {
     assert.strictEqual(now.format('HH:mm:ss.sss'), '16:42:38.214');
   });
 });

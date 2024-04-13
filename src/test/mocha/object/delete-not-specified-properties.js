@@ -45,8 +45,8 @@ var deleteMe2 = {
 };
 deleteNotSpecifiedProperties(deleteMe2, ['aaa']);
 
-describe('test deleteNotSpecifiedProperties()', function () {
-  it('should be pass', function () {
+describe('test deleteNotSpecifiedProperties()', () => {
+  it('should be pass', () => {
     assert.deepStrictEqual(deleteMe1, {
       status: 'U',
       usrNo: 10278,

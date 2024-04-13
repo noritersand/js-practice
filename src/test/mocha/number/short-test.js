@@ -8,8 +8,8 @@ function test1(n) {
   return n.toFixed(2).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1,');
 }
 
-describe('test test1()', function () {
-  it('should be pass', function () {
+describe('test test1()', () => {
+  it('should be pass', () => {
     assert.strictEqual(test1(1), '1.00');
     assert.strictEqual(test1(12), '12.00');
     assert.strictEqual(test1(123), '123.00');
@@ -28,8 +28,8 @@ function test2(n) {
   });
 }
 
-describe('test test2()', function () {
-  it('should be pass', function () {
+describe('test test2()', () => {
+  it('should be pass', () => {
     assert.strictEqual(test2(1), '1.00');
     assert.strictEqual(test2(12), '12.00');
     assert.strictEqual(test2(123), '123.00');

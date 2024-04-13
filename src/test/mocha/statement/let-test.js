@@ -25,8 +25,8 @@ for (let j = 0; j < 10; j++) {
 }
 var result4 = typeof j;
 
-describe('let testing', function () {
-  it('should be pass', function () {
+describe('let testing', () => {
+  it('should be pass', () => {
     assert.strictEqual(result1, 'c');
     assert.strictEqual(result2, 'undefined');
     assert.strictEqual(result3, 10); // var로 선언한 i는 for 밖에서도 유효하지만

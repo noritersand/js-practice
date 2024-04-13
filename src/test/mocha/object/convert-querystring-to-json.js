@@ -22,8 +22,8 @@ function convertQuerystringToJSON(txt) {
 var querystring = 'proditNo=IT369&proditNo=IT371&proditNo=IT370';
 var result1 = convertQuerystringToJSON(querystring);
 
-describe('test convertQuerystringToJSON()', function () {
-  it('should be pass', function () {
+describe('test convertQuerystringToJSON()', () => {
+  it('should be pass', () => {
     assert.deepStrictEqual(result1, [
       {proditNo: 'IT369'},
       {proditNo: 'IT371'},

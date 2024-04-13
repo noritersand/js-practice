@@ -39,8 +39,8 @@ for (var i = 0; i < obj.length; i++) {
 printElements('obj:', obj);
 printElements('newObj:', newObj);
 
-describe('Array.splice test3', function () {
-  it('should be true', function () {
+describe('Array.splice test3', () => {
+  it('should be true', () => {
     assert.strictEqual(obj.length, 7); // 3개 splice 했으니 남은건 7개
     assert.strictEqual(newObj.length, 3);
   });

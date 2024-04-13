@@ -105,8 +105,8 @@ var comparand = [
 // target이랑 comparand를 비교해서 opt1Val과 opt2Val이 일치하는 object가 있으면 target에서 삭제하는 함수임.
 removeDuplicatedProperties(target, comparand, 'opt1Val|opt2Val');
 
-describe('test removeDuplicatedProperties()', function () {
-  it('should be pass', function () {
+describe('test removeDuplicatedProperties()', () => {
+  it('should be pass', () => {
     assert.deepStrictEqual(target, [
       {
         proditNo: 'IT300',

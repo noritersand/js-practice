@@ -21,8 +21,8 @@ function objectArrayToArrayObject1(name, arr) {
 var result1 = objectArrayToArrayObject1('a', ['n1', 'n2']);
 var result2 = objectArrayToArrayObject1('numbers', ['65', '64']);
 
-describe('test objectArrayToArrayObject1()', function () {
-  it('should be pass', function () {
+describe('test objectArrayToArrayObject1()', () => {
+  it('should be pass', () => {
     assert.deepStrictEqual(result1, [{a: 'n1'}, {a: 'n2'}]);
     assert.deepStrictEqual(result2, [{numbers: '65'}, {numbers: '64'}]);
   });
@@ -73,8 +73,8 @@ var result4 = objectArrayToArrayObject2(
   [2, 3, 10, 9],
 );
 
-describe('test objectArrayToArrayObject2()', function () {
-  it('should be pass', function () {
+describe('test objectArrayToArrayObject2()', () => {
+  it('should be pass', () => {
     assert.deepStrictEqual(result3, [
       {name: 'a', value: 12},
       {name: 'b', value: 24},

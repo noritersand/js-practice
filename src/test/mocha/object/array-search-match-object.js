@@ -86,8 +86,8 @@ var arr = [
 // arr에서 opt1Val=파랑, opt2Val=스몰인 object를 찾아서 있으면 반환하는 함수
 var result = getMatchElement(arr, 'opt1Val|opt2Val', '파랑|스몰');
 
-describe('test getMatchElement()', function () {
-  it('should be pass', function () {
+describe('test getMatchElement()', () => {
+  it('should be pass', () => {
     assert.deepStrictEqual(result, {
       proditNo: 'IT302',
       opt1No: 1,

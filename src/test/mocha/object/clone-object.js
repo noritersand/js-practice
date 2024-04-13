@@ -48,8 +48,8 @@ let result4 = cloneObject({
   fn: myFn,
 });
 
-describe('test cloneObject()', function () {
-  it('should be pass', function () {
+describe('test cloneObject()', () => {
+  it('should be pass', () => {
     assert.deepStrictEqual(result1, {a: 1, b: 1});
     assert.deepStrictEqual(result2, {a: {e: 5, f: 7}, b: {c: 3, d: 4}});
     assert.deepStrictEqual(result3, {a: 1, b: {c: {d: {e: {f: 'hi'}}}}});

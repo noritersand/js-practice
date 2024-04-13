@@ -26,8 +26,8 @@ for (var i = 0; i < obj.length; i++) {
   }
 }
 
-describe('Array.splice test', function () {
-  it('should be true', function () {
+describe('Array.splice test', () => {
+  it('should be true', () => {
     assert.strictEqual(obj.length, 0);
   });
 });

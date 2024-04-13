@@ -1,25 +1,25 @@
 const assert = require('assert');
 const {log} = console;
 
-describe('Mocha test', function () {
+describe('Mocha test', () => {
   var foo = 'bar';
 
   log('Hello world!');
 
-  it('should be pass', function () {
+  it('should be pass', () => {
     assert.strictEqual(foo, 'bar'); // 오른쪽이 기대값
   });
-  // it('should be fail', function() {
+  // it('should be fail', () => {
   //   assert.strictEqual(foo, 'E');
   // });
-  it('should be pass', function () {
+  it('should be pass', () => {
     assert.ok(true);
     assert.ok(!false);
   });
 
   // 서브 테스트 슈트 #1
-  describe('test strictEqual()', function () {
-    it('should be pass', function () {
+  describe('test strictEqual()', () => {
+    it('should be pass', () => {
       assert.strictEqual(true, true);
       assert.strictEqual(false, false);
 
@@ -41,12 +41,12 @@ describe('Mocha test', function () {
   });
 
   // 서브 테스트 슈트 #2
-  describe('test notStrictEqual', function () {
-    it('should be pass', function () {
+  describe('test notStrictEqual', () => {
+    it('should be pass', () => {
       assert.notStrictEqual(new Date('2020-12-27'), new Date('2020-12-27'));
       assert.notStrictEqual(
-        function () {},
-        function () {},
+        () => {},
+        () => {},
       );
       assert.notStrictEqual({}, {});
       assert.notStrictEqual({a: 1}, {a: 1});
@@ -57,8 +57,8 @@ describe('Mocha test', function () {
       assert.deepStrictEqual({a: 1}, {a: 1});
       assert.deepStrictEqual(new Date('2020-12-27'), new Date('2020-12-27'));
       assert.notDeepStrictEqual(
-        function () {},
-        function () {},
+        () => {},
+        () => {},
       ); // 함수는 요딴식으로 비교할 수 음슴
       assert.deepStrictEqual([], []);
       assert.deepStrictEqual([1, 2, 3], [1, 2, 3]);

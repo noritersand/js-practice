@@ -19,8 +19,8 @@ function calculateByteLength(value) {
   return byteLength;
 }
 
-describe('test calculateByteLength()', function () {
-  it('should be pass', function () {
+describe('test calculateByteLength()', () => {
+  it('should be pass', () => {
     assert.strictEqual(calculateByteLength('abc'), 3);
     assert.strictEqual(calculateByteLength('a한b글c'), 9);
     assert.strictEqual(calculateByteLength('112abc한글이다.'), 19);

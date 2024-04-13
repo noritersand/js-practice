@@ -16,8 +16,8 @@ function fn(mode, abc) {
   return {mode, abc};
 }
 
-describe('arguments test suite', function () {
-  it('should be pass', function () {
+describe('arguments test suite', () => {
+  it('should be pass', () => {
     var o = invokeCallback(fn, 'PRE', 'AA');
     assert.strictEqual(o.mode, 'PRE');
     assert.strictEqual(o.abc, 'AA');
