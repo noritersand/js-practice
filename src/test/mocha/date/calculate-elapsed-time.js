@@ -1,8 +1,8 @@
 const assert = require('assert');
-const { log } = console;
+const {log} = console;
 
-describe('경과 시간 테스트', function() {
-  it('test#1', function() {
+describe('경과 시간 테스트', function () {
+  it('test#1', function () {
     let start = new Date('2016-01-01');
     let end = new Date('2016-01-03');
     let elapsedtime = end - start;
@@ -11,14 +11,14 @@ describe('경과 시간 테스트', function() {
     assert.ok(0 == new Date(elapsedtime).getMonth());
     assert.ok(3 == new Date(elapsedtime).getDate());
   });
-  it('test#2', function() {
+  it('test#2', function () {
     let start = new Date('2016-01-01');
     let end = new Date('2016-02-04');
     let elapsedtime = end - start;
     assert.ok(1 == new Date(elapsedtime).getMonth());
     assert.ok(4 == new Date(elapsedtime).getDate());
   });
-  it('test#3', function() {
+  it('test#3', function () {
     let start = new Date('2016-02-01');
     let end = new Date('2016-02-04');
     let elapsedtime = end - start;

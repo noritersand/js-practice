@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { log } = console;
+const {log} = console;
 
 function printElements(obj) {
   // log('print elements: ');
@@ -9,7 +9,16 @@ function printElements(obj) {
 }
 function getObj() {
   var obj = [
-    {key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}, {key: 'e'}, {key: 'f'}, {key: 'g'}, {key: 'h'}, {key: 'i'}, {key: 'j'}
+    {key: 'a'},
+    {key: 'b'},
+    {key: 'c'},
+    {key: 'd'},
+    {key: 'e'},
+    {key: 'f'},
+    {key: 'g'},
+    {key: 'h'},
+    {key: 'i'},
+    {key: 'j'},
   ]; // 모두 10개
   return obj;
 }
@@ -30,8 +39,8 @@ for (var i = 0; i < obj.length; i++) {
 printElements('obj:', obj);
 printElements('newObj:', newObj);
 
-describe('Array.splice test3', function() {
-  it('should be true', function() {
+describe('Array.splice test3', function () {
+  it('should be true', function () {
     assert.strictEqual(obj.length, 7); // 3개 splice 했으니 남은건 7개
     assert.strictEqual(newObj.length, 3);
   });

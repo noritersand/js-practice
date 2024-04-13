@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { log } = console;
+const {log} = console;
 
 /**
  * target에서 comparand와 일치하는 프로퍼티를 찾아 제거한다.
@@ -15,7 +15,7 @@ const { log } = console;
  */
 function removeDuplicatedProperties(target, comparand, targetKeys, comparandKeys) {
   var targetKeyArr = targetKeys.split('|');
-  var originKeyArr = comparandKeys && comparandKeys.split('|') || targetKeyArr;
+  var originKeyArr = (comparandKeys && comparandKeys.split('|')) || targetKeyArr;
   if (targetKeyArr.length != originKeyArr.length) {
     throw new Error('targetKey와 originKey의 길이가 다릅니다.');
   }
@@ -37,26 +37,89 @@ function removeDuplicatedProperties(target, comparand, targetKeys, comparandKeys
   }
 }
 
-var target = [{
-  "proditNo":"IT300", "opt1No":1, "opt1Nm":"색상", "opt1Val":"빨강", "opt2No":2, "opt2Nm":"사이즈", "opt2Val":"스몰", "opt3No":0, "opt4No":0, "opt5No":0
-}, {
-  "proditNo":"IT303", "opt1No":1, "opt1Nm":"색상", "opt1Val":"파랑", "opt2No":2, "opt2Nm":"사이즈", "opt2Val":"미디움", "opt3No":0, "opt4No":0, "opt5No":0
-}];
-var comparand = [{
-  "proditNo":"IT303", "opt1No":1, "opt1Nm":"색상", "opt1Val":"파랑", "opt2No":2, "opt2Nm":"사이즈", "opt2Val":"미디움", "opt3No":0, "opt4No":0, "opt5No":0
-}, {
-  "proditNo":"IT302", "opt1No":1, "opt1Nm":"색상", "opt1Val":"파랑", "opt2No":2, "opt2Nm":"사이즈", "opt2Val":"스몰", "opt3No":0, "opt4No":0, "opt5No":0
-}, {
-  "proditNo":"IT301", "opt1No":1, "opt1Nm":"색상", "opt1Val":"빨강", "opt2No":2, "opt2Nm":"사이즈", "opt2Val":"미디움", "opt3No":0, "opt4No":0, "opt5No":0
-}];
+var target = [
+  {
+    proditNo: 'IT300',
+    opt1No: 1,
+    opt1Nm: '색상',
+    opt1Val: '빨강',
+    opt2No: 2,
+    opt2Nm: '사이즈',
+    opt2Val: '스몰',
+    opt3No: 0,
+    opt4No: 0,
+    opt5No: 0,
+  },
+  {
+    proditNo: 'IT303',
+    opt1No: 1,
+    opt1Nm: '색상',
+    opt1Val: '파랑',
+    opt2No: 2,
+    opt2Nm: '사이즈',
+    opt2Val: '미디움',
+    opt3No: 0,
+    opt4No: 0,
+    opt5No: 0,
+  },
+];
+var comparand = [
+  {
+    proditNo: 'IT303',
+    opt1No: 1,
+    opt1Nm: '색상',
+    opt1Val: '파랑',
+    opt2No: 2,
+    opt2Nm: '사이즈',
+    opt2Val: '미디움',
+    opt3No: 0,
+    opt4No: 0,
+    opt5No: 0,
+  },
+  {
+    proditNo: 'IT302',
+    opt1No: 1,
+    opt1Nm: '색상',
+    opt1Val: '파랑',
+    opt2No: 2,
+    opt2Nm: '사이즈',
+    opt2Val: '스몰',
+    opt3No: 0,
+    opt4No: 0,
+    opt5No: 0,
+  },
+  {
+    proditNo: 'IT301',
+    opt1No: 1,
+    opt1Nm: '색상',
+    opt1Val: '빨강',
+    opt2No: 2,
+    opt2Nm: '사이즈',
+    opt2Val: '미디움',
+    opt3No: 0,
+    opt4No: 0,
+    opt5No: 0,
+  },
+];
 
 // target이랑 comparand를 비교해서 opt1Val과 opt2Val이 일치하는 object가 있으면 target에서 삭제하는 함수임.
 removeDuplicatedProperties(target, comparand, 'opt1Val|opt2Val');
 
-describe('test removeDuplicatedProperties()', function() {
-  it('should be pass', function() {
+describe('test removeDuplicatedProperties()', function () {
+  it('should be pass', function () {
     assert.deepStrictEqual(target, [
-      { proditNo: 'IT300', opt1No: 1, opt1Nm: '색상', opt1Val: '빨강', opt2No: 2, opt2Nm: '사이즈', opt2Val: '스몰', opt3No: 0, opt4No: 0, opt5No: 0 }
-    ]); 
+      {
+        proditNo: 'IT300',
+        opt1No: 1,
+        opt1Nm: '색상',
+        opt1Val: '빨강',
+        opt2No: 2,
+        opt2Nm: '사이즈',
+        opt2Val: '스몰',
+        opt3No: 0,
+        opt4No: 0,
+        opt5No: 0,
+      },
+    ]);
   });
 });

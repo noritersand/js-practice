@@ -1,5 +1,5 @@
 /**
- * @file 
+ * @file
  *  <p>Node.js 테스트 프레임웍 Node Tap 사용 예시</p>
  *  <p>공식 메뉴얼: https://node-tap.org/docs/api/</p>
  *  <p>Mocha보다 코드가 간결함.</p>
@@ -11,7 +11,7 @@
 
 const tap = require('tap');
 
-// tap.equal(): 일치(===)하는지 판단함. 
+// tap.equal(): 일치(===)하는지 판단함.
 let n = 10 / 2;
 tap.equal(n, 5);
 
@@ -19,24 +19,22 @@ tap.equal(n, 5);
 tap.not(n, 10);
 
 // 일치 연산이므로 타입까지 완전히 같아야 함
-tap.equal(1, 1); 
+tap.equal(1, 1);
 tap.not(1, '1');
 
-
 // tap.same()
-// 
+//
 // - https://node-tap.org/docs/api/asserts/#tsamefound-wanted-message-extra
-// 
+//
 // tap.same()은 동등 연산(==), tap.strictSame()은 일치 연산(===)
-// 
+//
 // -- https://node-tap.org/docs/api/asserts/#tsamefound-wanted-message-extra
 // 둘 다 깊은 비교(deeply)를 한다는 점은 같음
 tap.same(1, '1');
 tap.strictNotSame(1, '1');
 
-
 // Asserts API 들은 셋 혹은 네 개의 파라미터를 받는데, 마지막 두 개는 아래와 같음
-// 
+//
 // tap.ok(obj, message, extra):
 // - message: 테스트 케이스의 이름
 // - extra: object
@@ -49,7 +47,7 @@ tap.strictNotSame(1, '1');
 tap.ok(true, 'name of the test', {
   todo: false,
   skip: false,
-  diagnostic: false
+  diagnostic: false,
 });
 
 tap.notOk(false);
@@ -57,8 +55,8 @@ tap.notOk(false);
 // tap.error({});
 // tap.error(new Error('custom'));
 
-// tap.test(name, options, function): 서브 테스트 생성 메서드. 
-tap.test('예상치 못한 오류 테스트', (sub) => {
+// tap.test(name, options, function): 서브 테스트 생성 메서드.
+tap.test('예상치 못한 오류 테스트', sub => {
   // 예상치 못한 오류를 일으키는 코드
   try {
     // 오류를 일으키는 코드 예시
@@ -72,18 +70,17 @@ tap.test('예상치 못한 오류 테스트', (sub) => {
 
   // tap.end(): 서브 테스트가 끝났음을 알림
   // tap.test()의 콜백함수에선 tap.end()를 반드시 호출해야 함
-  sub.end(); 
+  sub.end();
 });
 
-
-// tap.pass(): 
+// tap.pass():
 // - https://node-tap.org/docs/api/#tpassmessage
 
-// tap.fail(): 
+// tap.fail():
 // - https://node-tap.org/docs/api/#tfailmessage-extra
 
 // tap.pass(), tap.fail()은 PASS 혹은 FAIL 테스트 포인트를 방출(emit)하는 메서드라고 함.
 function emit(success) {
-  success && tap.pass() || tap.fail();
+  (success && tap.pass()) || tap.fail();
 }
 emit(true);

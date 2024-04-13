@@ -1,9 +1,9 @@
 const assert = require('assert');
-const { log } = console;
+const {log} = console;
 
 /**
  * queryString 형태의 txt를 object로 변환해 반환한다.
- * 
+ *
  * @param {string} txt 변환 대상. 반드시 queryString 형태의 문자열이어야 한다.
  * @returns {object[]} txt를 변환한 object
  */
@@ -22,8 +22,12 @@ function convertQuerystringToJSON(txt) {
 var querystring = 'proditNo=IT369&proditNo=IT371&proditNo=IT370';
 var result1 = convertQuerystringToJSON(querystring);
 
-describe('test convertQuerystringToJSON()', function() {
-  it('should be pass', function() {
-    assert.deepStrictEqual(result1, [{ "proditNo" :"IT369" }, { "proditNo": "IT371" }, { "proditNo": "IT370" }]);
+describe('test convertQuerystringToJSON()', function () {
+  it('should be pass', function () {
+    assert.deepStrictEqual(result1, [
+      {proditNo: 'IT369'},
+      {proditNo: 'IT371'},
+      {proditNo: 'IT370'},
+    ]);
   });
 });

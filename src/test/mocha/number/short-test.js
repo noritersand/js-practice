@@ -1,15 +1,15 @@
 const assert = require('assert');
-const { log } = console;
+const {log} = console;
 
 // 소스 출처: http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript
 
 function test1(n) {
   // return n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-  return n.toFixed(2).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
+  return n.toFixed(2).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1,');
 }
 
-describe('test test1()', function() {
-  it('should be pass', function() {
+describe('test test1()', function () {
+  it('should be pass', function () {
     assert.strictEqual(test1(1), '1.00');
     assert.strictEqual(test1(12), '12.00');
     assert.strictEqual(test1(123), '123.00');
@@ -23,13 +23,13 @@ describe('test test1()', function() {
 });
 
 function test2(n) {
-  return n.toFixed(2).replace(/./g, function(c, i, a) {
-      return i && c !== "." && ((a.length - i) % 3 === 0) ?',' + c : c;
+  return n.toFixed(2).replace(/./g, function (c, i, a) {
+    return i && c !== '.' && (a.length - i) % 3 === 0 ? ',' + c : c;
   });
 }
 
-describe('test test2()', function() {
-  it('should be pass', function() {
+describe('test test2()', function () {
+  it('should be pass', function () {
     assert.strictEqual(test2(1), '1.00');
     assert.strictEqual(test2(12), '12.00');
     assert.strictEqual(test2(123), '123.00');
