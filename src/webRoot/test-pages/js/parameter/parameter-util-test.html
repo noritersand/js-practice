@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>parameter util test</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles/normalize.css" />
+  <link rel="stylesheet" href="/styles/letters.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
+  <script src="/lib/jquery/jquery-1.12.4.js"></script>
+  <script>
+    var parameterUtil = {
+      getByName: function (name, url) {
+        if (!url) {
+          url = window.location.href;
+        }
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) {
+          return null;
+        }
+        if (!results[2]) {
+          return '';
+        }
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+    }
+    console.log('parameterUtil.getByName:', '"' + parameterUtil.getByName('q',
+      'https://www.google.com/search?newwindow=1&client=firefox-b-d&ei=gNWhXPP-KISl8QWCtJDYDA&q=javascript+replace&oq=javascript+replace') + '"');
+  </script>
+</head>
+
+<body>
+  <div class="align-center">
+    <h1>parameter util test</h1>
+    <p>Open the console, and type:</p>
+    <p>
+    <pre>parameterUtil.getByName('client', 'https://localhost/?client=firefox');</pre>
+    </p>
+  </div>
+</body>
+
+</html>

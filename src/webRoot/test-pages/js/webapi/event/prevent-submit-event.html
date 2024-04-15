@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>submit 이벤트 차단하기</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles/normalize.css" />
+  <link rel="stylesheet" href="/styles/letters.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
+  <script src="/lib/jquery/jquery-1.12.4.js"></script>
+</head>
+
+<body>
+  <div class="align-center">
+    <h1>submit 이벤트 차단하기</h1>
+
+    <div class="result">
+      <h3>#1: 인라인으로 return false</h3>
+      <form onsubmit="return false">
+        <input type="text" name="q" tabindex="9" />
+      </form>
+    </div>
+
+    <div class="result">
+      <h3>#2: 인라인으로 event.preventDefault</h3>
+      <form onsubmit="event.preventDefault()">
+        <input type="text" name="q" tabindex="10" />
+      </form>
+    </div>
+
+    <div class="result">
+      <h3>#3: submit 핸들러에서 event.preventDefault()</h3>
+      <form onsubmit="fn1(event)">
+        <input type="text" name="q" tabindex="11" />
+        <button type="button" onclick="fn1(event)">fn1()</button>
+        <script>
+          function fn1(event) {
+            event.preventDefault();
+          }
+        </script>
+      </form>
+    </div>
+
+    <div class="result">
+      <h3>#4: submit 핸들러에서 return false</h3>
+      <form onsubmit="return fn2()">
+        <input type="text" name="q" tabindex="12" />
+        <button type="button" onclick="fn2()">fn2()</button>
+        <script>
+          function fn2() {
+            return false;
+          }
+        </script>
+      </form>
+    </div>
+
+    <div class="description">
+      <h4>설명</h4>
+      <p>onsubmit 핸들러에서 false를 반환하거나, event.preventDefault()를 호출하면 막을 수 있음.</p>
+    </div>
+
+  </div>
+</body>
+
+</html>

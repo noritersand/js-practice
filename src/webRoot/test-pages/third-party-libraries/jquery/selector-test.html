@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>jQuery selector test</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles/normalize.css" />
+  <link rel="stylesheet" href="/styles/letters.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
+  <script src="/lib/jquery/jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      // case #1
+      // $('select#case1 [value]:not([value=""])');
+      $('select#case1').find('option[value]').not('option[value=""]').prop('selected', true);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="align-center">
+    <h1>jQuery selector test</h1>
+    <section>
+      <h2>case #1: value가 없는 옵션 선택</h2>
+      <select id="case1">
+        <option selected>value 속성이 없는 옵션</option>
+        <option>value의 값이 nullstring인 옵션</option>
+        <option value="1">스크립트가 날 골랐어</option>
+      </select>
+    </section>
+  </div>
+</body>
+
+</html>

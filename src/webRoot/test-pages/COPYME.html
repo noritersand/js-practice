@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>INSERT_PAGE_TITE_HERE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles/normalize.css" />
+  <link rel="stylesheet" href="/styles/letters.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/lib/prism/prism.css" />
+  <script src="/lib/prism/prism.js"></script>
+  <script type="module" src="/js/fire-when-ready.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav></nav>
+  </header>
+
+  <main class="align-center">
+    <article>
+      <h1>INSERT_PAGE_TITE_HERE</h1>
+
+      <section>
+        <div id="toc" class="mrgn-btm"></div>
+      </section>
+
+      <section>
+        <p>introduce</p>
+        <img src="/images/semantic-html.png" style="width:640px" alt="">
+        <p><a href="https://www.youtube.com/watch?v=T7h8O7dpJIg&t=245s" target="_blank">이미지 출처</a></p>
+      </section>
+
+      <section>
+        <h2>Subtitle</h2>
+        <p>대문자는 h1만 하기로 하자.</p>
+
+        <h3>lower sub title</h3>
+        <p>blah blah blah blah blah blah blah blah blah blah blah blah</p>
+
+        <h4>lowest sub title</h4>
+        <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah blah blah</p>
+      </section>
+
+      <section>
+        <h2>Subtitle2</h2>
+        <p>호이호이 호!</p>
+
+        <h3>lower sub title2</h3>
+        <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+          blah blah blah blah blah blah blah blah</p>
+        <div class="result">
+          <h4>테스트 결과</h4>
+          <pre><code class="language-markup"><!--
+          <div class="result"></div>
+        --></code></pre>
+          <p>이 곳은 특정 테스트의 결과를 기술하는 영역이다.</p>
+        </div>
+        <div class="description">
+          <h4>설명</h4>
+          <pre><code class="language-markup"><!--
+          <div class="description"></div>
+        --></code></pre>
+          <p>이 곳은 이 파일의 목적 등을 설명할 때 사용하는 영역이다. 단지 테두리가 필요할 때도 사용 가능</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>코드 하이라이팅</h2>
+
+        <h3>인라인 코드</h3>
+        <p>이렇게 <code class="language-js">let hello = 'Hello world!';</code> 작성함</p>
+
+        <h3>코드 블록</h3>
+        <pre><code class="language-js"><!--
+        let btn = document.querySelector('button#btn');
+        
+        btn.addEventListener('click', () => {
+          import('./esm-basic-usages-module1.js').then((module) => {
+            alert(module.message);
+          });
+        });
+      --></code></pre>
+      </section>
+
+      <section>
+        <h2>스타일 테스트</h2>
+
+        <pre><code class="language-markup"><!--
+        <button class="btns" type="button">기본 버튼</button>
+        <button class="btns green" type="button">녹색</button>
+        <button class="btns blue" type="button">파랑</button>
+        <button class="btns lightgray" type="button">회색</button>
+        <button class="btns size-large" type="button">큰 버튼 #1</button>
+        <button class="btns size-large mw100" type="button">큰 버튼 #2</button>
+        <button class="btns size-small" type="button">작은 버튼</button>
+        <button class="btns size-mini" type="button">mini</button>
+        <button class="btns effect-push" type="button">누르는 효과</button>
+        <button class="btns effect-push blue size-mini" type="button">mini #2</button>
+        <button class="btns size-lesser lightgray" type="button">lesser</button>
+      --></code></pre>
+
+        <button class="btns" type="button">기본 버튼</button>
+        <button class="btns green" type="button">녹색</button>
+        <button class="btns blue" type="button">파랑</button>
+        <button class="btns lightgray" type="button">회색</button>
+        <button class="btns size-large" type="button">큰 버튼 #1</button>
+        <button class="btns size-large mw100" type="button">큰 버튼 #2</button>
+        <button class="btns size-small" type="button">작은 버튼</button>
+        <button class="btns size-mini" type="button">mini</button>
+        <button class="btns effect-push" type="button">누르는 효과</button>
+        <button class="btns effect-push green size-large" type="button">size-large</button>
+        <button class="btns effect-push blue size-mini" type="button">mini #2</button>
+        <button class="btns effect-push size-lesser lightgray" type="button">lesser</button>
+
+      </section>
+
+    </article>
+    <aside></aside>
+  </main>
+
+  <footer class="align-center">
+    <div class="button-wrapper">
+      <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
+    </div>
+  </footer>
+</body>
+
+</html>
