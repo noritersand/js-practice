@@ -1,10 +1,9 @@
 const expect = require('chai').expect;
-const {log} = console;
 
 var foo = 'bar';
 
 describe('Chai test', () => {
-  log('hello chai!');
+  console.log('hello chai!');
   it('should be pass', () => {
     expect([1, 2]).deep.to.equal([1, 2]);
     expect({a: 1}).deep.to.equal({a: 1});

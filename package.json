@@ -19,15 +19,18 @@
   "homepage": "https://github.com/noritersand/js-testbed#readme",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "mocha src/tests/mocha/**",
-    "tap": "tap --bail src/tests/tap/**",
+    "test": "jest --config=src/tests/jest/jest.config.js --watch",
+    "mocha": "mocha --watch src/tests/mocha/**",
+    "tap": "tap --bail --watch src/tests/tap/**",
     "jsdoc": "jsdoc src/tests/jsdoc --destination src/live-server/jsdoc-out --configure src/tests/jsdoc/jsdoc-config.json"
   },
   "devDependencies": {
     "chai": "^4.3.3",
+    "jest": "^29.7.0",
+    "jsdoc": "^4.0.2",
     "mocha": "^10.2.0",
-    "tap": "^16.3.8",
-    "jsdoc": "^4.0.2"
+    "node-notifier": "^10.0.1",
+    "tap": "^16.3.8"
   },
   "dependencies": {
     "express": "^4.17.2",

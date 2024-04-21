@@ -15,3 +15,6 @@ upload
 # jsdoc default output
 out
 src/live-server/jsdoc-out
+
+# jest coverage
+/src/tests/jest/coverage

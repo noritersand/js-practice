@@ -47,7 +47,7 @@ tap.strictNotSame(1, '1');
 tap.ok(true, 'name of the test', {
   todo: false,
   skip: false,
-  diagnostic: false,
+  diagnostic: false
 });
 
 tap.notOk(false);
