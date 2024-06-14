@@ -1,115 +1,102 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <title>연습장 #1</title>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline';" /> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="style-src 'self';" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/styles/normalize.css" />
+    <link rel="stylesheet" href="/styles/letters.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/lib/prism/prism.css" />
+    <script src="/lib/prism/prism.js"></script>
+    <script type="module" src="/js/fire-when-ready.js"></script>
+  </head>
 
-<head>
-  <title>연습장 #1</title>
-  <meta charset="utf-8">
-  <!-- <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline';" /> -->
-  <!-- <meta http-equiv="Content-Security-Policy" content="style-src 'self';" /> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/styles/normalize.css" />
-  <link rel="stylesheet" href="/styles/letters.css" />
-  <link rel="stylesheet" href="/styles/style.css" />
-  <link rel="stylesheet" href="/lib/prism/prism.css" />
-  <script src="/lib/prism/prism.js"></script>
-  <script type="module" src="/js/fire-when-ready.js"></script>
-</head>
+  <body>
+    <header>
+      <nav></nav>
+    </header>
 
-<body>
-  <header>
-    <nav></nav>
-  </header>
+    <main class="align-center">
+      <article>
+        <h1>연습장 #1</h1>
 
-  <main class="align-center">
-    <article>
-      <h1>연습장 #1</h1>
-
-      <section>
-        <div id="toc" class="mrgn-btm"></div>
-      </section>
-
-      <section>
-        <p>콘솔창을 열어볼 것</p>
-        <div id="note"></div>
-
-        <section id="first">
-          <input type="text">
-          <br>
-          <input type="text" title="테스트1">
-          <br>
-          <label for="foo1">야호</label><input type="text" id="foo1" style="display: none">
-          <br>
+        <section>
+          <div id="toc" class="mrgn-btm"></div>
         </section>
 
-        <section id="second">
-          <button type="button">버튼1</button>
-          <button type="button" title="버튼2">btn2</button>
-          <br>
-          <button type="button" id="btn3">버튼3</button>
-          <button type="button" id="btn4"><span>버튼4</span>버튼44</button>
+        <section>
+          <p>콘솔창을 열어볼 것</p>
+          <div id="note"></div>
+
+          <section id="first">
+            <input type="text" />
+            <br />
+            <input type="text" title="테스트1" />
+            <br />
+            <label for="foo1">야호</label><input type="text" id="foo1" style="display: none" />
+            <br />
+          </section>
+
+          <section id="second">
+            <button type="button">버튼1</button>
+            <button type="button" title="버튼2">btn2</button>
+            <br />
+            <button type="button" id="btn3">버튼3</button>
+            <button type="button" id="btn4"><span>버튼4</span>버튼44</button>
+          </section>
         </section>
+      </article>
+    </main>
 
-      </section>
-    </article>
-  </main>
+    <footer class="align-center">
+      <div class="button-wrapper">
+        <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
+      </div>
+    </footer>
 
-  <footer class="align-center">
-    <div class="button-wrapper">
-      <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
-    </div>
-  </footer>
+    <script>
+      let originalData = [
+        {no: 1, cname: '캠페인A', amount: 100},
+        {no: 3, cname: '캠페인B', amount: 100},
+        {no: 4, cname: '캠페인B', amount: 150},
+        {no: 2, cname: '캠페인B', amount: 50},
+        {no: 2, cname: '캠페인C', amount: 100},
+        {no: 4, cname: '캠페인C', amount: 300},
+        {no: 3, cname: '캠페인C', amount: 200}
+      ];
 
-  <script>
-    const { log } = console;
-    let idx = 0;
-    function print(txt) {
-      ++idx
-      let $p = document.createElement('p');
-      $p.innerText = `${idx}: ${txt}`;
-      document.querySelector('#note').append($p);
-    }
+      // Set 타입으로 뽑아낸 캠페인 이름: 컬럼 헤더로 활용 가능
+      let colHeaderNames = new Set();
+      originalData.forEach(ele => {
+        colHeaderNames.add(ele.cname);
+      });
+      console.debug('colHeaderNames:', colHeaderNames);
 
-    class Restrictor {
-      static onlyNumeric({ value = 0, max = 10, min = 0 }) {
-        value = this.#removeNonNumeric(value);
-        if (value === 0 || value === '-') {
-          return value
+      // 아이비시트에 전달할 데이터 만들기
+      let rows = [];
+      originalData.forEach(ele => {
+        let obj = rows.find(row => {
+          return ele.no === row.no;
+        });
+        if (!obj) {
+          obj = {
+            no: ele.no,
+            [ele.cname]: ele.amount
+          };
+          rows.push(obj);
+        } else {
+          obj[ele.cname] = ele.amount;
         }
-        if (!value) {
-          return null;
-        }
-        if (isFinite(value)) {
-          return this.#cut(parseInt(value), min, max);
-        }
-        return value;
-      }
-
-      static #cut(v, min, max) {
-        return v < min ? min : max < v ? max : v;
-      }
-
-      static #removeNonNumeric(v) {
-        return typeof v === 'string' ? v.replace(/[^0-9\-]/g, '') : v;
-      }
-    }
-
-    Restrictor.onlyNumeric({ value: 0, max: 10, min: -10 }); // 0
-    Restrictor.onlyNumeric({ value: 5, max: 10, min: -10 }); // 5
-    Restrictor.onlyNumeric({ value: -5, max: 10, min: -10 }); // -5
-    Restrictor.onlyNumeric({ value: 25, max: 10, min: -10 }); // 10
-    Restrictor.onlyNumeric({ value: -25, max: 10, min: -10 }); // -10
-    Restrictor.onlyNumeric({ value: '-', max: 10, min: -10 }); // -
-    Restrictor.onlyNumeric({ value: ' - ', max: 10, min: -10 }); // -
-    Restrictor.onlyNumeric({ value: '99', max: 10, min: -10 }); // 10
-    Restrictor.onlyNumeric({ value: ' 999 ', max: 10, min: -10 }); // 10
-    Restrictor.onlyNumeric({ value: ' ', max: 10, min: -10 }); // null
-    Restrictor.onlyNumeric({ value: '   ', max: 10, min: -10 }); // null
-    Restrictor.onlyNumeric({ value: '-9', max: 10, min: -10 }); // -9
-    Restrictor.onlyNumeric({ value: 'qwer', max: 10, min: -10 }); // null
-
-  </script>
-</body>
-
+      });
+      rows.sort((a, b) => {
+        return a.no < b.no;
+      })
+      console.dir('rows:', rows);
+    </script>
+  </body>
 </html>
