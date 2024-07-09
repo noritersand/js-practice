@@ -6,7 +6,6 @@
 
 - Node.js
 
-
 ## 초기 설정
 
 ```bash
@@ -28,13 +27,23 @@ HTML로 만든 테스트 파일 확인하려면 실행:
 npm start
 ```
 
-### 유닛 테스트: Mocha
+### 유닛 테스트: jest
+
+jest 프레임워크 감시 모드 실행하기:
 
 ```bash
 npm test
 ```
 
-테스트 파일 위치는 `src/test/mocha/` 아래에 있슴.
+테스트 파일 위치는 `src/tests/jest/` 아래에 있슴.
+
+### 유닛 테스트: Mocha
+
+```bash
+npm run mocha
+```
+
+테스트 파일 위치는 `src/tests/mocha/` 아래.
 
 ### 유닛 테스트: TAP
 
@@ -42,7 +51,7 @@ npm test
 npm run tap
 ```
 
-테스트 파일 위치는 `src/test/tap/` 아래.
+테스트 파일 위치는 `src/tests/tap/` 아래.
 
 ### JSDoc
 
@@ -51,5 +60,7 @@ JSDoc 문서 만들어보기:
 ```bash
 npm run jsdoc
 ```
+
+테스트 파일 위치는 `src/tests/jsdoc/` 아래
 
 끗.
