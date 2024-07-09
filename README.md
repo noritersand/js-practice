@@ -27,9 +27,9 @@ HTML로 만든 테스트 파일 확인하려면 실행:
 npm start
 ```
 
-### 유닛 테스트: jest
+### jest 유닛 테스트
 
-jest 프레임워크 감시 모드 실행하기:
+감시 모드로 실행하도록 작성해놨음:
 
 ```bash
 npm test
@@ -37,7 +37,7 @@ npm test
 
 테스트 파일 위치는 `src/tests/jest/` 아래에 있슴.
 
-### 유닛 테스트: Mocha
+### Mocha 유닛 테스트
 
 ```bash
 npm run mocha
@@ -45,7 +45,7 @@ npm run mocha
 
 테스트 파일 위치는 `src/tests/mocha/` 아래.
 
-### 유닛 테스트: TAP
+### TAP 유닛 테스트
 
 ```bash
 npm run tap
