@@ -4,8 +4,8 @@
   "description": "Dis is da Js-Testbed",
   "main": "none",
   "directories": {
-    "test": "src/tests",
-    "webRoot": "src/webRoot"
+    "test": "tests",
+    "webRoot": "src/webroot"
   },
   "repository": {
     "type": "git",
@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/noritersand/js-testbed#readme",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "jest --config=src/tests/jest/jest.config.js --watch",
-    "mocha": "mocha --watch src/tests/mocha/**",
-    "tap": "tap --bail --watch src/tests/tap/**",
-    "jsdoc": "jsdoc src/tests/jsdoc --destination src/live-server/jsdoc-out --configure src/tests/jsdoc/jsdoc-config.json"
+    "start": "nodemon src/server.js",
+    "test": "jest --config=tests/jest/jest.config.js --watch",
+    "mocha": "mocha --watch tests/mocha/**",
+    "tap": "tap --bail --watch tests/tap/**",
+    "jsdoc": "jsdoc src/jsdoc --destination jsdoc-out --configure src/jsdoc/jsdoc-config.json"
   },
   "devDependencies": {
     "chai": "^4.3.3",

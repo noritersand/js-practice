@@ -1,42 +1,29 @@
 const express = require('express');
-
+const path = require('path');
 const utils = require('./utils');
 const multipartHandler = require('./multipart-handler');
 
 // express 도움말: https://expressjs.com/ko/4x/api.html
 const app = express();
 const port = 8888;
-const webroot = __dirname + '/src/webRoot';
+const webroot = path.join(__dirname, 'webroot');
 
 // 포트 리스닝
 app.listen(port, () => {
   console.log('Server is listening at http://localhost:' + `${port}`);
 });
 
-// 무쓸모
-/* 
-app.get('/', (req, res) => {
-  // console.debug('Requesting index page');
-  res.redirect('/index.html')
-});
- */
-
+// 정적 파일 서빙
 app.use(express.static(webroot));
-
-// express.static() 있어서 없어도 됨
-/* 
-app.get('*', (req, res) => {
-  res.sendFile(req.path, { root: webroot })
-});
- */
 
 // for parsing application/json
 app.use(express.json());
 // for parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+// 모든 요청에 대해 로깅
 app.all('*', (req, res, next) => {
-  req.method == 'GET' ? utils.printGetRequestInfo(req) : utils.printPostRequestInfo(req);
+  // req.method === 'GET' ? utils.printGetRequestInfo(req) : utils.printPostRequestInfo(req);
   next();
 });
 
