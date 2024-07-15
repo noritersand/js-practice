@@ -19,7 +19,7 @@
   "homepage": "https://github.com/noritersand/js-testbed#readme",
   "scripts": {
     "start": "nodemon src/server.js",
-    "test": "jest --config=tests/jest/jest.config.js --watch",
+    "test": "jest --config=tests/jest/jest.config.js --watchAll",
     "mocha": "mocha --watch tests/mocha/**",
     "tap": "tap --bail --watch tests/tap/**",
     "jsdoc": "jsdoc src/jsdoc --destination jsdoc-out --configure src/jsdoc/jsdoc-config.json"

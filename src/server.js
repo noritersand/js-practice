@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // 모든 요청에 대해 로깅
 app.all('*', (req, res, next) => {
-  // req.method === 'GET' ? utils.printGetRequestInfo(req) : utils.printPostRequestInfo(req);
+  req.method === 'GET' ? utils.printGetRequestInfo(req) : utils.printPostRequestInfo(req);
   next();
 });
 
