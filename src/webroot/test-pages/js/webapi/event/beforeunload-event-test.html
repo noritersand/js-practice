@@ -9,42 +9,55 @@
   <link rel="stylesheet" href="/styles/normalize.css" />
   <link rel="stylesheet" href="/styles/letters.css" />
   <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/lib/prism/prism.css" />
+  <script src="/lib/prism/prism.js"></script>
   <script>
     function beforeunloadHandler(event) {
       event.preventDefault();
       event.returnValue = '';
     }
+
     function attach() {
       window.addEventListener('beforeunload', beforeunloadHandler);
     }
+
     function detach() {
       window.removeEventListener('beforeunload', beforeunloadHandler);
     }
+
     attach();
   </script>
 </head>
 
 <body>
-  <div class="align-center">
-    <h1>beforeunload event test</h1>
-    <p>창의 새로고침이나 닫기, 페이지 이동을 가로막을 수 있는지 테스트</p>
-    <br>
-    <section>
-      <button type="button" onclick="attach()">리스너 부착</button>&nbsp;
-      <button type="button" onclick="detach()">리스너 탈착</button><br><br>
+<main class="align-center">
+  <h1>beforeunload event test</h1>
+  <p>창의 새로고침이나 닫기, 페이지 이동을 가로막을 수 있는지 테스트</p>
+  <br>
+  <div class="code-result">
+    <div>
+      <button type="button" class="buttons" onclick="attach()">리스너 부착</button>&nbsp;
+      <button type="button" class="buttons" onclick="detach()">리스너 탈착</button>
+      <br><br>
       <input type="text" name="123" autofocus placeholder="여기에 아무 값이나 입력해야 컨펌 창 나타남"
-        style="width: 450px">
-    </section>
-    <section>
+             style="width: 450px">
+    </div>
+    <div>
       <div id="resultText" style="color: red;"></div>
-    </section>
-    <div class="result">
-      <pre>window.addEventListener('beforeunload', (event) => {
-  event.preventDefault();
-  event.returnValue = '';
-});</pre>
     </div>
   </div>
+  <pre><code class="language-js"><!--
+  window.addEventListener('beforeunload', (event) => {
+    event.preventDefault();
+    event.returnValue = '';
+  });
+  --></code></pre>
+</main>
+<footer class="align-center">
+  <div class="button-wrapper">
+    <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
+  </div>
+</footer>
 </body>
 
 </html>

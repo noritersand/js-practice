@@ -37,7 +37,7 @@
         <label for="c3">value="Y"</label>
         <button type="submit">submit</button>
       </form>
-      <div class="description">
+      <div class="important">
         <p>체크박스의 value는 생략했을 때 체크된 항목의 값이 'on'으로 기본 설정됨.</p>
         <p>value가 있건 없건 체크하지 않았으면 form submit 때 아무 값도 전송되지 않음.</p>
       </div>
@@ -48,7 +48,7 @@
         <input type="email" name="d">
         <button type="submit">submit</button>
       </form>
-      <div class="description">
+      <div class="important">
         <p>email 타입은 form 태그에 novalidate 속성이 없는 한 입력값이 이메일 형식인지 자동으로 검사함</p>
       </div>
     </section>
@@ -58,7 +58,7 @@
         <input type="number" name="e">
         <button type="submit">submit</button>
       </form>
-      <div class="description">
+      <div class="important">
         <p>얘도 숫자인지 자동으로 검사함</p>
       </div>
     </section>
@@ -68,7 +68,7 @@
         <input type="url" name="h">
         <button type="submit">submit</button>
       </form>
-      <div class="description">
+      <div class="important">
         <p>얘도 자동으로 검사함</p>
         <p>URL로 판단되는 형식: 프로토콜://도메인</p>
       </div>
@@ -164,7 +164,7 @@
         pswd: <input type="password" name="v">
         <button type="submit">submit</button>
       </form>
-      <div class="description">
+      <div class="important">
         <p>password input은 바로 앞의 text input을 아이디로 간주하는 경향이 있음.</p>
       </div>
     </section>
@@ -190,7 +190,7 @@
     <section>
       <h2>file</h2>
       <input type="file" onchange="handleFileChange(event)">
-      <div class="description">
+      <div class="important">
         <p>초로미에서는 이미 첨부된 파일이 있는 상태에서 파일 선택을 취소할 때 사용자 첨부 파일이 지워진다.</p>
       </div>
     </section>

@@ -12,13 +12,15 @@
 </head>
 
 <body>
-  <div class="align-center">
-    <h1>Client-side form validation</h1>
-    <section>
-      <h2>required attribute</h2>
+<main class="align-center">
+  <h1>Client-side form validation</h1>
+  <section>
+    <h2>required attribute</h2>
+    <div class="code-result">
       <form action="/return-my-form-data.data" method="post">
-        <p><button type="button" onclick="validate()">이건 수동 트리거<br>(JS Web API)</button>
-          <button type="submit">이거 누르면 네이티브로 작동<br>(서브밋 버튼임)</button>
+        <p>
+          <button type="button" class="buttons" onclick="validate()">이건 수동 트리거(JS Web API)</button>
+          <button type="submit" class="buttons">이거 누르면 네이티브로 작동(서브밋 버튼)</button>
         </p>
         <p><input type="text" name="a" required></p>
         <p><input type="checkbox" name="b" value="1" required>
@@ -37,10 +39,11 @@
           <textarea name="area" required></textarea>
         </p>
       </form>
-    </section>
-  </div>
+    </div>
+  </section>
   <script>
     let attempt = 0;
+
     function validate() {
       attempt++;
       var form = document.querySelector('form');
@@ -51,6 +54,12 @@
       }
     }
   </script>
+</main>
+<footer class="align-center">
+  <div class="button-wrapper">
+    <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
+  </div>
+</footer>
 </body>
 
 </html>

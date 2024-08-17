@@ -13,28 +13,28 @@
 </head>
 
 <body>
-  <div class="align-center">
-    <h1>Fetch</h1>
-    <p></p>
-    <button type="button" onclick="fn1()">then() 패턴</button>
-    <button type="button" onclick="fn2()">await 패턴</button>
-    <div class="result">
-      <h4>first-then</h4>
-      <p id="first-then"></p>
-    </div>
-    <div class="result">
-      <h4>second-then</h4>
-      <p id="second-then"></p>
-    </div>
+<main class="align-center">
+  <h1>Fetch</h1>
+  <p></p>
+  <button type="button" class="buttons" onclick="fn1()">then() 패턴</button>
+  <button type="button" class="buttons" onclick="fn2()">await 패턴</button>
+  <div class="code-result">
+    <h4>first-then</h4>
+    <p id="first-then"></p>
+  </div>
+  <div class="code-result">
+    <h4>second-then</h4>
+    <p id="second-then"></p>
   </div>
   <script>
     let defaultOptions = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8',
+        'Content-Type': 'application/json; charset=UTF-8'
       },
       body: null
     };
+
     function fn1() {
       let options = {
         ...defaultOptions,
@@ -42,7 +42,7 @@
           foo: 'bar',
           numeric: 1234567890
         })
-      }
+      };
       fetch('/return-my-request-body.data', options).then(resp => {
         console.log('first then:', resp); // Response { type: "basic", url: "http://localhost:8888/return-my-request-body.data", redirected: false, status: 200, ok: true, statusText: "OK", headers: Headers(7), body: ReadableStream, bodyUsed: false }
         document.querySelector('#first-then').innerHTML = resp;
@@ -52,6 +52,7 @@
         });
       });
     }
+
     // fn1();
 
     async function fn2() {
@@ -60,14 +61,21 @@
         body: JSON.stringify({
           user: 'waldo'
         })
-      }
+      };
       let response = await fetch('/return-my-request-body.data', options);
       document.querySelector('#first-then').innerHTML = response;
       let json = await response.json();
       document.querySelector('#second-then').innerHTML = JSON.stringify(json);
     }
+
     // fn2();
   </script>
+</main>
+<footer class="align-center">
+  <div class="button-wrapper">
+    <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
+  </div>
+</footer>
 </body>
 
 </html>
