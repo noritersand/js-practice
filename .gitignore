@@ -18,3 +18,5 @@ jsdoc-out
 
 # jest coverage
 /__tests__/jest/coverage
+
+.idea
