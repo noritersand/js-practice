@@ -17,4 +17,4 @@ out
 jsdoc-out
 
 # jest coverage
-/tests/jest/coverage
+/__tests__/jest/coverage

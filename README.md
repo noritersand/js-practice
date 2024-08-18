@@ -35,7 +35,7 @@ npm start
 npm test
 ```
 
-테스트 파일 위치는 `src/tests/jest/` 아래에 있슴.
+테스트 파일 위치는 `src/__tests__/jest/` 아래에 있슴.
 
 ### Mocha 유닛 테스트
 
@@ -43,7 +43,7 @@ npm test
 npm run mocha
 ```
 
-테스트 파일 위치는 `src/tests/mocha/` 아래.
+테스트 파일 위치는 `src/__tests__/mocha/` 아래.
 
 ### TAP 유닛 테스트
 
@@ -51,7 +51,7 @@ npm run mocha
 npm run tap
 ```
 
-테스트 파일 위치는 `src/tests/tap/` 아래.
+테스트 파일 위치는 `src/__tests__/tap/` 아래.
 
 ### JSDoc
 
@@ -61,6 +61,6 @@ JSDoc 문서 만들어보기:
 npm run jsdoc
 ```
 
-테스트 파일 위치는 `src/tests/jsdoc/` 아래
+테스트 파일 위치는 `src/__tests__/jsdoc/` 아래
 
 끗.
