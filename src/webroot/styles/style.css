@@ -8,19 +8,15 @@ button {
     margin: 1px 1px 1px 1px;
 }
 
-/*
-// prism.js로 대체함
-code { 
-  padding: 4px; white-space: nowrap; background-color: #EFEFEF;
+header, main, footer {
+    display: flex;
+    justify-content: center;
 }
-pre { 
-  padding: 20px 10px 20px 10px; background-color: #EFEFEF;
-}
-*/
-.align-center {
-    max-width: 80%;
-    text-align: left;
-    margin: 30px auto;
+
+header > nav,
+main > article,
+footer > div {
+    width: 90%
 }
 
 hr.light {

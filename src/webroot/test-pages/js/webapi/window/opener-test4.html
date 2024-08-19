@@ -1,31 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
+  <head>
+    <title>opener test 4</title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/styles/normalize.css" />
+    <link rel="stylesheet" href="/styles/letters.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script>
+      function send() {
+        var data = document.myform.sender.value;
+        window.opener.sendMeData(data);
+        window.close();
+      }
+    </script>
+  </head>
 
-<head>
-  <title>opener test 4</title>
-  <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/styles/normalize.css" />
-  <link rel="stylesheet" href="/styles/letters.css" />
-  <link rel="stylesheet" href="/styles/style.css" />
-  <script>
-    function send() {
-      var data = document.myform.sender.value;
-      window.opener.sendMeData(data)
-      window.close();
-    }
-  </script>
-</head>
-
-<body>
-  <div class="align-center">
-    <h1>opener test 2</h1>
-    <form name="myform">
-      자식창 Sender : <input type="text" name="sender" size="10"><br>
-      <input type="button" value="부모창에 데이터 보내고 닫기" onclick="send()" />
-    </form>
-  </div>
-</body>
-
+  <body>
+    <main>
+      <article>
+        <h1>opener test #4</h1>
+        <form name="myform">
+          자식창 Sender : <input type="text" name="sender" size="10" /><br />
+          <input type="button" value="부모창에 데이터 보내고 닫기" onclick="send()" />
+        </form>
+      </article>
+    </main>
+    <footer>
+      <div class="button-wrapper">
+        <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
+      </div>
+    </footer>
+  </body>
 </html>

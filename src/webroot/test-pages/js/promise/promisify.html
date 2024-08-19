@@ -1,76 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
+  <head>
+    <title>promisify</title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/styles/normalize.css" />
+    <link rel="stylesheet" href="/styles/letters.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/lib/prism/prism.css" />
+    <script src="/lib/prism/prism.js"></script>
+    <script src="/lib/jquery/jquery-1.12.4.js"></script>
+  </head>
 
-<head>
-  <title>promisify</title>
-  <meta charset="utf-8">
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/styles/normalize.css" />
-  <link rel="stylesheet" href="/styles/letters.css" />
-  <link rel="stylesheet" href="/styles/style.css" />
-  <link rel="stylesheet" href="/lib/prism/prism.css" />
-  <script src="/lib/prism/prism.js"></script>
-  <script src="/lib/jquery/jquery-1.12.4.js"></script>
-</head>
-
-<body>
-<main class="align-center">
-  <h1>promisify</h1>
-  <p></p>
-  <div class="code-result">
-    <h4><code>promisify</code> 쓴 거</h4>
-    <p id="result1"></p>
-  </div>
-  <div class="code-result">
-    <h4><code>promisify</code> 안 쓴 거</h4>
-    <p id="result2"></p>
-  </div>
-  <p><code class="language-js">promisify</code>라는게 있어서 테스트 해봤는데 도데체 이게 왜 존재하는지 모르겠다.</p>
-  <script>
-    function run(url) {
-      return new Promise((resolve, reject) => {
-        var xhr = new XMLHttpRequest();
-        xhr.onload = () => {
-          console.log('xhr:', xhr);
-          if (xhr.status === 200) {
-            resolve(xhr.responseText);
-          } else {
-            reject(new Error(xhr.responseText));
+  <body>
+    <main>
+      <article>
+        <h1>promisify</h1>
+        <p></p>
+        <div class="code-result">
+          <h4><code>promisify</code> 쓴 거</h4>
+          <p id="result1"></p>
+        </div>
+        <div class="code-result">
+          <h4><code>promisify</code> 안 쓴 거</h4>
+          <p id="result2"></p>
+        </div>
+        <p>
+          <code class="language-js">promisify</code>라는게 있어서 테스트 해봤는데 도데체 이게 왜
+          존재하는지 모르겠다.
+        </p>
+        <script>
+          function run(url) {
+            return new Promise((resolve, reject) => {
+              var xhr = new XMLHttpRequest();
+              xhr.onload = () => {
+                console.log('xhr:', xhr);
+                if (xhr.status === 200) {
+                  resolve(xhr.responseText);
+                } else {
+                  reject(new Error(xhr.responseText));
+                }
+              };
+              xhr.onerror = () => {
+                console.log('xhr:', xhr);
+                reject(new Error(xhr.responseText));
+              };
+              xhr.open('get', url);
+              xhr.send();
+            });
           }
-        };
-        xhr.onerror = () => {
-          console.log('xhr:', xhr);
-          reject(new Error(xhr.responseText));
-        };
-        xhr.open('get', url);
-        xhr.send();
-      });
-    }
 
-    function wahappend() {
+          function wahappend() {
+            function promisify(p) {
+              return new Promise((resolve, reject) => {
+                p.then(res => resolve(res)).catch(e => reject(e));
+              });
+            }
 
-      function promisify(p) {
-        return new Promise((resolve, reject) => {
-          p.then((res) => resolve(res)).catch((e) => reject(e));
-        });
-      }
+            promisify(run('/success.data?a=1&b=2&c=3')).then(
+              value => (document.querySelector('#result1').innerHTML = value)
+            );
 
-      promisify(run('/success.data?a=1&b=2&c=3'))
-        .then(value => document.querySelector('#result1').innerHTML = value);
+            run('/success.data?a=1&b=2&c=3').then(
+              value => (document.querySelector('#result2').innerHTML = value)
+            );
+          }
 
-      run('/success.data?a=1&b=2&c=3')
-        .then(value => document.querySelector('#result2').innerHTML = value);
-    }
-
-    wahappend();
-  </script>
-</main>
-<footer class="align-center">
-  <div class="button-wrapper">
-    <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
-  </div>
-</footer>
-</body>
-
+          wahappend();
+        </script>
+      </article>
+    </main>
+    <footer>
+      <div class="button-wrapper">
+        <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
+      </div>
+    </footer>
+  </body>
 </html>

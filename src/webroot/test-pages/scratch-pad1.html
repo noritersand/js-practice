@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <title>연습장 #1</title>
@@ -21,7 +21,7 @@
       <nav></nav>
     </header>
 
-    <main class="align-center">
+    <main>
       <article>
         <h1>연습장 #1</h1>
 
@@ -52,12 +52,6 @@
         </section>
       </article>
     </main>
-
-    <footer class="align-center">
-      <div class="button-wrapper">
-        <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
-      </div>
-    </footer>
 
     <script>
       let originalData = [
@@ -95,8 +89,13 @@
       });
       rows.sort((a, b) => {
         return a.no < b.no;
-      })
+      });
       console.dir('rows:', rows);
     </script>
   </body>
+  <footer>
+    <div class="button-wrapper">
+      <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
+    </div>
+  </footer>
 </html>
