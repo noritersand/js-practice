@@ -96,6 +96,10 @@ a.back-button {
   border-radius: 4px;
 }
 
+.buttons:disabled {
+  background-color: #eaeef0;
+}
+
 .buttons.effect-push {
   box-shadow: 1px 1px #999;
 }
