@@ -13,7 +13,7 @@ describe('Day.js test suite', () => {
     expect(someday.toISOString()).toBe('2024-08-14T05:24:00.000Z');
   });
   test('validation', () => {
-    expect(invalidDate.isValid()).toBe(false);
+    expect(invalidDate.isValid()).toBeFalsy();
     expect(invalidDate.toString()).toBe('Invalid Date');
   });
   test('display-format', () => {
@@ -45,5 +45,10 @@ describe('Day.js test suite', () => {
 
     expect(someday.format('YYYY-MM-DD HH:mm:ss')).toBe('2024-08-14 14:24:00');
     expect(someday.format('YYYY-MM-DD HH:mm:ss Z')).toBe('2024-08-14 14:24:00 +09:00');
+  });
+  test('query', () => {
+    expect(someday.isBefore(anotherDay)).toBeTruthy();
+    expect(anotherDay.isAfter(someday)).toBeTruthy();
+    expect(anotherDay.isSame(someday)).toBeFalsy();
   });
 });
