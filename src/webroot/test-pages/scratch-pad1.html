@@ -53,45 +53,44 @@
       </article>
     </main>
 
-    <script>
-      let originalData = [
-        {no: 1, cname: '캠페인A', amount: 100},
-        {no: 3, cname: '캠페인B', amount: 100},
-        {no: 4, cname: '캠페인B', amount: 150},
-        {no: 2, cname: '캠페인B', amount: 50},
-        {no: 2, cname: '캠페인C', amount: 100},
-        {no: 4, cname: '캠페인C', amount: 300},
-        {no: 3, cname: '캠페인C', amount: 200}
-      ];
+<script>
+/**
+ * 객체 얕은 복제
+ *
+ * @param targetObj 대상 객체
+ * @param ignoreNull 이 값이 true일 때, 프로퍼티의 값이 null이면 복제본에 포함하지 않음
+ */
+function shallowClone (
+  {
+    targetObj,
+    ignoreNull = false
+  }
+) {
+  return Object.entries(targetObj).reduce((prev, cur) => {
+    if (ignoreNull) {
+      if (cur[1] === null) {
+        return prev;
+      }
+    }
+    prev[cur[0]] = cur[1];
+    return prev;
+  }, {});
+}
 
-      // Set 타입으로 뽑아낸 캠페인 이름: 컬럼 헤더로 활용 가능
-      let colHeaderNames = new Set();
-      originalData.forEach(ele => {
-        colHeaderNames.add(ele.cname);
-      });
-      console.debug('colHeaderNames:', colHeaderNames);
+var obj = {
+  a: 1,
+  b: {
+    c: 2,
+    d: {
+      e: 3
+    }
+  }
+};
 
-      // 아이비시트에 전달할 데이터 만들기
-      let rows = [];
-      originalData.forEach(ele => {
-        let obj = rows.find(row => {
-          return ele.no === row.no;
-        });
-        if (!obj) {
-          obj = {
-            no: ele.no,
-            [ele.cname]: ele.amount
-          };
-          rows.push(obj);
-        } else {
-          obj[ele.cname] = ele.amount;
-        }
-      });
-      rows.sort((a, b) => {
-        return a.no < b.no;
-      });
-      console.dir('rows:', rows);
-    </script>
+var clone = shallowClone(obj);
+
+// console.dir(clone);
+</script>
   </body>
   <footer>
     <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>
