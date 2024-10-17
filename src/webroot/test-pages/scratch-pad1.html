@@ -21,7 +21,7 @@
       <nav></nav>
     </header>
 
-    <main>
+    <main class="parent">
       <article>
         <h1>연습장 #1</h1>
 
@@ -43,53 +43,35 @@
           </section>
 
           <section id="second">
-            <button type="button">버튼1</button>
-            <button type="button" title="버튼2">btn2</button>
+            <button type="button" class="child">버튼1</button>
+            <button type="button" class="child" title="버튼2">btn2</button>
             <br />
-            <button type="button" id="btn3">버튼3</button>
-            <button type="button" id="btn4"><span>버튼4</span>버튼44</button>
+            <button type="button" class="child" id="btn3">버튼3</button>
+            <button type="button" class="child" id="btn4"><span>버튼4</span>버튼44</button>
           </section>
         </section>
       </article>
     </main>
-
 <script>
-/**
- * 객체 얕은 복제
- *
- * @param targetObj 대상 객체
- * @param ignoreNull 이 값이 true일 때, 프로퍼티의 값이 null이면 복제본에 포함하지 않음
- */
-function shallowClone (
-  {
-    targetObj,
-    ignoreNull = false
-  }
-) {
-  return Object.entries(targetObj).reduce((prev, cur) => {
-    if (ignoreNull) {
-      if (cur[1] === null) {
-        return prev;
-      }
-    }
-    prev[cur[0]] = cur[1];
-    return prev;
-  }, {});
-}
+const parent = document.querySelector('.parent');
+const child = document.querySelector('.child');
 
-var obj = {
-  a: 1,
-  b: {
-    c: 2,
-    d: {
-      e: 3
-    }
-  }
-};
+parent.addEventListener('click', () => {
+  console.log('부모 - 캡처링');
+}, true);  // 캡처링
 
-var clone = shallowClone(obj);
+parent.addEventListener('click', () => {
+  console.log('부모 - 버블링');
+}); // 버블링
 
-// console.dir(clone);
+child.addEventListener('click', () => {
+  console.log('자식 - 일반');
+});
+
+// child 클릭시 로그 순서:
+// 1. "부모 - 캡처링"    <- useCapture: true라서 가장 먼저 실행
+// 2. "자식 - 일반"      <- 실제 클릭된 타겟의 리스너
+// 3. "부모 - 버블링"    <- 버블링 단계에서 실행
 </script>
   </body>
   <footer>
