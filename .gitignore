@@ -1,7 +1,15 @@
+# jetbrains
+.idea
+
 # Build and Release Folders
 node_modules
 package-lock.json
+
+# Yarn
 yarn.lock
+.yarn
+.pnp.cjs
+.pnp.loader.mjs
 
 # ETC.
 .vscode
@@ -18,5 +26,3 @@ jsdoc-out
 
 # jest coverage
 /__tests__/jest/coverage
-
-.idea

@@ -1,3 +1,3 @@
-const tap = require('tap');
+import tap from 'tap';
 
 tap.pass(true);

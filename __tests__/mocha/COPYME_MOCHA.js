@@ -1,6 +1,6 @@
-const assert = require('assert');
-const expect = require('chai').expect;
-const {log} = console;
+import assert from 'assert';
+import {expect} from 'chai';
+import {log} from 'console';
 
 var foo = 'bar';
 

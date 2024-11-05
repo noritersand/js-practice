@@ -1,6 +1,4 @@
-const assert = require('assert');
-
-const {log} = console;
+import assert from 'assert';
 
 function invokeCallback(callback) {
   // log(arguments.length);

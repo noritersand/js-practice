@@ -1,5 +1,5 @@
-var a = "asd";
-var b = "asad";
+let a = "asd";
+let b = "asad";
 
 let obj = {
   a: 1,

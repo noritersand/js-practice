@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 // describe(테스트 슈트) 없이 그냥 하면?
 assert.ok(true); // 결과 창에 표시되지 않음

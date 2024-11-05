@@ -5,7 +5,6 @@
  * @author fixalot
  * @since 2023-10-13
  */
-import html from '/js/component/checkin/school-checkin-entrant-popup-template.js';
 
 /**
  * 훌라훌라 훌라

@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 // 소스 출처: http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript
 

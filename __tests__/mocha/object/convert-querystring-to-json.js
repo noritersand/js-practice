@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 /**
  * queryString 형태의 txt를 object로 변환해 반환한다.

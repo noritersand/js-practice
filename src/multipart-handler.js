@@ -1,6 +1,6 @@
-const multer = require('multer'); // multipart/form-data 처리용 라이브러리
-const path = require('path');
-const fs = require('fs');
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
 
 const UPLOAD_LOCATION = 'upload/';
 
@@ -20,8 +20,5 @@ const storage = multer.diskStorage({
     callback(null, Date.now() + ext); // 업로드된 파일의 이름 설정 (현재 시간 + 확장자)
   },
 });
-const upload = multer({ storage: storage });
 
-module.exports = {
-  upload
-};
+export const upload = multer({ storage: storage });

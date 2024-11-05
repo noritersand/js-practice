@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 describe('new Date() 테스트', () => {
   it('applicable format: yyyy-MM-dd', () => {

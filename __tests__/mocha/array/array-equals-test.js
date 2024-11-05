@@ -1,9 +1,8 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
-var arr = [1, 2, 3];
-var other = [1, 2, 3];
-var another = [4, 5, 6];
+let arr = [1, 2, 3];
+let other = [1, 2, 3];
+let another = [4, 5, 6];
 
 describe('배열 동등 연산 테스트', () => {
   it('should be false', () => {

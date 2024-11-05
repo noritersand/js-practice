@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 var arr = [1, 2, 3];
 var other = [1, 2, 3];

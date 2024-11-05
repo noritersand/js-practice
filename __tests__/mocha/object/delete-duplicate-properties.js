@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 /**
  * target에서 comparand와 일치하는 프로퍼티를 찾아 제거한다.

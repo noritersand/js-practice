@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 /**
  * f로 지정된 포맷을 적용하여 문자열로 반환
@@ -21,8 +20,9 @@ Date.prototype.format = function (format) {
   if (!this.valueOf()) {
     return '';
   }
-  var weekName = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
-  var d = this;
+  let weekName = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+  let d = this;
+  let h;
   return format.replace(/(yyyy|yy|MM|dd|E|hh|mm|sss|ss|a\/p)/gi, function (ele) {
     switch (ele) {
       case 'yyyy':
@@ -53,7 +53,7 @@ Date.prototype.format = function (format) {
   });
 };
 String.prototype.string = function (len) {
-  var s = '',
+  let s = '',
     i = 0;
   while (i++ < len) {
     s += this;
@@ -67,7 +67,7 @@ Number.prototype.subFormat = function (len) {
   return this.toString().subFormat(len);
 };
 
-var now = new Date(1609054958214);
+let now = new Date(1609054958214);
 // log(now.toString());
 
 describe('format() 테스트', () => {

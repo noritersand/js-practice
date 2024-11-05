@@ -34,7 +34,7 @@
  *   - req.param()
  *   - req.range()
  */
-function printGetRequestInfo(req) {
+export function printGetRequestInfo(req) {
   console.log(generateGreeting());
   console.log('req.method:', req.method);
   console.log('req.path:', req.path);
@@ -50,7 +50,7 @@ function printGetRequestInfo(req) {
 /**
  * POST 메서드 전용 요청 정보 출력
  */
-function printPostRequestInfo(req) {
+export function printPostRequestInfo(req) {
   console.log(generateGreeting());
   console.log('req.method:', req.method);
   console.log('req.path:', req.path);
@@ -67,8 +67,3 @@ function printPostRequestInfo(req) {
 function generateGreeting() {
   return `------ NEW REQUEST ARRIVED! (${new Date().toISOString()}) ------`;
 }
-
-module.exports = {
-  printGetRequestInfo, 
-  printPostRequestInfo
-};

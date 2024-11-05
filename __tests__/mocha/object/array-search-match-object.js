@@ -1,5 +1,5 @@
-const assert = require('assert');
-const {log} = console;
+// const assert = require('assert');
+import assert from 'assert';
 
 /**
  * arry에서 keys, values를 기준으로 일치하는 object를 찾아서 리턴

@@ -9,7 +9,7 @@
  * @since 2023-10-20
  */
 
-const tap = require('tap');
+import tap from 'tap';
 
 // tap.equal(): 일치(===)하는지 판단함.
 let n = 10 / 2;

@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 describe('test indexOf()', () => {
   it('should be pass', () => {

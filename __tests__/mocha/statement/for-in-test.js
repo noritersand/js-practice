@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 var arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 var indexes1 = '';

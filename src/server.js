@@ -1,7 +1,8 @@
-const express = require('express');
-const path = require('path');
-const utils = require('./utils');
-const multipartHandler = require('./multipart-handler');
+import express from 'express';
+import path from 'path';
+const __dirname = import.meta.dirname;
+import {printGetRequestInfo, printPostRequestInfo} from './utils.js';
+import {upload} from './multipart-handler.js';
 
 // express 도움말: https://expressjs.com/ko/4x/api.html
 const app = express();
@@ -23,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // 모든 요청에 대해 로깅
 app.all('*', (req, res, next) => {
-  req.method === 'GET' ? utils.printGetRequestInfo(req) : utils.printPostRequestInfo(req);
+  req.method === 'GET' ? printGetRequestInfo(req) : printPostRequestInfo(req);
   next();
 });
 
@@ -62,7 +63,7 @@ app.post('/return-my-request-body.data', (req, res) => {
   res.json(req.body);
 });
 
-app.post('/upload-file', multipartHandler.upload.single('file'), (req, res) => {
+app.post('/upload-file', upload.single('file'), (req, res) => {
   res.json(req.file);
 });
 

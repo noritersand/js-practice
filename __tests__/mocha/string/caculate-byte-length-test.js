@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 /**
  * 유니코드는 3, 나머지는 1로 계산

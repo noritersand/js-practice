@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 /**
  * 문자열 배열인 propNames에서 언급되지 않은 프로퍼티들을 삭제한다.

@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 /**
  * 배열 name의 요소를 값으로, name을 키로 구성한 객체 배열(object[])을 만들어 반환

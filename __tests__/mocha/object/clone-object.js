@@ -1,7 +1,4 @@
-const assert = require('assert');
-const {log} = console;
-
-exports.cloneObject = cloneObject;
+import assert from 'assert';
 
 // 소스 출처: https://velog.io/@ddalpange/자바스크립트-객체-복사하기
 /**

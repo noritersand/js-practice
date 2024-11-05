@@ -1,5 +1,3 @@
-const { log } = console;
-
 var arr = [
   {
     hi: 'ho'
@@ -11,4 +9,4 @@ function getSome(ar) {
 }
 
 getSome(arr).hi = 'yo';
-log(arr);
+console.log(arr);

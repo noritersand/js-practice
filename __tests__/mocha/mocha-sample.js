@@ -1,10 +1,9 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 describe('Mocha test', () => {
   var foo = 'bar';
 
-  log('Hello world!');
+  console.log('Hello world!');
 
   it('should be pass', () => {
     assert.strictEqual(foo, 'bar'); // 오른쪽이 기대값

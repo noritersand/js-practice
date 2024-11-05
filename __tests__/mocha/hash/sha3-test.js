@@ -1,7 +1,5 @@
-const assert = require('assert');
-// const expect = require('chai').expect
-const {log} = console;
-const {SHA3} = require('sha3');
+import assert from 'assert';
+import {SHA3} from 'sha3';
 
 // #1 SHA3-512
 const sha3 = new SHA3(512);

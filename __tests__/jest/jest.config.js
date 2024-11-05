@@ -6,4 +6,4 @@ const config = {
   testRegex: '/__tests__/jest/.*\.test\.(js|ts)$'
 };
 
-module.exports = config;
+export default config;

@@ -1,5 +1,4 @@
-const assert = require('assert');
-const {log} = console;
+import assert from 'assert';
 
 describe('경과 시간 테스트', () => {
   it('test#1', () => {
