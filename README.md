@@ -9,22 +9,31 @@
 ## 초기 설정
 
 ```bash
-npm install
+yarn install
 ```
 
 ## package.json 스크립트
 
-- start
-- test
-- tap
-- jsdoc
+- `start`
+- `test`
+- `test:mocha`
+- `test:tap`
+- `build:jsdoc`
+- `preview:jsdoc`
+- `live`
 
 ### 로컬 서버 시작
 
 HTML로 만든 테스트 파일 확인하려면 실행:
 
 ```bash
-npm start
+yarn start
+```
+
+### live-server 패키지로 pages 디렉터리 열기
+
+```bash
+yarn live
 ```
 
 ### jest 유닛 테스트
@@ -32,15 +41,17 @@ npm start
 감시 모드로 실행하도록 작성해놨음:
 
 ```bash
-npm test
+yarn test
 ```
 
 테스트 파일 위치는 `src/__tests__/jest/` 아래에 있슴.
 
+🚨 Jest용 테스트 파일은 ESM 적용하면 에러 발생해서 CJS로 작성함.
+
 ### Mocha 유닛 테스트
 
 ```bash
-npm run mocha
+yarn test:mocha
 ```
 
 테스트 파일 위치는 `src/__tests__/mocha/` 아래.
@@ -48,7 +59,7 @@ npm run mocha
 ### TAP 유닛 테스트
 
 ```bash
-npm run tap
+yarn test:tap
 ```
 
 테스트 파일 위치는 `src/__tests__/tap/` 아래.
@@ -58,7 +69,7 @@ npm run tap
 JSDoc 문서 만들어보기:
 
 ```bash
-npm run jsdoc
+yarn build:jsdoc
 ```
 
 테스트 파일 위치는 `src/__tests__/jsdoc/` 아래
