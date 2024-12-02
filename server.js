@@ -1,8 +1,8 @@
 import express from 'express';
 import path from 'path';
 const __dirname = import.meta.dirname;
-import {printGetRequestInfo, printPostRequestInfo} from './utils.js';
-import {upload} from './multipart-handler.js';
+import {printGetRequestInfo, printPostRequestInfo} from './src/utils.js';
+import {upload} from './src/multipart-handler.js';
 
 // express 도움말: https://expressjs.com/ko/4x/api.html
 const app = express();
