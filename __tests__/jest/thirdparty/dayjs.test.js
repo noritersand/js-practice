@@ -11,24 +11,47 @@ const someday = dayjs('2024-08-14T14:24:00+09:00');
 const anotherDay = dayjs('2024-08-30T23:59:59+09:00');
 const invalidDate = dayjs(null);
 
-test('display', () => {
+test('Display', () => {
   expect(someday.toString()).toBe('Wed, 14 Aug 2024 05:24:00 GMT');
   expect(someday.toJSON()).toBe('2024-08-14T05:24:00.000Z')
   expect(someday.toISOString()).toBe('2024-08-14T05:24:00.000Z');
 });
 
-test('validation', () => {
-  expect(invalidDate.isValid()).toBeFalsy();
+test('Validation', () => {
+  expect(invalidDate.isValid()).toBe(false);
   expect(invalidDate.toString()).toBe('Invalid Date');
 });
 
-test('query', () => {
-  expect(someday.isBefore(anotherDay)).toBeTruthy();
-  expect(anotherDay.isAfter(someday)).toBeTruthy();
-  expect(anotherDay.isSame(someday)).toBeFalsy();
+test('Query', () => {
+  expect(someday.isBefore(anotherDay)).toBe(true);
+  expect(anotherDay.isAfter(someday)).toBe(true);
+  expect(anotherDay.isSame(someday)).toBe(false);
 });
 
-test('display-format', () => {
+test('Difference', () => {
+  expect(someday.diff(anotherDay)).toBe(-1416959000);
+  expect(anotherDay.diff(someday)).toBe(1416959000);
+
+  expect(someday.diff(anotherDay, 'millisecond')).toBe(-1416959000);
+  expect(anotherDay.diff(someday, 'millisecond')).toBe(1416959000);
+
+  expect(someday.diff(anotherDay, 'second')).toBe(-1416959);
+  expect(anotherDay.diff(someday, 'second')).toBe(1416959);
+
+  expect(someday.diff(anotherDay, 'minute')).toBe(-23615);
+  expect(anotherDay.diff(someday, 'minute')).toBe(23615);
+
+  expect(someday.diff(anotherDay, 'hour')).toBe(-393);
+  expect(anotherDay.diff(someday, 'hour')).toBe(393);
+
+  expect(someday.diff(anotherDay, 'day')).toBe(-16);
+  expect(anotherDay.diff(someday, 'day')).toBe(16);
+
+  expect(someday.diff(anotherDay, 'month')).toBe(0);
+  expect(anotherDay.diff(someday, 'month')).toBe(0);
+});
+
+test('Display-Format', () => {
   expect(someday.format('YY')).toBe('24'); // Two-digit year
   expect(someday.format('YYYY')).toBe('2024'); // Four-digit year
   expect(someday.format('M')).toBe('8'); // The month, beginning at 1

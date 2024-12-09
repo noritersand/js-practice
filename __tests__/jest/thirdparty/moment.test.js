@@ -12,7 +12,7 @@ const someday = moment('2024-08-14T14:24:00+09:00');
 const anotherDay = moment('2024-08-30T23:59:59+09:00');
 const invalidDate = moment(null);
 
-test('basic usage', () => {
+test('Basic usage', () => {
   expect(someday.toString()).toBe('Wed Aug 14 2024 14:24:00 GMT+0900');
   expect(anotherDay.toString()).toBe('Fri Aug 30 2024 23:59:59 GMT+0900');
   expect(invalidDate.toString()).toBe('Invalid date');
@@ -24,13 +24,36 @@ test('Time from now', () => {
   console.log('fromNow:', fromNow);
 });
 
-test('comparison', () => {
+test('Comparison', () => {
   expect(someday.isBefore(anotherDay)).toBe(true);
   expect(anotherDay.isAfter(someday)).toBe(true);
   expect(anotherDay.isSame(someday)).toBe(false);
 });
 
-test('format', () => {
+test('Difference', () => {
+  expect(someday.diff(anotherDay)).toBe(-1416959000);
+  expect(anotherDay.diff(someday)).toBe(1416959000);
+
+  expect(someday.diff(anotherDay, 'milliseconds')).toBe(-1416959000);
+  expect(anotherDay.diff(someday, 'milliseconds')).toBe(1416959000);
+
+  expect(someday.diff(anotherDay, 'seconds')).toBe(-1416959);
+  expect(anotherDay.diff(someday, 'seconds')).toBe(1416959);
+
+  expect(someday.diff(anotherDay, 'minutes')).toBe(-23615);
+  expect(anotherDay.diff(someday, 'minutes')).toBe(23615);
+
+  expect(someday.diff(anotherDay, 'hours')).toBe(-393);
+  expect(anotherDay.diff(someday, 'hours')).toBe(393);
+
+  expect(someday.diff(anotherDay, 'days')).toBe(-16);
+  expect(anotherDay.diff(someday, 'days')).toBe(16);
+
+  expect(someday.diff(anotherDay, 'months')).toBe(0);
+  expect(anotherDay.diff(someday, 'months')).toBe(0);
+});
+
+test('Format', () => {
   // Month
   expect(someday.format('M')).toBe('8');
   expect(someday.format('Mo')).toBe('8th');
