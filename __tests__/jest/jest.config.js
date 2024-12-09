@@ -2,7 +2,7 @@
 const config = {
   verbose: true,
   collectCoverage: true,
-  notify: true,
+  notify: false,
   testRegex: '/__tests__/jest/.*\.test\.(js|ts)$'
 };
 
