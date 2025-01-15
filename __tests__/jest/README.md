@@ -36,3 +36,7 @@ toBe()는 값이나 객체의 주소를 비교하고, toEqual()은 값이나 객
 ```js
 expect(original).not.toBe(cloned);
 ```
+
+## 빌드
+
+Yarn berry 버전을 적용했으나 `nodeLinker: pnp`로 빌드하면 아직 에러나는 패키지가 있어서 `nodeLinker: node-modules`로 해놓음. 
