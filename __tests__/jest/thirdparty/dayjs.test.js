@@ -9,7 +9,20 @@ const now = dayjs(); // dayjs(new Date())와 같음
 
 const someday = dayjs('2024-08-14T14:24:00+09:00');
 const anotherDay = dayjs('2024-08-30T23:59:59+09:00');
-const invalidDate = dayjs(null);
+const invalidDate1 = dayjs(null);
+
+test('Weird, but valid anyway', () => {
+  // 이렇게 하면 2025년 13월은 없으니 2026년 1월로 넘어가며, 1월 32일은 없으니 2월 1일이 된다.
+  const weirdDay = dayjs('2025-13-32');
+  // 알아서 계산함.
+  expect(weirdDay.isValid()).toBe(true);
+  // KST 2026-02-01 00시(UTC로 2026-01-31 15시)
+  expect(weirdDay.toISOString()).toBe('2026-01-31T15:00:00.000Z');
+  // 뒤에 시간을 붙이면 알아서 계산 못함
+  const invalidDate2 = dayjs('2025-13-32T00:00:00Z');
+  expect(invalidDate2.isValid()).toBe(false);
+  expect(invalidDate2.toString()).toBe('Invalid Date');
+});
 
 test('Display', () => {
   expect(someday.toString()).toBe('Wed, 14 Aug 2024 05:24:00 GMT');
@@ -18,8 +31,8 @@ test('Display', () => {
 });
 
 test('Validation', () => {
-  expect(invalidDate.isValid()).toBe(false);
-  expect(invalidDate.toString()).toBe('Invalid Date');
+  expect(invalidDate1.isValid()).toBe(false);
+  expect(invalidDate1.toString()).toBe('Invalid Date');
 });
 
 test('Query', () => {
