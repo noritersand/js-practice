@@ -5,11 +5,16 @@
 
 const dayjs = require('dayjs');
 
+require('dayjs/locale/ko');
+
+const utc = require('dayjs/plugin/utc');
+const timezone = require('dayjs/plugin/timezone');
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 const now = dayjs(); // dayjs(new Date())와 같음
 
-const someday = dayjs('2024-08-14T14:24:00+09:00');
-const anotherDay = dayjs('2024-08-30T23:59:59+09:00');
-const invalidDate1 = dayjs(null);
 
 test('Weird, but valid anyway', () => {
   // 이렇게 하면 2025년 13월은 없으니 2026년 1월로 넘어가며, 1월 32일은 없으니 2월 1일이 된다.
@@ -19,29 +24,61 @@ test('Weird, but valid anyway', () => {
   // KST 2026-02-01 00시(UTC로 2026-01-31 15시)
   expect(weirdDay.toISOString()).toBe('2026-01-31T15:00:00.000Z');
   // 뒤에 시간을 붙이면 알아서 계산 못함
-  const invalidDate2 = dayjs('2025-13-32T00:00:00Z');
-  expect(invalidDate2.isValid()).toBe(false);
-  expect(invalidDate2.toString()).toBe('Invalid Date');
+  const invalidDate = dayjs('2025-13-32T00:00:00Z');
+  expect(invalidDate.isValid()).toBe(false);
+  expect(invalidDate.toString()).toBe('Invalid Date');
+});
+
+test('locale', () => {
+  // 로케일은 날짜와 시간을 표시할 때 사용하는 언어와 문화권별 형식을 지정하는 기능이다.
+  const someday = dayjs('2024-01-01T00:00:00Z');
+  expect(someday.format('dddd, MMMM D, YYYY')).toBe('Monday, January 1, 2024');
+
+  // 🚨 locale() 메서드는 locale/ko 패키지를 불러오지 않으면 작동하지 않음
+  expect(someday.locale('ko').format('dddd, MMMM D, YYYY')).toBe('월요일, 1월 1, 2024');
+});
+
+test('time zone', () => {
+  // 타임존은 날짜와 시간의 실제 시간을 특정 시간대(=타임존) 기준으로 조정하는 기능이다.
+  // 🚨 .tz() 메서드는 utc와 timezone 플러그인이 없으면 작동하지 않음
+  
+  // 한국 시간대로 변경해서 출력하기 #1
+  const someday1 = dayjs('2020-01-01T00:00:00Z');
+  expect(someday1.tz('Asia/Seoul').format()).toBe('2020-01-01T09:00:00+09:00');
+
+  // 한국 시간대로 변경해서 출력하기 #2
+  const someday2 = dayjs('2020-01-01T15:00:00Z');
+  expect(someday2.tz('Asia/Seoul').format()).toBe('2020-01-02T00:00:00+09:00');
 });
 
 test('Display', () => {
+  const someday = dayjs('2024-08-14T14:24:00+09:00');
+
   expect(someday.toString()).toBe('Wed, 14 Aug 2024 05:24:00 GMT');
   expect(someday.toJSON()).toBe('2024-08-14T05:24:00.000Z')
   expect(someday.toISOString()).toBe('2024-08-14T05:24:00.000Z');
 });
 
 test('Validation', () => {
-  expect(invalidDate1.isValid()).toBe(false);
-  expect(invalidDate1.toString()).toBe('Invalid Date');
+  const invalidDate = dayjs(null);
+  expect(invalidDate.isValid()).toBe(false);
+  expect(invalidDate.toString()).toBe('Invalid Date');
 });
 
 test('Query', () => {
+  const someday = dayjs('2024-08-14T14:24:00+09:00');
+  const anotherDay = dayjs('2024-08-30T23:59:59+09:00');
+
   expect(someday.isBefore(anotherDay)).toBe(true);
+
   expect(anotherDay.isAfter(someday)).toBe(true);
   expect(anotherDay.isSame(someday)).toBe(false);
 });
 
 test('Difference', () => {
+  const someday = dayjs('2024-08-14T14:24:00+09:00');
+  const anotherDay = dayjs('2024-08-30T23:59:59+09:00');
+
   expect(someday.diff(anotherDay)).toBe(-1416959000);
   expect(anotherDay.diff(someday)).toBe(1416959000);
 
@@ -65,6 +102,8 @@ test('Difference', () => {
 });
 
 test('Display-Format', () => {
+  const someday = dayjs('2024-08-14T14:24:00+09:00');
+
   expect(someday.format('YY')).toBe('24'); // Two-digit year
   expect(someday.format('YYYY')).toBe('2024'); // Four-digit year
   expect(someday.format('M')).toBe('8'); // The month, beginning at 1
