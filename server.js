@@ -1,21 +1,37 @@
 import express from 'express';
-import path from 'path';
-const __dirname = import.meta.dirname;
+import cors from 'cors';
 import {printGetRequestInfo, printPostRequestInfo} from './src/utils.js';
 import {upload} from './src/multipart-handler.js';
 
 // express 도움말: https://expressjs.com/ko/4x/api.html
 const app = express();
-const port = 8888;
-const webroot = path.join(__dirname, 'webroot');
+const port = 9999;
 
 // 포트 리스닝
 app.listen(port, () => {
   console.log('Server is listening at http://localhost:' + `${port}`);
+  console.log('HTML 페이지를 보고 싶으면 yarn live 실행할 것');
 });
 
-// 정적 파일 서빙
-app.use(express.static(webroot));
+// 정적 파일 서빙... 설정이었는데 라이브 서버로 대체함
+// import path from 'path';
+// const __dirname = import.meta.dirname;
+// const webroot = path.join(__dirname, 'webroot');
+// app.use(express.static(webroot));
+
+// 모든 출처에 대해 CORS 허용
+// app.use(cors());
+var whitelist = ['http://localhost:8888', 'http://127.0.0.1:8888']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+app.use(cors(corsOptions));
 
 // for parsing application/json
 app.use(express.json());

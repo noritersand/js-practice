@@ -16,7 +16,7 @@
       function testOne() {
         function send() {
           $.ajax({
-            url: '/uncategorized/read-querystring.data',
+            url: '//localhost:9999/uncategorized/read-querystring.data',
             success: function () {
               return 2;
             }
@@ -45,7 +45,7 @@
             }
           };
           // get method
-          xhr.open('get', '/uncategorized/read-querystring.data');
+          xhr.open('get', '//localhost:9999/uncategorized/read-querystring.data');
           xhr.send();
           return 1;
         }

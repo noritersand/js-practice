@@ -53,7 +53,7 @@
         while (true) {
           let elapsed = new Date().getTime() - startTime.getTime();
           if (elapsed > ms) {
-            // console.log(`After ${elapsed} milliseconds`);
+            console.log(`After ${elapsed} milliseconds`);
             return elapsed;
             break;
           }
@@ -65,35 +65,35 @@
         while (true) {
           let elapsed = new Date().getTime() - startTime.getTime();
           if (elapsed > ms) {
-            // console.log(`After ${elapsed} milliseconds`);
-            resolve(elapsed);
+            console.log(`After ${elapsed} milliseconds`);
             break;
           }
         }
       }
 
-      // var fn = async () => {
-      //   console.log('inside begin');
-      //   waitSync(2000);
-      //   console.log('inside end');
-      // }
-      // fn();
-      // console.log('outside');
+      var fn = async () => {
+        console.log('inside begin');
+        waitSync(1000);
+        console.log('inside end');
+      }
+      fn();
+      console.log('outside');
 
       var fn2 = async () => {
         // let a = 0;
         // setTimeout(() => ++a, 5000);
-        await waitSync(3000);
-        // waitAsync(3000);
+        await waitSync(2000);
+        // waitAsync(2000);
         console.log('done');
       };
-      // var pr = fn2()
-      // console.log(pr);
-      // var pr2 = pr.then(console.log);
-      // console.log(pr2);
-      // fn2().then(console.log);
-      // fn2();
-      // console.log('hi');
+
+      var pr = fn2()
+      console.log(pr);
+      var pr2 = pr.then(console.log);
+      console.log(pr2);
+      fn2().then(console.log);
+      fn2();
+      console.log('hi');
     </script>
     <footer>
       <a class="back-button" href="/">⬅ 홈으로 돌아가기</a>

@@ -11,10 +11,10 @@
     <script src="/static/lib/jquery/jquery-1.12.4.js"></script>
     <script src="/static/scripts/doc-cookies.js"></script>
     <script>
-      function createCookie(sameSite) {
+      function createCookie() {
         var nameInput = document.querySelector('#cookieName');
         var valueInput = document.querySelector('#cookieValue');
-        docCookies.setItem(nameInput.value, valueInput.value, sameSite, null, '/');
+        docCookies.setItem(nameInput.value, valueInput.value, 'Strict', null, '/');
         drawCookieList();
         nameInput.value = '';
         valueInput.value = '';

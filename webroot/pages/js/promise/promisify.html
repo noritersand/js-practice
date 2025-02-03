@@ -27,8 +27,7 @@
           <p id="result2"></p>
         </div>
         <p>
-          <code class="language-js">promisify</code>라는게 있어서 테스트 해봤는데 도데체 이게 왜
-          존재하는지 모르겠다.
+          <code class="language-js">promisify</code>라는게 있어서 테스트 해봤는데 아직 잘 몲
         </p>
         <script>
           function run(url) {
@@ -58,11 +57,11 @@
               });
             }
 
-            promisify(run('/success.data?a=1&b=2&c=3')).then(
+            promisify(run('//localhost:9999/success.data?a=1&b=2&c=3')).then(
               value => (document.querySelector('#result1').innerHTML = value)
             );
 
-            run('/success.data?a=1&b=2&c=3').then(
+            run('//localhost:9999/success.data?a=1&b=2&c=3').then(
               value => (document.querySelector('#result2').innerHTML = value)
             );
           }

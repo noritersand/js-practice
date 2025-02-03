@@ -43,8 +43,8 @@
                 numeric: 1234567890
               })
             };
-            fetch('/return-my-request-body.data', options).then(resp => {
-              console.log('first then:', resp); // Response { type: "basic", url: "http://localhost:8888/return-my-request-body.data", redirected: false, status: 200, ok: true, statusText: "OK", headers: Headers(7), body: ReadableStream, bodyUsed: false }
+            fetch('//localhost:9999/return-my-request-body.data', options).then(resp => {
+              console.log('first then:', resp); // Response { type: "basic", url: "http://localhost:9999/return-my-request-body.data", redirected: false, status: 200, ok: true, statusText: "OK", headers: Headers(7), body: ReadableStream, bodyUsed: false }
               document.querySelector('#first-then').innerHTML = resp;
               resp.text().then(text => {
                 console.log('second then', text); // {"foo":"bar","numeric":1234567890}
@@ -62,7 +62,7 @@
                 user: 'waldo'
               })
             };
-            let response = await fetch('/return-my-request-body.data', options);
+            let response = await fetch('//localhost:9999/return-my-request-body.data', options);
             document.querySelector('#first-then').innerHTML = response;
             let json = await response.json();
             document.querySelector('#second-then').innerHTML = JSON.stringify(json);

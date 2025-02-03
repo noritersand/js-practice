@@ -16,10 +16,10 @@
       <article>
         <h1>Promise</h1>
         <p></p>
-        <button type="button" class="buttons green" onclick="getSome('/success.data?a=1&b=2&c=3')">
+        <button type="button" class="buttons green" onclick="getSome('//localhost:9999/success.data?a=1&b=2&c=3')">
           성공 버튼
         </button>
-        <button type="button" class="buttons" onclick="getSome('/error500.data?a=1&b=2&c=3')">
+        <button type="button" class="buttons" onclick="getSome('//localhost:9999/error500.data?a=1&b=2&c=3')">
           실패 버튼
         </button>
         <button type="button" class="buttons" onclick="wahappend()">이런 것도 있네</button>
@@ -166,7 +166,7 @@
           });
 
           async function fetchJson() {
-            let fetchJsonReturnValue = fetch('/success-json.data', {
+            let fetchJsonReturnValue = fetch('//localhost:9999/success-json.data', {
               method: 'POST',
               headers: {'Content-Type': 'application/json'},
               body: JSON.stringify({foo: 'bar'})
