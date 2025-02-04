@@ -9,12 +9,18 @@ require('dayjs/locale/ko');
 
 const utc = require('dayjs/plugin/utc');
 const timezone = require('dayjs/plugin/timezone');
+const toArray = require("dayjs/plugin/toArray");
+const toObject = require("dayjs/plugin/toObject");
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
+dayjs.extend(toArray);
+dayjs.extend(toObject);
 
-const now = dayjs(); // dayjs(new Date())와 같음
-
+test('basic usage', () => {
+  const now = dayjs(); // dayjs(new Date())와 같음
+  expect(now.isValid()).toBe(true);
+});
 
 test('Weird, but valid anyway', () => {
   // 이렇게 하면 2025년 13월은 없으니 2026년 1월로 넘어가며, 1월 32일은 없으니 2월 1일이 된다.
@@ -38,25 +44,46 @@ test('locale', () => {
   expect(someday.locale('ko').format('dddd, MMMM D, YYYY')).toBe('월요일, 1월 1, 2024');
 });
 
-test('time zone', () => {
+test('time zone #1', () => {
   // 타임존은 날짜와 시간의 실제 시간을 특정 시간대(=타임존) 기준으로 조정하는 기능이다.
-  // 🚨 .tz() 메서드는 utc와 timezone 플러그인이 없으면 작동하지 않음
-  
-  // 한국 시간대로 변경해서 출력하기 #1
-  const someday1 = dayjs('2020-01-01T00:00:00Z');
-  expect(someday1.tz('Asia/Seoul').format()).toBe('2020-01-01T09:00:00+09:00');
+  // 🚨 .tz() 메서드는 utc 플러그인과 timezone 플러그인이 없으면 작동하지 않음
 
-  // 한국 시간대로 변경해서 출력하기 #2
-  const someday2 = dayjs('2020-01-01T15:00:00Z');
-  expect(someday2.tz('Asia/Seoul').format()).toBe('2020-01-02T00:00:00+09:00');
+  // 기본값 설정하기
+  // dayjs.tz.setDefault('Asia/Seoul');
+
+  // 한국 시간대 기준으로 dayjs 객체 생성하기
+  const someday1 = dayjs('2020-01-01T09:00:00');
+  expect(someday1.tz('Asia/Seoul').toISOString()).toBe('2020-01-01T00:00:00.000Z');
+  expect(dayjs.tz('2020-01-01T09:00:00', 'Asia/Seoul').toISOString()).toBe('2020-01-01T00:00:00.000Z');
+});
+
+test('time zone #2', () => {
+  // 사실 .tz() 없어도 기본값으로 해당 국가의 시간대가 적용되므로, 아예 다른 국가에 대응하는 경우가 아니면 굳이 없어도 됨
+  // 예를 들어 한국에서 태평양 표준 시간을 입력한다던지
+  // 하지만 이 경우에도 2019-12-31T16:00:00-17:00 오프셋을 포함한 문자열로 대체할 수도 있긴 함
+  // 그러니까 .tz()는 시간대 관리의 필수는 아니지만, 복잡한 시간대 관리(썸머 타임 적용, 가독성 향상, 다른 시간대로 변환하기)를 쉽게 처리할 수 있다는 데에 의미가 있다.
+  expect(dayjs('2020-01-01T09:00:00').toISOString()).toBe('2020-01-01T00:00:00.000Z');
+  expect(dayjs('2020-01-01T00:00:00Z').toISOString()).toBe('2020-01-01T00:00:00.000Z');
+  expect(dayjs('2020-01-01T09:00:00+09:00').toISOString()).toBe('2020-01-01T00:00:00.000Z');
+});
+
+test('unix time', () => {
+  const someday = dayjs('1971-01-01T00:00:00Z');
+  expect(someday.unix()).toBe(31536000); // seconds
+  expect(someday.valueOf()).toBe(31536000000); // milliseconds
 });
 
 test('Display', () => {
   const someday = dayjs('2024-08-14T14:24:00+09:00');
 
-  expect(someday.toString()).toBe('Wed, 14 Aug 2024 05:24:00 GMT');
+  expect(someday.toDate()).toBeInstanceOf(Date);
+  expect(someday.toArray()).toEqual(expect.arrayContaining([2024, 7, 14, 14, 24, 0, 0])); // toArray 플러그인 필요
   expect(someday.toJSON()).toBe('2024-08-14T05:24:00.000Z')
   expect(someday.toISOString()).toBe('2024-08-14T05:24:00.000Z');
+  expect(someday.toObject()).toEqual(expect.objectContaining({
+    years: 2024, months: 7, date: 14, hours: 14, minutes: 24, seconds: 0, milliseconds: 0
+  })); // toObject 플러그인 필요
+  expect(someday.toString()).toBe('Wed, 14 Aug 2024 05:24:00 GMT');
 });
 
 test('Validation', () => {
@@ -134,4 +161,3 @@ test('Display-Format', () => {
   expect(someday.format('YYYY-MM-DD HH:mm:ss')).toBe('2024-08-14 14:24:00');
   expect(someday.format('YYYY-MM-DD HH:mm:ss Z')).toBe('2024-08-14 14:24:00 +09:00');
 });
-
