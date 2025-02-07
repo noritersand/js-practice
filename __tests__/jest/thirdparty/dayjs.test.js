@@ -92,7 +92,7 @@ test('Validation', () => {
   expect(invalidDate.toString()).toBe('Invalid Date');
 });
 
-test('Query', () => {
+test('Query(compare)', () => {
   const someday = dayjs('2024-08-14T14:24:00+09:00');
   const anotherDay = dayjs('2024-08-30T23:59:59+09:00');
 
