@@ -37,7 +37,7 @@
         }
       };
       // get method
-      xhr.open('get', '//localhost:9999/uncategorized/read-querystring.data?a=1&b=2&c=3');
+      xhr.open('get', '//localhost:8900/uncategorized/read-querystring.data?a=1&b=2&c=3');
       xhr.send();
 
       var xhr2 = new XMLHttpRequest();
@@ -59,7 +59,7 @@
       };
 
       //post method#1
-      xhr2.open('post', '//localhost:9999/uncategorized/read-body.data?a=1'); // 파폭은 url에 read-payload를 붙이면 ajax 요청이 안날라가는 이슈가 있음.
+      xhr2.open('post', '//localhost:8900/uncategorized/read-body.data?a=1'); // 파폭은 url에 read-payload를 붙이면 ajax 요청이 안날라가는 이슈가 있음.
       xhr2.setRequestHeader('Content-type', 'application/json');
       xhr2.send(JSON.stringify({b: 2, c: 3})); // 바디로 읽어야 함
 

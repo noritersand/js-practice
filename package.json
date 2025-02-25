@@ -25,7 +25,7 @@
     "test:tap": "tap --bail --watch __tests__/tap/**",
     "build:jsdoc": "jsdoc src/jsdoc --destination jsdoc-out --configure src/jsdoc/jsdoc-config.json",
     "preview:jsdoc": "live-server jsdoc-out",
-    "live": "live-server --port=8888 webroot"
+    "live": "live-server --port=8800 webroot"
   },
   "devDependencies": {
     "chai": "^5.1.2",

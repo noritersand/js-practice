@@ -5,7 +5,7 @@ import {upload} from './src/multipart-handler.js';
 
 // express 도움말: https://expressjs.com/ko/4x/api.html
 const app = express();
-const port = 9999;
+const port = 8900;
 
 // 포트 리스닝
 app.listen(port, () => {
@@ -21,22 +21,23 @@ app.listen(port, () => {
 
 // 모든 출처에 대해 CORS 허용
 // app.use(cors());
-var whitelist = ['http://localhost:8888', 'http://127.0.0.1:8888']
+var whitelist = ['http://localhost:8800', 'http://127.0.0.1:8800'];
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
+      callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'))
+      callback(new Error('Not allowed by CORS'));
     }
   }
-}
+};
+
 app.use(cors(corsOptions));
 
 // for parsing application/json
 app.use(express.json());
 // for parsing application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 
 // 모든 요청에 대해 로깅
 app.all('*', (req, res, next) => {
@@ -60,11 +61,11 @@ app.post('/success.data', (req, res) => {
 });
 
 app.get('/success-json.data', (req, res) => {
-  res.set('Content-Type', 'application/json').json({ message: 'Everything is okay' });
+  res.set('Content-Type', 'application/json').json({message: 'Everything is okay'});
 });
 
 app.post('/success-json.data', (req, res) => {
-  res.set('Content-Type', 'application/json').json({ message: 'Everything is okay' });
+  res.set('Content-Type', 'application/json').json({message: 'Everything is okay'});
 });
 
 app.post('/return-my-form-data.data', (req, res) => {
@@ -91,7 +92,6 @@ app.get('/uncategorized/*.data', (req, res) => {
 
 app.post('/uncategorized/*.data', (req, res) => {
   res.json(req.query);
-
 });
 
 app.post('/*.html', (req, res) => {

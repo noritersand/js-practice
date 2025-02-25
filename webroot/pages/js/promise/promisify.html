@@ -57,11 +57,11 @@
               });
             }
 
-            promisify(run('//localhost:9999/success.data?a=1&b=2&c=3')).then(
+            promisify(run('//localhost:8900/success.data?a=1&b=2&c=3')).then(
               value => (document.querySelector('#result1').innerHTML = value)
             );
 
-            run('//localhost:9999/success.data?a=1&b=2&c=3').then(
+            run('//localhost:8900/success.data?a=1&b=2&c=3').then(
               value => (document.querySelector('#result2').innerHTML = value)
             );
           }

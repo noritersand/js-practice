@@ -159,7 +159,7 @@
               formData.append('file', blob, originalFileName);
               console.debug('formData:', formData);
 
-              fetch('//localhost:9999/upload-file', {
+              fetch('//localhost:8900/upload-file', {
                 method: 'POST',
                 body: formData
               })
@@ -188,7 +188,7 @@
               formData.append('file', fileObject);
               console.debug('formData:', formData);
 
-              fetch('//localhost:9999/upload-file', {
+              fetch('//localhost:8900/upload-file', {
                 method: 'POST',
                 body: formData
               })

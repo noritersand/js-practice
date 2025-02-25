@@ -73,7 +73,7 @@
 
       var fn = async () => {
         console.log('inside begin');
-        waitSync(1000);
+        waitSync(200);
         console.log('inside end');
       }
       fn();
@@ -82,8 +82,8 @@
       var fn2 = async () => {
         // let a = 0;
         // setTimeout(() => ++a, 5000);
-        await waitSync(2000);
-        // waitAsync(2000);
+        await waitSync(500);
+        // waitAsync(500);
         console.log('done');
       };
 
