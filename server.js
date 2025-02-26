@@ -9,7 +9,7 @@ const port = 8900;
 
 // 포트 리스닝
 app.listen(port, () => {
-  console.log('Server is listening at http://localhost:' + `${port}`);
+  console.log(`Server is listening at http://localhost:${port}`);
   console.log('HTML 페이지를 보고 싶으면 yarn live 실행할 것');
 });
 
