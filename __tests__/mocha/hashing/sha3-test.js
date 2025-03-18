@@ -1,17 +1,19 @@
 import assert from 'assert';
 import {SHA3} from 'sha3';
 
-// #1 SHA3-512
-const sha3 = new SHA3(512);
-sha3.update('encode-me');
-let first = sha3.digest('hex');
-
 // #2 SHA3-512 소금친 거
 const sha3_2 = new SHA3(512); // 인스턴스 새로 만들어야지 위에 있는 hash 재사용하면 digest() 결과가 달라짐
 sha3_2.update('encode-me$salt');
 let second = sha3_2.digest('hex');
 
 describe('NPM 패키지 sha3 테스트', () => {
+  test('#1', () => {
+    // #1 SHA3-512
+    const sha3 = new SHA3(512);
+    sha3.update('encode-me');
+    let first = sha3.digest('hex');
+  });
+
   it('should be equals', () => {
     assert.strictEqual(
       first,
@@ -23,3 +25,4 @@ describe('NPM 패키지 sha3 테스트', () => {
     );
   });
 });
+
