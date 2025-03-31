@@ -12,12 +12,12 @@
       function handleKeyup(event) {
         var keyCode = event.keyCode || event.which;
         if (keyCode == '13') {
-          location.href = '/pages/js/webapi/history/browser-history-test-child.html';
+          location.href = '/pages/webapi/history/browser-history-test-child.html';
         }
       }
 
       function moveToChild() {
-        location.href = '/pages/js/webapi/history/browser-history-test-child.html';
+        location.href = '/pages/webapi/history/browser-history-test-child.html';
       }
     </script>
   </head>
@@ -27,7 +27,7 @@
       <article>
         <h1>browser history test</h1>
         <h2>GET 메서드 form</h2>
-        <form method="get" action="/pages/js/webapi/history/browser-history-test-child.html">
+        <form method="get" action="/pages/webapi/history/browser-history-test-child.html">
           <fieldset>
             <legend>폼 안의 입력란</legend>
             name 있는 입력란: <input type="text" name="aaa" /><br />
@@ -36,7 +36,7 @@
           </fieldset>
         </form>
         <h2>POST 메서드 form</h2>
-        <form method="post" action="/pages/js/webapi/history/browser-history-test-child.html">
+        <form method="post" action="/pages/webapi/history/browser-history-test-child.html">
           <fieldset>
             <legend>폼 안의 입력란</legend>
             name 있는 입력란: <input type="text" name="aaa" /><br />
@@ -49,7 +49,6 @@
         name 없는 입력란: <input type="text" onkeyup="handleKeyup(event)" />
         <button type="button" onclick="moveToChild()">이동</button>
         <br /><br /><br /><br /><br />
-        <button type="button" onclick="location.href = '/'">index로</button>
       </article>
     </main>
     <footer>
