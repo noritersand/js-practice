@@ -3,7 +3,8 @@
 *  공식 도움말: https://momentjs.com/docs/
 */
 
-const moment = require('moment');
+import {expect, test} from 'vitest';
+import moment from 'moment';
 
 const now = moment(); // moment(new Date())와 같음
 console.log('now:', now); // Moment<2024-12-09T14:32:50+09:00>

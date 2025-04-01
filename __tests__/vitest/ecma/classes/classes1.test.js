@@ -2,7 +2,8 @@
  * @file classes 문법 테스트
  */
 
-const Newbie = require('./classes1');
+import {expect, test} from 'vitest';
+import Newbie from './classes1';
 
 test('should create a new instance with the given properties', () => {
   const publicName = 'John Doe';

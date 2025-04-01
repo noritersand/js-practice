@@ -3,14 +3,13 @@
  * 공식 도움말: https://day.js.org/docs/en/installation/installation
  */
 
-const dayjs = require('dayjs');
-
-require('dayjs/locale/ko');
-
-const utc = require('dayjs/plugin/utc');
-const timezone = require('dayjs/plugin/timezone');
-const toArray = require("dayjs/plugin/toArray");
-const toObject = require("dayjs/plugin/toObject");
+import {expect, test} from 'vitest';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+import toArray from "dayjs/plugin/toArray";
+import toObject from "dayjs/plugin/toObject";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);

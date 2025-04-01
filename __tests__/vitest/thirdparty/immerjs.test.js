@@ -2,7 +2,8 @@
  * @file Immer.js 테스트
  */
 
-const {produce} = require('immer');
+import {expect, test} from 'vitest';
+import {produce} from 'immer';
 
 test('produce #1', () => {
   let original = {

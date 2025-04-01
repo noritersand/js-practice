@@ -1,7 +1,6 @@
-# JEST 도움말
+# Vitest 도움말
 
-- [https://jestjs.io/docs/api](https://jestjs.io/docs/api)
-- [https://jestjs.io/docs/expect](https://jestjs.io/docs/expect)
+- [Getting Started | Guide | Vitest](https://vitest.dev/guide/)
 
 
 ## 테스트 케이스 작성법
@@ -29,7 +28,7 @@ describe('some test suite', () => {
 
 ## toBe()와 toEqual()의 차이
 
-toBe()는 값이나 객체의 주소를 비교하고, toEqual()은 값이나 객체의 내용을 비교한다.
+`toBe()`는 값이나 객체의 주소를 비교하고, `toEqual()`은 값이나 객체의 내용을 비교한다.
 
 
 ## 부정문
@@ -39,8 +38,4 @@ toBe()는 값이나 객체의 주소를 비교하고, toEqual()은 값이나 객
 ```js
 expect(original).not.toBe(cloned);
 ```
-
-
-## 빌드
-
-Yarn berry 버전을 적용했으나 `nodeLinker: pnp`로 빌드하면 아직 에러나는 패키지가 있어서 `nodeLinker: node-modules`로 해놓음. 
+ 

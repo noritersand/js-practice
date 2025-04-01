@@ -20,7 +20,8 @@
   "homepage": "https://github.com/noritersand/js-practice#readme",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "jest --config=__tests__/jest/jest.config.js --watchAll",
+    "test": "vitest --config __tests__/vitest/vitest.config.js",
+    "test:jest": "jest --config=__tests__/jest/jest.config.js --watchAll",
     "test:mocha": "mocha __tests__/mocha/**",
     "test:tap": "tap --bail --watch __tests__/tap/**",
     "build:jsdoc": "jsdoc src/jsdoc --destination jsdoc-out --configure src/jsdoc/jsdoc-config.json",
@@ -36,7 +37,8 @@
     "node-notifier": "^10.0.1",
     "nodemon": "^3.1.7",
     "prettier": "^3.3.3",
-    "tap": "^21.0.1"
+    "tap": "^21.0.1",
+    "vitest": "^3.1.1"
   },
   "dependencies": {
     "cors": "^2.8.5",
