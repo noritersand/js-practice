@@ -15,15 +15,23 @@
 test('one is one', () => {
   expect(1).toBe(1);
 });
+```
 
-// 혹은
+```js
+describe('add 함수', () => {
+  let result;
+  beforeEach(() => {
+    result = 0; // 각 테스트 전에 초기화
+  });
 
-describe('some test suite', () => {
-  it('should be true', () => {
-    expect(1).toBe(1);
+  it('두 수를 더한다', () => {
+    result = add(2, 3);
+    expect(result).toBe(5);
   });
 });
 ```
+
+`describe()`는 테스트 케이스를 슈트로 묶어 그룹화, 설명, 특정 슈트 실행/건너뛰기를 위한 도구일 뿐, 그 외에 별도의 기능은 없다. 테스트 로직 자체는 `it()`이나 `test()`가 담당하며, `describe()`는 구조화와 가독성을 위한 보조적인 역할이다.
 
 
 ## toBe()와 toEqual()의 차이
