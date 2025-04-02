@@ -6,6 +6,7 @@ function printElements(obj) {
     // log('\t' + i + ": " + JSON.stringify(obj[i]));
   }
 }
+
 function getObj() {
   var obj = [
     {key: 'a'},
@@ -17,7 +18,7 @@ function getObj() {
     {key: 'g'},
     {key: 'h'},
     {key: 'i'},
-    {key: 'j'},
+    {key: 'j'}
   ]; // 모두 10개
   return obj;
 }

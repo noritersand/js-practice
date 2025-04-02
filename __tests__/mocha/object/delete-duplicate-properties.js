@@ -47,7 +47,7 @@ var target = [
     opt2Val: '스몰',
     opt3No: 0,
     opt4No: 0,
-    opt5No: 0,
+    opt5No: 0
   },
   {
     proditNo: 'IT303',
@@ -59,8 +59,8 @@ var target = [
     opt2Val: '미디움',
     opt3No: 0,
     opt4No: 0,
-    opt5No: 0,
-  },
+    opt5No: 0
+  }
 ];
 var comparand = [
   {
@@ -73,7 +73,7 @@ var comparand = [
     opt2Val: '미디움',
     opt3No: 0,
     opt4No: 0,
-    opt5No: 0,
+    opt5No: 0
   },
   {
     proditNo: 'IT302',
@@ -85,7 +85,7 @@ var comparand = [
     opt2Val: '스몰',
     opt3No: 0,
     opt4No: 0,
-    opt5No: 0,
+    opt5No: 0
   },
   {
     proditNo: 'IT301',
@@ -97,8 +97,8 @@ var comparand = [
     opt2Val: '미디움',
     opt3No: 0,
     opt4No: 0,
-    opt5No: 0,
-  },
+    opt5No: 0
+  }
 ];
 
 // target이랑 comparand를 비교해서 opt1Val과 opt2Val이 일치하는 object가 있으면 target에서 삭제하는 함수임.
@@ -117,8 +117,8 @@ describe('test removeDuplicatedProperties()', () => {
         opt2Val: '스몰',
         opt3No: 0,
         opt4No: 0,
-        opt5No: 0,
-      },
+        opt5No: 0
+      }
     ]);
   });
 });

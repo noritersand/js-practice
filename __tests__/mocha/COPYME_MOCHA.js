@@ -1,6 +1,4 @@
 import assert from 'assert';
-import {expect} from 'chai';
-import {log} from 'console';
 
 var foo = 'bar';
 

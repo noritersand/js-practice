@@ -8,8 +8,8 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
-import toArray from "dayjs/plugin/toArray";
-import toObject from "dayjs/plugin/toObject";
+import toArray from 'dayjs/plugin/toArray';
+import toObject from 'dayjs/plugin/toObject';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -53,7 +53,9 @@ test('time zone #1', () => {
   // 한국 시간대 기준으로 dayjs 객체 생성하기
   const someday1 = dayjs('2020-01-01T09:00:00');
   expect(someday1.tz('Asia/Seoul').toISOString()).toBe('2020-01-01T00:00:00.000Z');
-  expect(dayjs.tz('2020-01-01T09:00:00', 'Asia/Seoul').toISOString()).toBe('2020-01-01T00:00:00.000Z');
+  expect(dayjs.tz('2020-01-01T09:00:00', 'Asia/Seoul').toISOString()).toBe(
+    '2020-01-01T00:00:00.000Z'
+  );
 });
 
 test('time zone #2', () => {
@@ -77,11 +79,19 @@ test('Display', () => {
 
   expect(someday.toDate()).toBeInstanceOf(Date);
   expect(someday.toArray()).toEqual(expect.arrayContaining([2024, 7, 14, 14, 24, 0, 0])); // toArray 플러그인 필요
-  expect(someday.toJSON()).toBe('2024-08-14T05:24:00.000Z')
+  expect(someday.toJSON()).toBe('2024-08-14T05:24:00.000Z');
   expect(someday.toISOString()).toBe('2024-08-14T05:24:00.000Z');
-  expect(someday.toObject()).toEqual(expect.objectContaining({
-    years: 2024, months: 7, date: 14, hours: 14, minutes: 24, seconds: 0, milliseconds: 0
-  })); // toObject 플러그인 필요
+  expect(someday.toObject()).toEqual(
+    expect.objectContaining({
+      years: 2024,
+      months: 7,
+      date: 14,
+      hours: 14,
+      minutes: 24,
+      seconds: 0,
+      milliseconds: 0
+    })
+  ); // toObject 플러그인 필요
   expect(someday.toString()).toBe('Wed, 14 Aug 2024 05:24:00 GMT');
 });
 

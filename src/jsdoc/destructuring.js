@@ -1,5 +1,5 @@
 /**
- * @file 
+ * @file
  *  구조 분해 할당을 사용하는 함수 파라미터
  * @author fixalot
  * @since 2023-10-20

@@ -18,6 +18,7 @@ function convertQuerystringToJSON(txt) {
   }
   return objArry;
 }
+
 var querystring = 'proditNo=IT369&proditNo=IT371&proditNo=IT370';
 var result1 = convertQuerystringToJSON(querystring);
 
@@ -26,7 +27,7 @@ describe('test convertQuerystringToJSON()', () => {
     assert.deepStrictEqual(result1, [
       {proditNo: 'IT369'},
       {proditNo: 'IT371'},
-      {proditNo: 'IT370'},
+      {proditNo: 'IT370'}
     ]);
   });
 });

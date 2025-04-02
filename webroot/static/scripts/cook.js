@@ -8,7 +8,7 @@
 /**
  * <p>Cook 제임스 쿡 선장과 관계 없음.</p>
  * <p>원본 작성자: fusionchess from MDN</p>
- * 
+ *
  * usages:
  * - Cook.setItem({key: 'foo', value: 'bar', sameSite: 'strict'});
  * - Cook.setItem({key: 'numeric', value: 123, sameSite: 'strict', path: '/', domain: 'localhost'});
@@ -23,7 +23,14 @@ class Cook {
     }
     return (
       decodeURIComponent(
-        document.cookie.replace(new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1')
+        document.cookie.replace(
+          new RegExp(
+            '(?:(?:^|.*;)\\s*' +
+              encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, '\\$&') +
+              '\\s*\\=\\s*([^;]*).*$)|^.*$'
+          ),
+          '$1'
+        )
       ) || null
     );
   }
@@ -40,7 +47,15 @@ class Cook {
    * @param {string} obj.domain 도메인
    * @param {boolean} obj.secure secure 쿠키인지
    */
-  static setItem({ key: sKey, value: sValue, sameSite: sSamesite, expire: vEnd, path: sPath, domain: sDomain, secure: bSecure }) {
+  static setItem({
+    key: sKey,
+    value: sValue,
+    sameSite: sSamesite,
+    expire: vEnd,
+    path: sPath,
+    domain: sDomain,
+    secure: bSecure
+  }) {
     if (!sSamesite || !/^lax$|^strict$|^none$/.test((sSamesite = sSamesite.toLowerCase()))) {
       console.error('sameSite 값이 없거나 허용 범위가 아닙니다.');
       return false;
@@ -56,7 +71,8 @@ class Cook {
     if (vEnd) {
       switch (vEnd.constructor) {
         case Number:
-          sExpires = vEnd === Infinity ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT' : '; max-age=' + vEnd;
+          sExpires =
+            vEnd === Infinity ? '; expires=Fri, 31 Dec 9999 23:59:59 GMT' : '; max-age=' + vEnd;
           break;
         case String:
           sExpires = '; expires=' + vEnd;
@@ -87,13 +103,16 @@ class Cook {
    * @param {string} obj.path 삭제할 쿠키의 path
    * @param {string} obj.domain 삭제할 쿠키의 도메인
    */
-  static removeItem({ key: sKey, path: sPath, domain: sDomain }) {
+  static removeItem({key: sKey, path: sPath, domain: sDomain}) {
     if (!this.hasItem(sKey)) {
       console.error('key 값이 없습니다.');
       return false;
     }
     document.cookie =
-      encodeURIComponent(sKey) + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT' + (sDomain ? '; domain=' + sDomain : '') + (sPath ? '; path=' + sPath : '');
+      encodeURIComponent(sKey) +
+      '=; expires=Thu, 01 Jan 1970 00:00:00 GMT' +
+      (sDomain ? '; domain=' + sDomain : '') +
+      (sPath ? '; path=' + sPath : '');
     return true;
   }
 
@@ -101,11 +120,15 @@ class Cook {
     if (!sKey) {
       return false;
     }
-    return new RegExp('(?:^|;\\s*)' + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=').test(document.cookie);
+    return new RegExp(
+      '(?:^|;\\s*)' + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\='
+    ).test(document.cookie);
   }
 
   static keys() {
-    var aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '').split(/\s*(?:\=[^;]*)?;\s*/);
+    var aKeys = document.cookie
+      .replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, '')
+      .split(/\s*(?:\=[^;]*)?;\s*/);
     if (aKeys.length === 1 && aKeys[0] === '') {
       return [];
     }

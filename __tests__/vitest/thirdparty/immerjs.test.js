@@ -75,5 +75,4 @@ test('not suitable to deep cloning #2', () => {
 
   // obj4.c가 텅텅 비어있게됨
   console.log('obj4:', obj4);
-
 });

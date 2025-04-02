@@ -8,7 +8,7 @@
 let btn = document.querySelector('button#btn');
 
 btn.addEventListener('click', () => {
-  import('./messages.js').then((module) => {
+  import('./messages.js').then(module => {
     console.log('module:', module);
     console.log('module.default:', module.default);
     console.log('module.default.wassup:', module.default.wassup);

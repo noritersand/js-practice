@@ -83,4 +83,5 @@ tap.test('예상치 못한 오류 테스트', sub => {
 function emit(success) {
   (success && tap.pass()) || tap.fail();
 }
+
 emit(true);

@@ -45,7 +45,7 @@ describe('Mocha test', () => {
       assert.notStrictEqual(new Date('2020-12-27'), new Date('2020-12-27'));
       assert.notStrictEqual(
         () => {},
-        () => {},
+        () => {}
       );
       assert.notStrictEqual({}, {});
       assert.notStrictEqual({a: 1}, {a: 1});
@@ -57,7 +57,7 @@ describe('Mocha test', () => {
       assert.deepStrictEqual(new Date('2020-12-27'), new Date('2020-12-27'));
       assert.notDeepStrictEqual(
         () => {},
-        () => {},
+        () => {}
       ); // 함수는 요딴식으로 비교할 수 음슴
       assert.deepStrictEqual([], []);
       assert.deepStrictEqual([1, 2, 3], [1, 2, 3]);

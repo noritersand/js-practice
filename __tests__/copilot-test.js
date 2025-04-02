@@ -43,6 +43,7 @@ function multiplicationTable(n) {
     console.log(`${n} x ${i} = ${n * i}`);
   }
 }
+
 multiplicationTable(99);
 
 /**
@@ -59,6 +60,7 @@ function power(base) {
     console.log(`${base} ^ ${i} =`, result);
   }
 }
+
 power(2);
 
 // 뭐라도 아무거나
@@ -66,4 +68,5 @@ power(2);
 function sayHello() {
   console.log('Hello!');
 }
+
 sayHello();

@@ -33,14 +33,15 @@ var deleteMe1 = {
   regrId: '10101',
   regDts: '',
   modrId: '12345678',
-  modDts: '',
+  modDts: ''
 };
 deleteNotSpecifiedProperties(deleteMe1, ['status', 'usrNo', 'passwd']); // 지정한 프로퍼티만 골라냄
 
 function fn() {}
+
 var deleteMe2 = {
   aaa: 1,
-  bbb: fn,
+  bbb: fn
 };
 deleteNotSpecifiedProperties(deleteMe2, ['aaa']);
 
@@ -49,7 +50,7 @@ describe('test deleteNotSpecifiedProperties()', () => {
     assert.deepStrictEqual(deleteMe1, {
       status: 'U',
       usrNo: 10278,
-      passwd: 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f',
+      passwd: 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f'
     });
     assert.deepStrictEqual(deleteMe2, {aaa: 1});
     assert.ok(typeof fn == 'function'); // 프로퍼티에서 지운거지 객체 자체가 사라지는건 아니다

@@ -2,20 +2,20 @@ import assert from 'assert';
 
 var obj = [
   {
-    userNumber: '',
+    userNumber: ''
   },
   {
-    userNumber: '',
+    userNumber: ''
   },
   {
-    userNumber: '',
+    userNumber: ''
   },
   {
-    userNumber: '',
+    userNumber: ''
   },
   {
-    userNumber: '',
-  },
+    userNumber: ''
+  }
 ];
 
 for (var i = 0; i < obj.length; i++) {

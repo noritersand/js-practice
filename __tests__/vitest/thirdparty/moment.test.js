@@ -1,7 +1,7 @@
 /**
-* @file Moment.js 테스트
-*  공식 도움말: https://momentjs.com/docs/
-*/
+ * @file Moment.js 테스트
+ *  공식 도움말: https://momentjs.com/docs/
+ */
 
 import {expect, test} from 'vitest';
 import moment from 'moment';
@@ -165,5 +165,3 @@ test('Format', () => {
   expect(someday.format('YYYY-MM-DD HH:mm:ss')).toBe('2024-08-14 14:24:00');
   expect(someday.format('YYYY-MM-DD HH:mm:ss Z')).toBe('2024-08-14 14:24:00 +09:00');
 });
-
-

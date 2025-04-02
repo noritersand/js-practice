@@ -2,7 +2,7 @@
  * @file 이 파일을 복사해서 테스트 파일 만들것
  */
 
-import {expect, test, describe, beforeEach, it} from 'vitest';
+import {beforeEach, describe, expect, it, test} from 'vitest';
 
 test('description', () => {
   const n = 1;
@@ -24,4 +24,3 @@ describe('add 함수', () => {
     expect(result).toBe(5);
   });
 });
-

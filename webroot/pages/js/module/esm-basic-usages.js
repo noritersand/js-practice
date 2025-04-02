@@ -38,12 +38,10 @@
 // import { default as hello } from './module1.js';
 // hello(); // Oh hello there!
 
-import { Newbie } from './esm-basic-usages-module1.js';
+import {Newbie} from './esm-basic-usages-module1.js';
+import yourName from './esm-basic-usages-module2.js';
 
 var noob = new Newbie();
 noob.levelUp(); // I feel stronger.
-
-
-import yourName from './esm-basic-usages-module2.js';
 
 yourName(); // I'm waldo.

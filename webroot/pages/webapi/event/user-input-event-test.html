@@ -28,8 +28,10 @@
         type="checkbox"
         onbeforeinput="printChecked(event, '#checkbox-beforeinput-checked')"
       />
-      <input type="radio" name="radio01" value="01" onbeforeinput="printValue(event, '#checkbox-click-radio-checked')" />
-      <input type="radio" name="radio01" value="02" onbeforeinput="printValue(event, '#checkbox-click-radio-checked')" />
+      <input type="radio" name="radio01" value="01"
+             onbeforeinput="printValue(event, '#checkbox-click-radio-checked')" />
+      <input type="radio" name="radio01" value="02"
+             onbeforeinput="printValue(event, '#checkbox-click-radio-checked')" />
       <p>value: <span id="text-beforeinput-value"></span></p>
       <p>checked: <span id="checkbox-beforeinput-checked"></span></p>
       <p>radio checked: <span id="checkbox-click-radio-checked"></span></p>
@@ -50,7 +52,8 @@
       <input type="checkbox" onclick="printChecked(event, '#checkbox-click-checked')" />
       <p>value: <span id="text-click-value"></span></p>
       <p>checked: <span id="checkbox-click-checked"></span></p>
-      체크 안되는 체크박스와 라디오: <input type="checkbox" onclick="preventEvent(event)" /> <input type="radio" onclick="preventEvent(event)" />
+      체크 안되는 체크박스와 라디오: <input type="checkbox" onclick="preventEvent(event)" /> <input type="radio"
+                                                                                       onclick="preventEvent(event)" />
       <div class="important">
         <p>
           click 이벤트는 event.target.checked에 이미 수정될 값이 들어있지만 event.preventDefault() 호출로 수정을 막을 수 있다.

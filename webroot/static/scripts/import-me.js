@@ -4,4 +4,4 @@ const shapes = {
   square: "i'm square"
 };
 
-export {shapes}
+export {shapes};

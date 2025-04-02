@@ -1,7 +1,7 @@
-let a = "asd";
-let b = "asad";
+let a = 'asd';
+let b = 'asad';
 
 let obj = {
   a: 1,
-  b: 2,
-}
+  b: 2
+};

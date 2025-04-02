@@ -13,14 +13,14 @@ var product = {
         {
           type: 'unit',
           nodeId: '6550401',
-          unitName: 'magenta',
+          unitName: 'magenta'
         },
         {
           type: 'unit',
           nodeId: '6550402',
-          unitName: 'cyan',
-        },
-      ],
+          unitName: 'cyan'
+        }
+      ]
     },
     {
       type: 'unit',
@@ -33,11 +33,11 @@ var product = {
         child: {
           type: 'unit',
           nodeId: '655060198',
-          unitName: 'white',
-        },
-      },
-    },
-  ],
+          unitName: 'white'
+        }
+      }
+    }
+  ]
 };
 
 /**
@@ -50,6 +50,7 @@ var product = {
 function findValues(sourceObject, searchName) {
   'use strict';
   var stack = [];
+
   function recursion(sourceObject, searchName) {
     for (var name in sourceObject) {
       var element = sourceObject[name];
@@ -60,6 +61,7 @@ function findValues(sourceObject, searchName) {
       }
     }
   }
+
   recursion(sourceObject, searchName);
   return stack;
 }
@@ -73,7 +75,7 @@ describe('test findValues()', () => {
       '6550402',
       '65505',
       '6550601',
-      '655060198',
+      '655060198'
     ]);
   });
 });
@@ -90,6 +92,7 @@ function findObjects(sourceObject, searchName, searchValue) {
   'use strict';
   var valueType = typeof searchValue;
   var stack = [];
+
   function recursion(sourceObject, searchName, searchValue) {
     for (var name in sourceObject) {
       var element = sourceObject[name];
@@ -106,6 +109,7 @@ function findObjects(sourceObject, searchName, searchValue) {
       }
     }
   }
+
   recursion(sourceObject, searchName, searchValue);
   return stack;
 }
@@ -130,16 +134,16 @@ describe('test findObjects()', () => {
           child: {
             nodeId: '655060198',
             type: 'unit',
-            unitName: 'white',
+            unitName: 'white'
           },
           nodeId: '6550601',
           type: 'unit',
-          unitName: 'gray',
+          unitName: 'gray'
         },
         nodeId: '65505',
         type: 'unit',
-        unitName: 'black',
-      },
+        unitName: 'black'
+      }
     ]);
   });
 });
@@ -187,8 +191,8 @@ describe('test findContainsObject()', () => {
       unitName: 'red',
       children: [
         {type: 'unit', nodeId: '6550401', unitName: 'magenta'},
-        {type: 'unit', nodeId: '6550402', unitName: 'cyan'},
-      ],
+        {type: 'unit', nodeId: '6550402', unitName: 'cyan'}
+      ]
     });
   });
   it('findContainsObject() #2', () => {
@@ -197,7 +201,7 @@ describe('test findContainsObject()', () => {
       type: 'unit',
       nodeId: '6550601',
       unitName: 'gray',
-      child: {type: 'unit', nodeId: '655060198', unitName: 'white'},
+      child: {type: 'unit', nodeId: '655060198', unitName: 'white'}
     });
   });
 });

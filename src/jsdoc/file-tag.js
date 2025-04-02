@@ -1,5 +1,5 @@
 /**
- * @file 
+ * @file
  *  <p>등/하교 내역 상세 팝업 컴포넌트</p>
  *  <p>등하교내역조회: 일간/주간/월간(school-checkin-histories-tab-[daily/weekly/monthly].jsp 화면에서 사용함</p>
  * @author fixalot
@@ -35,5 +35,5 @@ function initializeState() {
     val: {
       memo: null
     }
-  }
+  };
 }

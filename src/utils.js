@@ -1,6 +1,6 @@
 /**
  * GET 메서드 전용 요청 정보 출력
- * 
+ *
  * 4.x 버전의 Request 프로퍼티/메서드 목록:
  * - DOC: https://expressjs.com/ko/4x/api.html#req
  * - Properties:

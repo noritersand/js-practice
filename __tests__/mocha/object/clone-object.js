@@ -23,7 +23,7 @@ let result1 = cloneObject({a: 1, b: 1});
 
 let result2 = cloneObject({
   a: {e: 5, f: 7},
-  b: {c: 3, d: 4},
+  b: {c: 3, d: 4}
 });
 
 let result3 = cloneObject({
@@ -32,17 +32,18 @@ let result3 = cloneObject({
     c: {
       d: {
         e: {
-          f: 'hi',
-        },
-      },
-    },
-  },
+          f: 'hi'
+        }
+      }
+    }
+  }
 });
 
 function myFn() {}
+
 let result4 = cloneObject({
   a: 1,
-  fn: myFn,
+  fn: myFn
 });
 
 describe('test cloneObject()', () => {

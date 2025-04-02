@@ -48,7 +48,7 @@ var arr = [
     opt2No: 2,
     opt2Nm: '사이즈',
     opt2Val: '스몰',
-    opt3No: 0,
+    opt3No: 0
   },
   {
     proditNo: 'IT303',
@@ -58,7 +58,7 @@ var arr = [
     opt2No: 2,
     opt2Nm: '사이즈',
     opt2Val: '미디움',
-    opt3No: 0,
+    opt3No: 0
   },
   {
     proditNo: 'IT302',
@@ -68,7 +68,7 @@ var arr = [
     opt2No: 2,
     opt2Nm: '사이즈',
     opt2Val: '스몰',
-    opt3No: 0,
+    opt3No: 0
   },
   {
     proditNo: 'IT301',
@@ -78,8 +78,8 @@ var arr = [
     opt2No: 2,
     opt2Nm: '사이즈',
     opt2Val: '미디움',
-    opt3No: 0,
-  },
+    opt3No: 0
+  }
 ];
 
 // arr에서 opt1Val=파랑, opt2Val=스몰인 object를 찾아서 있으면 반환하는 함수
@@ -95,7 +95,7 @@ describe('test getMatchElement()', () => {
       opt2No: 2,
       opt2Nm: '사이즈',
       opt2Val: '스몰',
-      opt3No: 0,
+      opt3No: 0
     });
   });
 });

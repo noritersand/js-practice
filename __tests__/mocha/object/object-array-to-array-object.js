@@ -17,6 +17,7 @@ function objectArrayToArrayObject1(name, arr) {
   }
   return resultArry;
 }
+
 var result1 = objectArrayToArrayObject1('a', ['n1', 'n2']);
 var result2 = objectArrayToArrayObject1('numbers', ['65', '64']);
 
@@ -64,6 +65,7 @@ function objectArrayToArrayObject2(names) {
   }
   return resultArry;
 }
+
 var result3 = objectArrayToArrayObject2('name|value', ['a', 'b', 'c'], [12, 24, 48]);
 var result4 = objectArrayToArrayObject2(
   'alphabet|addOptNo|ordQty',

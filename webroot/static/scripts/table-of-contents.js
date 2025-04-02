@@ -1,5 +1,5 @@
 export function generateToc(dropZone) {
-  let $dropZone = document.querySelector(dropZone)
+  let $dropZone = document.querySelector(dropZone);
   if (!$dropZone) {
     console.warn('TOC를 생성할 dropZone이 음슴');
     return;
@@ -13,7 +13,7 @@ export function generateToc(dropZone) {
   $dropZone.appendChild($ul);
 
   let $nodeList = document.querySelectorAll('h2, h3');
-  $nodeList.forEach(($ele) => {
+  $nodeList.forEach($ele => {
     let newId = $ele.innerText.replace(/\s/g, '-');
 
     $ele.setAttribute('id', newId);
@@ -21,7 +21,7 @@ export function generateToc(dropZone) {
     let $li = document.createElement('li');
     $ul.appendChild($li);
     $li.innerHTML = `<a href="#${newId}">${$ele.innerText}</a>`;
-    $li.style.marginLeft = ($ele.tagName == 'H2') ? 'auto' : '15px';
+    $li.style.marginLeft = $ele.tagName == 'H2' ? 'auto' : '15px';
     // TODO 마진 넣는건 꼼수고 nested ul로 바꿔야 함 😵‍💫
   });
 }
