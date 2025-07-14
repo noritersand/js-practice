@@ -8,7 +8,11 @@ if (!fs.existsSync(UPLOAD_LOCATION)) {
   fs.mkdirSync(UPLOAD_LOCATION);
 }
 
-// Multer 설정
+/**
+ * Multer는 Node.js의 미들웨어로, multipart/form-data 형식의 요청을 처리하는 데 사용함.
+ *
+ * https://github.com/expressjs/multer
+ */
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
     // console.debug('file:', file);

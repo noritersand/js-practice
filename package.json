@@ -23,7 +23,7 @@
     "test": "vitest --config __tests__/vitest/vitest.config.js",
     "test:jest": "jest --config=__tests__/jest/jest.config.js --watchAll",
     "test:mocha": "mocha __tests__/mocha/**",
-    "test:tap": "tap --bail --watch __tests__/tap/**",
+    "test:tap": "tap --bail __tests__/tap/**",
     "build:jsdoc": "jsdoc src/jsdoc --destination jsdoc-out --configure src/jsdoc/jsdoc-config.json",
     "preview:jsdoc": "live-server jsdoc-out",
     "live": "live-server --port=8800 webroot"

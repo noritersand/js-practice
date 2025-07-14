@@ -24,5 +24,6 @@ upload
 out
 jsdoc-out
 
-# jest coverage
+# test frameworks
 /__tests__/jest/coverage
+.tap

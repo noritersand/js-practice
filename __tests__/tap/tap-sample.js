@@ -2,9 +2,7 @@
  * @file
  *  <p>Node.js 테스트 프레임웍 Node Tap 사용 예시</p>
  *  <p>공식 메뉴얼: https://node-tap.org/docs/api/</p>
- *  <p>Mocha보다 코드가 간결함.</p>
- *  <p>하지만 GitHub 즐겨찾기를 비교해보면 Mocha 쪽이 10배나 많다. 😮</p>
- *  <p>TODO API가 너무 많아서 계속 정리 필요</p>
+ *
  * @author fixalot
  * @since 2023-10-20
  */
