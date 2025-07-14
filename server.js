@@ -40,7 +40,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // 모든 요청에 대해 로깅
-app.all('*', (req, res, next) => {
+app.all(':pathSegment', (req, res, next) => {
+  console.debug('pathSegment:', req.params.pathSegment);
   req.method === 'GET' ? printGetRequestInfo(req) : printPostRequestInfo(req);
   next();
 });
@@ -86,20 +87,23 @@ app.post('/upload-file', upload.single('file'), (req, res) => {
 
 // ---------- 이 아래는 리펙토링 필요(URL 수정 등) ----------
 
-app.get('/uncategorized/*.data', (req, res) => {
+app.get('/uncategorized/:pathSegment.data', (req, res) => {
+  console.debug('pathSegment:', req.params.pathSegment);
   res.json(req.query); // 데이터를 응답할 땐 res.send() 혹은 res.json()
 });
 
-app.post('/uncategorized/*.data', (req, res) => {
+app.post('/uncategorized/:pathSegment.data', (req, res) => {
+  console.debug('pathSegment:', req.params.pathSegment);
   res.json(req.query);
 });
 
-app.post('/*.html', (req, res) => {
+app.post('/:pathSegment.html', (req, res) => {
+  console.debug('pathSegment:', req.params.pathSegment);
   res.json(req.body);
 });
 
 // 404 처리. 라우트 설정 가장 마지막에 있어야 함
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).json({
     success: false,
     message: `요청한 경로가 존재하지 않습니다: ${req.originalUrl}`,
