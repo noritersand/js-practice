@@ -17,7 +17,7 @@ dayjs.extend(toArray);
 dayjs.extend(toObject);
 
 test('basic usage', () => {
-  const now = dayjs(); // dayjs(new Date())와 같음
+  const now = dayjs(); // 오늘, 현재 시각, dayjs(new Date())와 같음
   expect(now.isValid()).toBe(true);
 });
 
