@@ -7,7 +7,6 @@ import {expect, test} from 'vitest';
 import moment from 'moment';
 
 const now = moment(); // moment(new Date())와 같음
-console.log('now:', now); // Moment<2024-12-09T14:32:50+09:00>
 
 const someday = moment('2024-08-14T14:24:00+09:00');
 const anotherDay = moment('2024-08-30T23:59:59+09:00');
@@ -22,7 +21,6 @@ test('Basic usage', () => {
 test('Time from now', () => {
   const fromNow = moment('2024-12-09 13:51:23').fromNow();
   expect(fromNow).toBeDefined();
-  console.log('fromNow:', fromNow);
 });
 
 test('Comparison', () => {

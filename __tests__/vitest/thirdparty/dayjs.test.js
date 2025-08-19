@@ -19,6 +19,15 @@ dayjs.extend(toObject);
 test('basic usage', () => {
   const now = dayjs(); // 오늘, 현재 시각, dayjs(new Date())와 같음
   expect(now.isValid()).toBe(true);
+
+  const now2 = dayjs(undefined); // 위와 같음
+  expect(now2.isValid()).toBe(true);
+
+  const now3 = dayjs(''); // ❌ 이건 아님. Invalid date
+  expect(now3.isValid()).toBe(false);
+
+  const now4 = dayjs(null); // ❌ 얘도 Invalid date
+  expect(now4.isValid()).toBe(false);
 });
 
 test('Weird, but valid anyway', () => {
