@@ -46,6 +46,17 @@
       <p>value: <span id="text-change-value"></span></p>
       <p>checked: <span id="checkbox-change-checked"></span></p>
     </section>
+    <h2>input vs change</h2>
+    <section>
+      <input type="text"
+             oninput="handleTextInput(event, '#text-input-vs-change-value')"
+             onchange="handleTextChange(event, '#text-input-vs-change-value')" />
+      <input type="checkbox"
+             oninput="handleCheckboxInput(event, '#checkbox-input-vs-change-checked')"
+             onchange="handleCheckboxChange(event, '#checkbox-input-vs-change-checked')" />
+      <p>value: <span id="text-input-vs-change-value"></span></p>
+      <p>checked: <span id="checkbox-input-vs-change-checked"></span></p>
+    </section>
     <h2>click</h2>
     <section>
       <input type="text" onclick="printValue(event, '#text-click-value')" />
@@ -70,6 +81,26 @@
 
   function printChecked(event, selector) {
     console.log('printChecked: ', event.target.checked);
+    document.querySelector(selector).innerHTML = event.target.checked;
+  }
+
+  function handleTextInput(event, selector) {
+    console.log('handleTextInput: ', event.target.value);
+    document.querySelector(selector).innerHTML = event.target.value;
+  }
+
+  function handleCheckboxInput(event, selector) {
+    console.log('handleCheckboxInput: ', event.target.checked);
+    document.querySelector(selector).innerHTML = event.target.checked;
+  }
+
+  function handleTextChange(event, selector) {
+    console.log('handleTextChange: ', event.target.value);
+    document.querySelector(selector).innerHTML = event.target.value;
+  }
+
+  function handleCheckboxChange(event, selector) {
+    console.log('handleCheckboxChange: ', event.target.checked);
     document.querySelector(selector).innerHTML = event.target.checked;
   }
 
