@@ -17,29 +17,79 @@ dayjs.extend(toArray);
 dayjs.extend(toObject);
 
 test('basic usage', () => {
+  const someUTC = dayjs('2024-01-01T00:00:00Z');
+
+  // ℹ️ 'T' 가 있으면 입력 제한이 조금 빡빡한 늭김
+
+  const someKST1 = dayjs('2024-01-01T09'); // ✅
+  expect(someKST1.isValid()).true;
+  expect(someKST1.isSame(someUTC)).true;
+
+  const someKST2 = dayjs('2024-01-01T09:00+09:00'); // ✅
+  expect(someKST2.isValid()).true;
+  expect(someKST2.isSame(someUTC)).true;
+
+  const someKST3 = dayjs('2024-01-01T09:00:00+09:00'); // ✅
+  expect(someKST3.isValid()).true;
+  expect(someKST3.isSame(someUTC)).true;
+
+  const someKST4 = dayjs('2024-01-01T09:00:00.000+09:00'); // ✅
+  expect(someKST4.isValid()).true;
+  expect(someKST4.isSame(someUTC)).true;
+
+  const someKST5 = dayjs('2024-01-01T09+09:00'); // ❌
+  expect(someKST5.isValid()).false;
+
+  const someKST6 = dayjs('2024-01-01T09:00+09'); // ❌
+  expect(someKST6.isValid()).false;
+
+  // ℹ️ 'T' 가 없으면 대충 입력해도 알아먹음.
+
+  const someKST7 = dayjs('2024-01-01 09'); // ✅
+  expect(someKST7.isValid()).true;
+  expect(someKST7.isSame(someUTC)).true;
+
+  const someKST8 = dayjs('2024-01-01 09:00+09'); // ✅
+  expect(someKST8.isValid()).true;
+  expect(someKST8.isSame(someUTC)).true;
+
+  const someKST9 = dayjs('2024-01-01 09:00:00+09'); // ✅
+  expect(someKST9.isValid()).true;
+  expect(someKST9.isSame(someUTC)).true;
+
+  const someKST10 = dayjs('2024-01-01 09:00:00.000+09:00'); // ✅
+  expect(someKST10.isValid()).true;
+  expect(someKST10.isSame(someUTC)).true;
+
+  const someKST11 = dayjs('2024-01-01 09+09'); // ❌ 이건 빼고
+  expect(someKST11.isValid()).false;
+  expect(someKST11.isSame(someUTC)).false;
+});
+
+test('get current time', () => {
   const now = dayjs(); // 오늘, 현재 시각, dayjs(new Date())와 같음
-  expect(now.isValid()).toBe(true);
+  expect(now.isValid()).true;
 
   const now2 = dayjs(undefined); // 위와 같음
-  expect(now2.isValid()).toBe(true);
+  expect(now2.isValid()).true;
 
   const now3 = dayjs(''); // ❌ 이건 아님. Invalid date
-  expect(now3.isValid()).toBe(false);
+  expect(now3.isValid()).false;
 
   const now4 = dayjs(null); // ❌ 얘도 Invalid date
-  expect(now4.isValid()).toBe(false);
+  expect(now4.isValid()).false;
 });
 
 test('Weird, but valid anyway', () => {
   // 이렇게 하면 2025년 13월은 없으니 2026년 1월로 넘어가며, 1월 32일은 없으니 2월 1일이 된다.
   const weirdDay = dayjs('2025-13-32');
   // 알아서 계산함.
-  expect(weirdDay.isValid()).toBe(true);
+  expect(weirdDay.isValid()).true;
   // KST 2026-02-01 00시(UTC로 2026-01-31 15시)
   expect(weirdDay.toISOString()).toBe('2026-01-31T15:00:00.000Z');
   // 뒤에 시간을 붙이면 알아서 계산 못함
   const invalidDate = dayjs('2025-13-32T00:00:00Z');
-  expect(invalidDate.isValid()).toBe(false);
+  expect(invalidDate.isValid()).false;
   expect(invalidDate.toString()).toBe('Invalid Date');
 });
 
@@ -106,7 +156,7 @@ test('Display', () => {
 
 test('Validation', () => {
   const invalidDate = dayjs(null);
-  expect(invalidDate.isValid()).toBe(false);
+  expect(invalidDate.isValid()).false;
   expect(invalidDate.toString()).toBe('Invalid Date');
 });
 
@@ -114,10 +164,10 @@ test('Query(compare)', () => {
   const someday = dayjs('2024-08-14T14:24:00+09:00');
   const anotherDay = dayjs('2024-08-30T23:59:59+09:00');
 
-  expect(someday.isBefore(anotherDay)).toBe(true);
+  expect(someday.isBefore(anotherDay)).true;
 
-  expect(anotherDay.isAfter(someday)).toBe(true);
-  expect(anotherDay.isSame(someday)).toBe(false);
+  expect(anotherDay.isAfter(someday)).true;
+  expect(anotherDay.isSame(someday)).false;
 });
 
 test('Difference', () => {
