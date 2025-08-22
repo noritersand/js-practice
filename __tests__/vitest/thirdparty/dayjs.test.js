@@ -194,6 +194,14 @@ test('Difference', () => {
 
   expect(someday.diff(anotherDay, 'month')).toBe(0);
   expect(anotherDay.diff(someday, 'month')).toBe(0);
+
+  // 10분 차이를 비교한다면...
+  const someday2 = dayjs('2025-01-01T00:00:00');
+  const anotherDay2 = dayjs('2025-01-01T00:10:00');
+  // anotherDay2가 10분 느리고
+  expect(anotherDay2.diff(someday2, 'minute')).toBe(10);
+  // someday2가 10분 빠름
+  expect(someday2.diff(anotherDay2, 'minute')).toBe(-10);
 });
 
 test('Display-Format', () => {
