@@ -34,23 +34,20 @@
     </section>
 
     <section>
-      <p>Shadow DOM의 특성과 기능 중 스타일 격리에 대해 테스트하는 파일</p>
+      <p>Shadow DOM의 특성과 기능 중 스타일 격리에 대한 내용.</p>
     </section>
 
     <section>
       <h2>기본 사용법</h2>
+      <pre><code class="language-css"><!--
+      p.color-me {
+          color: purple;
+          font-size: 16px;
+      }
+      --></code></pre>
       <pre><code class="language-markup"><!--
-      <head>
-        <style>
-            p.color-me {
-                color: purple;
-                font-size: 16px;
-            }
-        </style>
-      </head>
-
       <div id="my-element">
-        <p class="color-me">안녕하세요. Light DOM입니다!</p>
+        <p class="color-me">안녕하세요. Regular DOM입니다!</p>
       </div>
       <script>
         // 1. Shadow DOM을 붙일 요소 선택
@@ -98,22 +95,6 @@
       </div>
     </section>
 
-    <section>
-      <h2></h2>
-
-      <button class="buttons" type="button">기본 버튼</button>
-      <button class="buttons green" type="button">녹색</button>
-      <button class="buttons blue" type="button">파랑</button>
-      <button class="buttons lightgray" type="button">회색</button>
-      <button class="buttons size-large" type="button">큰 버튼 #1</button>
-      <button class="buttons size-large mw100" type="button">큰 버튼 #2</button>
-      <button class="buttons size-small" type="button">작은 버튼</button>
-      <button class="buttons size-mini" type="button">mini</button>
-      <button class="buttons effect-push" type="button">누르는 효과</button>
-      <button class="buttons effect-push green size-large" type="button">size-large</button>
-      <button class="buttons effect-push blue size-mini" type="button">mini #2</button>
-      <button class="buttons effect-push size-lesser lightgray" type="button">lesser</button>
-    </section>
   </article>
   <aside></aside>
 </main>
