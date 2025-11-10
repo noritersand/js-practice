@@ -30,7 +30,7 @@ yarn install
 # express 서버 시작
 yarn start
 
-# live-server 패키지로 pages 디렉터리 열기
+# live-server 모듈로 pages 디렉터리 열기
 yarn live
 ```
 

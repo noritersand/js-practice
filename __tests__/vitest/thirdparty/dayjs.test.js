@@ -98,7 +98,7 @@ test('locale', () => {
   const someday = dayjs('2024-01-01T00:00:00Z');
   expect(someday.format('dddd, MMMM D, YYYY')).toBe('Monday, January 1, 2024');
 
-  // 🚨 locale() 메서드는 locale/ko 패키지를 불러오지 않으면 작동하지 않음
+  // 🚨 locale() 메서드는 locale/ko 모듈을 불러오지 않으면 작동하지 않음
   expect(someday.locale('ko').format('dddd, MMMM D, YYYY')).toBe('월요일, 1월 1, 2024');
 });
 

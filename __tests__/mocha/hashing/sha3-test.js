@@ -6,7 +6,7 @@ const sha3_2 = new SHA3(512); // 인스턴스 새로 만들어야지 위에 있�
 sha3_2.update('encode-me$salt');
 let second = sha3_2.digest('hex');
 
-describe('NPM 패키지 sha3 테스트', () => {
+describe('sha3 모듈 테스트', () => {
   test('#1', () => {
     // #1 SHA3-512
     const sha3 = new SHA3(512);
